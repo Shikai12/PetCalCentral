@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Age Calculator - Convert to Human Years | PetCalCentral</title>
+    <meta name="description" content="Convert your dog's age to human years using the modern epigenetic clock formula. More accurate than the old ×7 rule.">
+    <meta property="og:title" content="Dog Age Calculator - PetCalCentral">
+    <meta property="og:description" content="Modern dog age conversion. Free, instant result.">
+    <meta property="og:url" content="https://petcalcentral.com/tools/dog-age-calculator.html">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Dog Age Calculator","step":[{"@type":"HowToStep","name":"Enter dog's age"},{"@type":"HowToStep","name":"Select breed size"},{"@type":"HowToStep","name":"Get human age equivalent"}]}
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',warm:'#fef9ef'}}}}</script>
+</head>
+<body class="bg-white text-gray-800">
+
+<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
+        <nav class="hidden md:flex space-x-6 text-sm font-medium">
+            <a href="/">Home</a><a href="/tools/" class="text-brand font-semibold">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a>
+        </nav>
+    </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-extrabold leading-tight mb-4">Dog Age Calculator</h1>
+    <p class="text-gray-500 mb-8 text-lg">Forget the old "multiply by 7" rule. Here's what science actually says.</p>
+
+    <div class="bg-warm rounded-2xl p-6 md:p-8 border border-green-100 shadow-sm mb-8">
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <label class="block font-semibold mb-1" for="dogAge">Dog's Age (years)</label>
+                <input type="number" id="dogAge" placeholder="e.g. 5" step="0.5" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none">
+            </div>
+            <div>
+                <label class="block font-semibold mb-1" for="breedSize">Breed Size</label>
+                <select id="breedSize" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
+                    <option value="small">Small (under 20 lbs)</option>
+                    <option value="medium" selected>Medium (20-50 lbs)</option>
+                    <option value="large">Large (over 50 lbs)</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="calcAge()" class="mt-6 w-full bg-brand text-white py-4 rounded-xl text-lg font-bold hover:bg-brandDark transition shadow-md">Convert to Human Years →</button>
+    </div>
+
+    <div id="result" class="hidden bg-white rounded-2xl p-8 border-2 border-brand shadow-lg text-center mb-8">
+        <p class="text-gray-500 mb-2">Your dog is roughly</p>
+        <p class="text-5xl font-extrabold text-brand"><span id="humanAge">0</span></p>
+        <p class="text-gray-500 mt-2">human years old</p>
+        <div id="ad-result-below" class="mt-6"></div>
+    </div>
+
+    <div id="ad-content-mid" class="mb-8"></div>
+
+    <div class="prose max-w-none text-lg leading-relaxed space-y-3">
+        <h2 class="text-2xl font-bold mt-8">The Science Behind It</h2>
+        <p>The old "×7" rule is a myth. Modern research shows dogs age on an epigenetic clock — fast in their first two years, then slowing down. Small dogs age slower and live longer than large breeds. This calculator uses the formula: Human Age = 16 × ln(dog age) + 31, adjusted for breed size.</p>
+        <p class="text-sm text-gray-400 mt-4"><em>Based on research published in Cell Systems. For informational purposes.</em></p>
+    </div>
+</main>
+
+<footer class="bg-gray-900 text-gray-400 py-12 mt-12">
+    <div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4">
+        <a href="/privacy.html" class="hover:text-white">Privacy</a>
+        <a href="/terms.html" class="hover:text-white">Terms</a>
+        <a href="/disclaimer.html" class="hover:text-white">Disclaimer</a>
+        <a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a>
+        <p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p>
+    </div>
+</footer>
+
+<script>
+function calcAge() {
+    const age = parseFloat(document.getElementById('dogAge').value);
+    if (!age || age <= 0) { alert('Please enter a valid age.'); return; }
+    let human = 16 * Math.log(age) + 31;
+    const breed = document.getElementById('breedSize').value;
+    if (breed === 'small') human *= 0.9;
+    if (breed === 'large') human *= 1.15;
+    document.getElementById('humanAge').textContent = Math.round(human);
+    document.getElementById('result').classList.remove('hidden');
+}
+</script>
+<script src="/ads.js"></script>
+<div id="ad-footer-bottom"></div>
+</body>
+</html>

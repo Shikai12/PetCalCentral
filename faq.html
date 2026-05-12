@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - PetCalCentral | Pet Health & Calculator Questions Answered</title>
+    <meta name="description" content="Got questions about our pet calculators? Find answers about dog and cat calorie counting, BMI, water intake, and more.">
+    <meta property="og:title" content="FAQ - PetCalCentral | Pet Health & Calculator Questions"><meta property="og:description" content="Answers about dog and cat calorie counting, BMI, water intake, and more.">
+    <meta property="og:url" content="https://petcalcentral.com/faq.html"><meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="FAQ - PetCalCentral"><meta name="twitter:description" content="Real answers from real pet owners.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',brandDark:'#15803d',warm:'#fef9ef'}}}}</script>
+</head>
+<body class="bg-white text-gray-800">
+<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50"><div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"><a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a><nav class="hidden md:flex space-x-6 text-sm font-medium"><a href="/">Home</a><a href="/tools/">Tools</a><a href="/blog/">Blog</a><a href="/faq.html" class="text-brand font-semibold">FAQ</a><a href="/about.html">About</a></nav></div></header>
+<main class="max-w-3xl mx-auto px-4 py-16">
+    <h1 class="text-4xl font-extrabold mb-2">Frequently Asked Questions</h1>
+    <p class="text-gray-500 mb-8">Real questions from pet owners. Real answers. No fluff.</p>
+    <div class="space-y-4" id="faq-list"><p class="text-gray-400">Loading questions...</p></div>
+</main>
+<footer class="bg-gray-900 text-gray-400 py-12 mt-12"><div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4"><a href="/privacy.html" class="hover:text-white">Privacy</a><a href="/terms.html" class="hover:text-white">Terms</a><a href="/disclaimer.html" class="hover:text-white">Disclaimer</a><a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a><a href="/sitemap.html" class="hover:text-white">Sitemap</a><p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p></div></footer>
+<script>
+fetch('/faq.json').then(res=>res.json()).then(faqs=>{document.getElementById('faq-list').innerHTML=faqs.map((item,i)=>`<details class="bg-warm rounded-xl p-5 border border-green-100 group"><summary class="font-semibold text-lg cursor-pointer hover:text-brand transition">${item.q}</summary><p class="mt-3 text-gray-600 leading-relaxed">${item.a}</p></details>`).join('');const schema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a.replace(/<[^>]*>/g,'')}}))};const script=document.createElement('script');script.type='application/ld+json';script.textContent=JSON.stringify(schema);document.head.appendChild(script);});
+</script>
+</body>
+</html>

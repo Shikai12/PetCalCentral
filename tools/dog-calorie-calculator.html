@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Calorie Calculator - Daily Calorie Needs | PetCalCentral</title>
+    <meta name="description" content="Calculate your dog's exact daily calorie needs. Free, instant tool based on vet formulas.">
+    <meta property="og:title" content="Dog Calorie Calculator - PetCalCentral">
+    <meta property="og:description" content="Free dog calorie calculator. Get your pup's daily target.">
+    <meta property="og:url" content="https://petcalcentral.com/tools/dog-calorie-calculator.html">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Dog Calorie Calculator","step":[{"@type":"HowToStep","name":"Enter weight"},{"@type":"HowToStep","name":"Select breed size and activity"},{"@type":"HowToStep","name":"Get result"}]}
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',warm:'#fef9ef'}}}}</script>
+</head>
+<body class="bg-white text-gray-800">
+
+<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
+        <nav class="hidden md:flex space-x-6 text-sm font-medium">
+            <a href="/">Home</a><a href="/tools/" class="text-brand font-semibold">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a>
+        </nav>
+    </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-extrabold leading-tight mb-4">Dog Calorie Calculator</h1>
+    <p class="text-gray-500 mb-8 text-lg">Find out exactly how many calories your dog needs each day.</p>
+
+    <div class="bg-warm rounded-2xl p-6 md:p-8 border border-green-100 shadow-sm mb-8">
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <label class="block font-semibold mb-1" for="weight">Weight (lbs)</label>
+                <input type="number" id="weight" placeholder="e.g. 50" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none">
+            </div>
+            <div>
+                <label class="block font-semibold mb-1" for="breedSize">Breed Size</label>
+                <select id="breedSize" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
+                    <option value="small">Small (under 20 lbs)</option>
+                    <option value="medium" selected>Medium (20-50 lbs)</option>
+                    <option value="large">Large (over 50 lbs)</option>
+                </select>
+            </div>
+            <div>
+                <label class="block font-semibold mb-1" for="activity">Activity Level</label>
+                <select id="activity" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
+                    <option value="1.2">Low (couch potato)</option>
+                    <option value="1.5" selected>Moderate (daily walks)</option>
+                    <option value="1.8">High (runs, hikes)</option>
+                    <option value="2.1">Very High (working dog)</option>
+                </select>
+            </div>
+            <div>
+                <label class="block font-semibold mb-1" for="condition">Body Condition</label>
+                <select id="condition" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
+                    <option value="ideal" selected>Ideal weight</option>
+                    <option value="underweight">Underweight</option>
+                    <option value="overweight">Overweight</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="calculate()" class="mt-6 w-full bg-brand text-white py-4 rounded-xl text-lg font-bold hover:bg-brandDark transition shadow-md">Calculate Calories →</button>
+    </div>
+
+    <div id="result" class="hidden bg-white rounded-2xl p-6 md:p-8 border-2 border-brand shadow-lg mb-8">
+        <h2 class="text-2xl font-bold mb-4">🐕 Your Dog's Daily Calorie Target</h2>
+        <div class="grid md:grid-cols-2 gap-4 text-center">
+            <div class="bg-warm rounded-xl p-6"><p class="text-gray-500 text-sm mb-1">Maintenance</p><p class="text-4xl font-extrabold text-brand"><span id="maintCals">0</span></p><p class="text-gray-500 text-sm">calories / day</p></div>
+            <div class="bg-warm rounded-xl p-6"><p class="text-gray-500 text-sm mb-1">Weight Loss</p><p class="text-4xl font-extrabold text-brand"><span id="lossCals">0</span></p><p class="text-gray-500 text-sm">calories / day</p></div>
+        </div>
+        <div id="ad-result-below" class="mt-6"></div>
+    </div>
+
+    <div id="ad-content-mid" class="mb-8"></div>
+
+    <div class="prose max-w-none text-lg leading-relaxed space-y-3">
+        <h2 class="text-2xl font-bold mt-8">How This Works</h2>
+        <p>We use the Resting Energy Requirement formula: <strong>RER = 70 × (weight in kg)^0.75</strong> — the same method veterinary nutritionists use. Then multiply by activity level for Daily Energy Requirement. For weight loss, we use 80% of maintenance calories — the safe deficit recommended by APOP.</p>
+        <p class="text-sm text-gray-400 mt-4"><em>Based on guidelines from AAHA and APOP. This is informational, not veterinary advice.</em></p>
+    </div>
+</main>
+
+<footer class="bg-gray-900 text-gray-400 py-12 mt-12">
+    <div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4">
+        <a href="/privacy.html" class="hover:text-white">Privacy</a>
+        <a href="/terms.html" class="hover:text-white">Terms</a>
+        <a href="/disclaimer.html" class="hover:text-white">Disclaimer</a>
+        <a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a>
+        <p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p>
+    </div>
+</footer>
+
+<script>
+function calculate() {
+    const w = parseFloat(document.getElementById('weight').value);
+    if (!w || w <= 0) { alert('Please enter a valid weight.'); return; }
+    const kg = w * 0.453592;
+    const rer = 70 * Math.pow(kg, 0.75);
+    const der = Math.round(rer * parseFloat(document.getElementById('activity').value));
+    const loss = Math.round(der * 0.8);
+    document.getElementById('maintCals').textContent = der;
+    document.getElementById('lossCals').textContent = loss;
+    document.getElementById('result').classList.remove('hidden');
+}
+</script>
+<script src="/ads.js"></script>
+<div id="ad-footer-bottom"></div>
+</body>
+</html>

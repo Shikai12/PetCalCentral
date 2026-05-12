@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCalCentral - Free Pet Health Calculators & Feeding Guides</title>
+    <meta name="description" content="Free science-based pet calculators for dogs and cats. Calculate calories, check BMI, convert dog age, and get expert feeding guides. Try our tools today.">
+    <meta property="og:title" content="PetCalCentral - Free Pet Health Calculators & Feeding Guides">
+    <meta property="og:description" content="Free science-based pet calculators for dogs and cats. Calculate calories, check BMI, convert dog age, and get expert feeding guides.">
+    <meta property="og:url" content="https://petcalcentral.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PetCalCentral - Free Pet Health Calculators & Feeding Guides">
+    <meta name="twitter:description" content="Free science-based pet calculators for dogs and cats. Calories, BMI, age conversion, and expert guides.">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"PetCalCentral","url":"https://petcalcentral.com/","description":"Free science-based pet health calculators and feeding guides for dogs and cats."}
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',brandDark:'#15803d',warm:'#fef9ef'}}}}</script>
+    <style>.hero-gradient{background:linear-gradient(135deg,#f0fdf4 0%,#fef9ef 100%)}.card-hover:hover{transform:translateY(-2px);transition:all 0.2s ease}</style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
+        <nav class="hidden md:flex space-x-6 text-sm font-medium">
+            <a href="/" class="text-brand font-semibold">Home</a><a href="/tools/">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden text-2xl" aria-label="Menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-3 text-sm font-medium">
+        <a href="/" class="block text-brand">Home</a><a href="/tools/" class="block">Tools</a><a href="/blog/" class="block">Blog</a><a href="/faq.html" class="block">FAQ</a><a href="/about.html" class="block">About</a>
+    </div>
+</header>
+<section class="hero-gradient"><div class="max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">Your Pet's Health,<br class="hidden sm:block"> <span class="text-brand">Calculated</span></h1>
+    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Free, vet-informed tools to help you make smarter decisions for your furry family. No sign-ups. No fuss.</p>
+    <a href="#tools" class="inline-block bg-brand text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-brandDark transition shadow-lg">Try Our Tools ⬇</a>
+</div></section>
+<section id="tools" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">🛠️ Free Pet Health Tools</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-warm rounded-2xl p-6 shadow-sm card-hover border border-green-100"><span class="text-4xl">🐕</span><h3 class="text-xl font-bold mt-3 mb-2">Dog Calorie Calculator</h3><p class="text-gray-600 text-sm mb-4">Find the exact daily calories your dog needs based on breed, weight, and activity.</p><a href="/tools/dog-calorie-calculator.html" class="text-brand font-semibold hover:underline">Calculate Now →</a></div>
+        <div class="bg-warm rounded-2xl p-6 shadow-sm card-hover border border-green-100"><span class="text-4xl">🐈</span><h3 class="text-xl font-bold mt-3 mb-2">Cat Calorie Calculator</h3><p class="text-gray-600 text-sm mb-4">Indoor or outdoor? Learn your cat's ideal daily portion in seconds.</p><a href="/tools/cat-calorie-calculator.html" class="text-brand font-semibold hover:underline">Calculate Now →</a></div>
+        <div class="bg-warm rounded-2xl p-6 shadow-sm card-hover border border-green-100"><span class="text-4xl">🐶</span><h3 class="text-xl font-bold mt-3 mb-2">Dog Age Calculator</h3><p class="text-gray-600 text-sm mb-4">Convert dog years to human years with the latest science. Not the old "×7" rule.</p><a href="/tools/dog-age-calculator.html" class="text-brand font-semibold hover:underline">Check Now →</a></div>
+        <div class="bg-warm rounded-2xl p-6 shadow-sm card-hover border border-green-100"><span class="text-4xl">⚖️</span><h3 class="text-xl font-bold mt-3 mb-2">Pet BMI Calculator</h3><p class="text-gray-600 text-sm mb-4">Is your pet at a healthy weight? Quick check with breed-specific ranges.</p><a href="/tools/pet-bmi-calculator.html" class="text-brand font-semibold hover:underline">Check Now →</a></div>
+        <div class="bg-warm rounded-2xl p-6 shadow-sm card-hover border border-green-100"><span class="text-4xl">💧</span><h3 class="text-xl font-bold mt-3 mb-2">Water Intake Calculator</h3><p class="text-gray-600 text-sm mb-4">How much water should your pet drink daily? Get the exact number.</p><a href="/tools/pet-water-intake-calculator.html" class="text-brand font-semibold hover:underline">Calculate Now →</a></div>
+        <div class="bg-warm rounded-2xl p-6 shadow-sm card-hover border border-green-100 flex flex-col justify-center items-center text-center"><span class="text-4xl mb-2">📝</span><p class="text-gray-600 text-sm font-medium">More tools coming soon!</p><p class="text-gray-400 text-xs mt-1">Got a suggestion? <a href="mailto:hello@petcalcentral.com" class="text-brand underline">Tell us</a></p></div>
+    </div>
+</section>
+<section class="bg-gray-50 py-16"><div class="max-w-4xl mx-auto px-4">
+    <div class="flex justify-between items-center mb-8"><h2 class="text-3xl font-bold">📝 Latest from the Blog</h2><a href="/blog/" class="text-brand font-semibold hover:underline">All Articles →</a></div>
+    <div class="grid md:grid-cols-3 gap-6" id="blog-preview"><p class="text-gray-400">Loading articles...</p></div>
+</div></section>
+<section class="bg-brand text-white py-16 text-center"><div class="max-w-2xl mx-auto px-4"><h2 class="text-3xl font-bold mb-4">Ready to Be a Better Pet Parent?</h2><p class="text-green-100 mb-6 text-lg">Bookmark us. Your furry friend will thank you.</p><a href="#tools" class="inline-block bg-white text-brand px-8 py-3 rounded-full font-semibold hover:bg-green-50 transition">Try a Tool Now</a></div></section>
+<footer class="bg-gray-900 text-gray-400 py-12"><div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8"><div><h3 class="text-white text-lg font-bold mb-3">🐾 PetCalCentral</h3><p class="text-sm">Free, science-based pet health tools for dog and cat owners worldwide.</p></div><div><h4 class="text-white font-semibold mb-3">Legal</h4><ul class="space-y-2 text-sm"><li><a href="/privacy.html" class="hover:text-white">Privacy Policy</a></li><li><a href="/terms.html" class="hover:text-white">Terms of Service</a></li><li><a href="/disclaimer.html" class="hover:text-white">Medical Disclaimer</a></li><li><a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a></li></ul></div><div><h4 class="text-white font-semibold mb-3">Contact</h4><ul class="space-y-2 text-sm"><li><a href="mailto:hello@petcalcentral.com" class="hover:text-white">hello@petcalcentral.com</a></li><li><a href="/sitemap.html" class="hover:text-white">Sitemap</a></li></ul></div></div><div class="text-center text-xs text-gray-600 mt-8 pt-8 border-t border-gray-800">&copy; 2026 PetCalCentral. All rights reserved.</div></footer>
+<div id="ad-banner-top"></div><div id="ad-result-below"></div><div id="ad-content-mid"></div><div id="ad-sidebar"></div><div id="ad-content-end"></div><div id="ad-footer-bottom"></div>
+<script>
+document.getElementById('menuBtn').addEventListener('click',function(){document.getElementById('mobileMenu').classList.toggle('hidden')});
+fetch('/blog/articles.json').then(r=>r.json()).then(a=>{a.sort((x,y)=>new Date(y.date)-new Date(x.date));document.getElementById('blog-preview').innerHTML=a.slice(0,3).map(p=>`<div class="bg-white rounded-xl p-5 shadow-sm card-hover"><div class="flex gap-2 mb-2">${p.tags.slice(0,2).map(t=>`<span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">${t}</span>`).join('')}</div><h3 class="font-semibold mb-1"><a href="/blog/${p.file}" class="hover:text-brand">${p.title}</a></h3><p class="text-gray-500 text-xs mb-2">${p.date}</p><p class="text-gray-600 text-sm">${p.excerpt}</p></div>`).join('')}).catch(()=>{document.getElementById('blog-preview').innerHTML='<p class="text-gray-400">Articles coming soon.</p>'});
+</script>
+<script src="/ads.js"></script>
+</body>
+</html>
