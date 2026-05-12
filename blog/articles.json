@@ -1,26 +1,50 @@
 [
-    {
-        "title": "My Cat Is Fat",
-        "file": "my-cat-is-fat.html",
-        "date": "2025-10-01",
-        "excerpt": "Dr. Patel said obese. I cried in the parking lot. Here's the year-long journey to get Mochi back to a healthy weight.",
-        "tags": ["Cat Health", "Weight Management"],
-        "author": "A person who cried in a vet parking lot and then fixed it"
-    },
-    {
-        "title": "Raising Gus",
-        "file": "puppy-feeding-guide.html",
-        "date": "2026-05-01",
-        "excerpt": "I got a puppy in 2022. July, I think. He's 4 now. Here's what I'd do differently.",
-        "tags": ["Puppy", "Feeding"],
-        "author": "An IT guy who got a puppy on impulse and spent two years googling at 2 AM"
-    },
-    {
-        "title": "Gus Got an Ear Infection and I Panicked for No Reason",
-        "file": "gus-ear-infection.html",
-        "date": "2026-06-12",
-        "excerpt": "Gus woke me up scratching at 6 AM. It smelled sour. I panicked. It was yeast. Here's what I learned.",
-        "tags": ["Dog Health", "Ear Care"],
-        "author": "Someone who panicked at 6 AM over dog ear yeast"
-    }
+  {
+    "title": "I Bought a Slow Feeder Bowl. Here's What Actually Happened.",
+    "file": "slow-feeder.html",
+    "date": "2026-05-14",
+    "excerpt": "I tried a slow feeder bowl for my golden retriever Gus. It helped with vomiting but cleaning it is annoying.",
+    "tags": ["Dog Health", "Feeding"],
+    "author": "the guy who mopped kibble vomit"
+  },
+  {
+    "title": "I Didn't Want a Pet Camera. Then I Got One for Free.",
+    "file": "furbo.html",
+    "date": "2026-05-12",
+    "excerpt": "My coworker gave me her old Furbo camera. Now I spend 20 minutes a day shooting treats at my dog remotely.",
+    "tags": ["Dog Gadget", "Camera"],
+    "author": "that guy who yelled at his dog through wifi"
+  },
+  {
+    "title": "The Vet Said Gus Is Fat. I'm Still Processing.",
+    "file": "weight-check.html",
+    "date": "2026-05-08",
+    "excerpt": "My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight. I have no idea if this will work.",
+    "tags": ["Dog Health", "Weight Management"],
+    "author": "the guy who overfed his golden"
+  },
+  {
+    "title": "My Cat Is Fat. The Vet Wasn't Surprised.",
+    "file": "my-cat-is-fat.html",
+    "date": "2026-04-20",
+    "excerpt": "Dr. Patel said obese. I cried in the parking lot. Here's the year-long journey to get Mochi back to a healthy weight.",
+    "tags": ["Cat Health", "Weight Management"],
+    "author": "A person who cried in a vet parking lot and then fixed it"
+  },
+  {
+    "title": "Raising Gus: Puppy Feeding Guide",
+    "file": "puppy-feeding-guide.html",
+    "date": "2026-04-10",
+    "excerpt": "I got a puppy in 2022. July, I think. He's 4 now. Here's what I'd do differently.",
+    "tags": ["Puppy", "Feeding"],
+    "author": "An IT guy who got a puppy on impulse"
+  },
+  {
+    "title": "Gus Got an Ear Infection and I Panicked for No Reason",
+    "file": "gus-ear-infection.html",
+    "date": "2026-04-15",
+    "excerpt": "Gus woke me up scratching at 6 AM. It smelled sour. I panicked. It was yeast. Here's what I learned.",
+    "tags": ["Dog Health", "Ear Care"],
+    "author": "Someone who panicked at 6 AM over dog ear yeast"
+  }
 ]
