@@ -9,9 +9,12 @@
 - [Pet Water Intake Calculator](https://petcalcentral.com/tools/pet-water-intake-calculator.html)
 
 ## Guides
+- [furbo.html](https://petcalcentral.com/blog/furbo.html)
+- [Gus Got an Ear Infection and I Panicked for No Reason](https://petcalcentral.com/blog/gus-ear-infection.html)
 - [My Cat Is Fat](https://petcalcentral.com/blog/my-cat-is-fat.html)
-- [Raising Gus](https://petcalcentral.com/blog/puppy-feeding-guide.html)
-- [Gus Got an Ear Infection](https://petcalcentral.com/blog/gus-ear-infection.html)
+- [Raising Gus: What I Learned Feeding a Puppy](https://petcalcentral.com/blog/puppy-feeding-guide.html)
+- [slow-feeder.html](https://petcalcentral.com/blog/slow-feeder.html)
+- [weight-check.html](https://petcalcentral.com/blog/weight-check.html)
 
 ## Documentation
 - [About](https://petcalcentral.com/about.html) | [FAQ](https://petcalcentral.com/faq.html) | [Privacy](https://petcalcentral.com/privacy.html) | [Terms](https://petcalcentral.com/terms.html) | [Disclaimer](https://petcalcentral.com/disclaimer.html) | [Disclosure](https://petcalcentral.com/disclosure.html)
