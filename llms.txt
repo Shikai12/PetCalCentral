@@ -1,20 +1,8 @@
-# PetCalCentral
-> Free, science-based pet health calculators and feeding guides for dogs and cats.
+# PetCalCentral - Blog Posts
 
-## Core Tools
-- [Dog Calorie Calculator](https://petcalcentral.com/tools/dog-calorie-calculator.html)
-- [Cat Calorie Calculator](https://petcalcentral.com/tools/cat-calorie-calculator.html)
-- [Dog Age Calculator](https://petcalcentral.com/tools/dog-age-calculator.html)
-- [Pet BMI Calculator](https://petcalcentral.com/tools/pet-bmi-calculator.html)
-- [Pet Water Intake Calculator](https://petcalcentral.com/tools/pet-water-intake-calculator.html)
-
-## Guides
-- [furbo.html](https://petcalcentral.com/blog/furbo.html)
-- [Gus Got an Ear Infection and I Panicked for No Reason](https://petcalcentral.com/blog/gus-ear-infection.html)
-- [My Cat Is Fat](https://petcalcentral.com/blog/my-cat-is-fat.html)
-- [Raising Gus: What I Learned Feeding a Puppy](https://petcalcentral.com/blog/puppy-feeding-guide.html)
-- [slow-feeder.html](https://petcalcentral.com/blog/slow-feeder.html)
-- [weight-check.html](https://petcalcentral.com/blog/weight-check.html)
-
-## Documentation
-- [About](https://petcalcentral.com/about.html) | [FAQ](https://petcalcentral.com/faq.html) | [Privacy](https://petcalcentral.com/privacy.html) | [Terms](https://petcalcentral.com/terms.html) | [Disclaimer](https://petcalcentral.com/disclaimer.html) | [Disclosure](https://petcalcentral.com/disclosure.html)
+- 2026-05-14: I Bought a Slow Feeder Bowl. Here's What Actually Happened. (https://petcalcentral.com/blog/slow-feeder.html)
+- 2026-05-12: Gus Got an Ear Infection and I Panicked for No Reason | PetCalCentral (https://petcalcentral.com/blog/gus-ear-infection.html)
+- 2026-05-12: My Cat Is Fat | PetCalCentral (https://petcalcentral.com/blog/my-cat-is-fat.html)
+- 2026-05-12: Raising Gus: What I Learned Feeding a Puppy | PetCalCentral (https://petcalcentral.com/blog/puppy-feeding-guide.html)
+- 2026-05-08: The Vet Said Gus Is Fat. I'm Still Processing. (https://petcalcentral.com/blog/furbo.html)
+- 2026-05-08: The Vet Said Gus Is Fat. I'm Still Processing. (https://petcalcentral.com/blog/weight-check.html)

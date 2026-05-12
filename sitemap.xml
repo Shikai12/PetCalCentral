@@ -1,24 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://petcalcentral.com/</loc><priority>1.0</priority></url>
-<url><loc>https://petcalcentral.com/about.html</loc><priority>0.6</priority></url>
-<url><loc>https://petcalcentral.com/contact.html</loc><priority>0.4</priority></url>
-<url><loc>https://petcalcentral.com/faq.html</loc><priority>0.7</priority></url>
-<url><loc>https://petcalcentral.com/tools/dog-calorie-calculator.html</loc><priority>0.9</priority></url>
-<url><loc>https://petcalcentral.com/tools/cat-calorie-calculator.html</loc><priority>0.9</priority></url>
-<url><loc>https://petcalcentral.com/tools/dog-age-calculator.html</loc><priority>0.8</priority></url>
-<url><loc>https://petcalcentral.com/tools/pet-bmi-calculator.html</loc><priority>0.8</priority></url>
-<url><loc>https://petcalcentral.com/tools/pet-water-intake-calculator.html</loc><priority>0.7</priority></url>
-<url><loc>https://petcalcentral.com/blog/</loc><priority>0.8</priority></url>
-<url><loc>https://petcalcentral.com/blog/furbo.html</loc><priority>0.7</priority></url>
-<url><loc>https://petcalcentral.com/blog/gus-ear-infection.html</loc><priority>0.7</priority></url>
-<url><loc>https://petcalcentral.com/blog/my-cat-is-fat.html</loc><priority>0.7</priority></url>
-<url><loc>https://petcalcentral.com/blog/puppy-feeding-guide.html</loc><priority>0.7</priority></url>
-<url><loc>https://petcalcentral.com/blog/slow-feeder.html</loc><priority>0.7</priority></url>
-<url><loc>https://petcalcentral.com/blog/weight-check.html</loc><priority>0.7</priority></url>
-<url><loc>https://petcalcentral.com/privacy.html</loc><priority>0.3</priority></url>
-<url><loc>https://petcalcentral.com/terms.html</loc><priority>0.3</priority></url>
-<url><loc>https://petcalcentral.com/disclaimer.html</loc><priority>0.3</priority></url>
-<url><loc>https://petcalcentral.com/disclosure.html</loc><priority>0.3</priority></url>
-<url><loc>https://petcalcentral.com/sitemap.html</loc><priority>0.3</priority></url>
+  <url>
+    <loc>https://petcalcentral.com/</loc>
+    <lastmod>2026-05-12</lastmod>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/blog/slow-feeder.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/blog/gus-ear-infection.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/blog/my-cat-is-fat.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/blog/puppy-feeding-guide.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/blog/furbo.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/blog/weight-check.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/tools/cat-calorie-calculator.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/tools/dog-age-calculator.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/tools/dog-calorie-calculator.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/tools/pet-bmi-calculator.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://petcalcentral.com/tools/pet-water-intake-calculator.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>

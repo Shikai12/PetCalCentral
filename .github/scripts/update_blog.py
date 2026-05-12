@@ -1,117 +1,136 @@
 import os
+import glob
 import re
 from datetime import datetime
+from xml.etree.ElementTree import Element, SubElement, tostring
+from xml.dom import minidom
 
-BLOG_DIR = 'blog'
-BASE_URL = 'https://petcalcentral.com'
+BASE_URL = "https://petcalcentral.com"
+BLOG_DIR = "blog"
+SITEMAP_FILE = "sitemap.xml"
+INDEX_FILE = os.path.join(BLOG_DIR, "index.html")
+LLMS_FILE = "llms.txt"
 
-def extract_meta(html_path):
+def extract_metadata(html_path):
     with open(html_path, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    title_match = re.search(r'<title>(.*?)\s*\|\s*PetCalCentral</title>', content)
-    title = title_match.group(1).strip() if title_match else os.path.basename(html_path)
+    title_match = re.search(r'<title>(.*?)</title>', content, re.IGNORECASE)
+    title = title_match.group(1).strip() if title_match else "Untitled"
     
-    desc_match = re.search(r'<meta name="description" content="(.*?)"', content)
-    excerpt = desc_match.group(1).strip() if desc_match else ''
-    if len(excerpt) > 160:
-        excerpt = excerpt[:157] + '...'
+    desc_match = re.search(r'<meta name="description" content="(.*?)"', content, re.IGNORECASE)
+    description = desc_match.group(1).strip() if desc_match else ""
     
-    tags_match = re.search(r'<!--\s*tags:\s*(.*?)\s*-->', content)
-    tags = [t.strip() for t in tags_match.group(1).split(',')] if tags_match else []
-    
-    date_match = re.search(r'datePublished["\']\s*:\s*["\'](.*?)["\']', content)
-    date = date_match.group(1) if date_match else datetime.today().strftime('%Y-%m-%d')
+    date_match = re.search(r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}', content)
+    if date_match:
+        date_str = date_match.group(0)
+        try:
+            pub_date = datetime.strptime(date_str, "%B %d, %Y").strftime("%Y-%m-%d")
+        except:
+            pub_date = datetime.now().strftime("%Y-%m-%d")
+    else:
+        pub_date = datetime.now().strftime("%Y-%m-%d")
     
     return {
-        'title': title,
-        'file': os.path.basename(html_path),
-        'date': date,
-        'excerpt': excerpt,
-        'tags': tags
+        "title": title,
+        "description": description,
+        "date": pub_date,
+        "url": f"{BASE_URL}/{html_path.replace('\\', '/')}"
     }
 
-def update_blog_index(articles):
-    sorted_articles = sorted(articles, key=lambda x: x['date'], reverse=True)
+def generate_index(posts):
+    posts.sort(key=lambda x: x["date"], reverse=True)
     
-    articles_js = 'const articles = [\n'
-    for a in sorted_articles:
-        articles_js += '    {\n'
-        articles_js += f'        title: "{a["title"]}",\n'
-        articles_js += f'        file: "{a["file"]}",\n'
-        articles_js += f'        date: "{a["date"]}",\n'
-        articles_js += f'        excerpt: "{a["excerpt"]}",\n'
-        tags_str = '", "'.join(a['tags'])
-        articles_js += f'        tags: ["{tags_str}"]\n'
-        articles_js += '    },\n'
-    articles_js += '];'
+    html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | PetCalCentral</title>
+    <meta name="description" content="Real-life stories about my golden retriever Gus and cat Mochi. Dog weight, slow feeders, pet cameras, and more.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {{ font-family: system-ui, -apple-system, sans-serif; background: #f9fafb; }}
+        .container {{ max-width: 800px; margin: 0 auto; padding: 2rem; }}
+        .post-card {{ background: white; border-radius: 1rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
+        .post-title {{ font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }}
+        .post-meta {{ color: #6b7280; font-size: 0.875rem; margin-bottom: 0.75rem; }}
+        .post-description {{ color: #374151; line-height: 1.5; }}
+        a {{ text-decoration: none; }}
+        a:hover {{ text-decoration: underline; }}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-3xl font-bold mb-6">Blog</h1>
+'''
+    for post in posts:
+        html += f'''
+    <div class="post-card">
+        <div class="post-title"><a href="{post['url']}">{post['title']}</a></div>
+        <div class="post-meta">{post['date']}</div>
+        <div class="post-description">{post['description'][:150]}...</div>
+    </div>
+'''
+    html += '''
+</div>
+</body>
+</html>'''
     
-    with open(os.path.join(BLOG_DIR, 'index.html'), 'r', encoding='utf-8') as f:
-        html = f.read()
-    
-    pattern = r'const articles = \[[\s\S]*?\];'
-    html = re.sub(pattern, articles_js, html)
-    
-    with open(os.path.join(BLOG_DIR, 'index.html'), 'w', encoding='utf-8') as f:
+    with open(INDEX_FILE, 'w', encoding='utf-8') as f:
         f.write(html)
 
-def update_sitemap(articles):
-    urls = [
-        f'<url><loc>{BASE_URL}/</loc><priority>1.0</priority></url>',
-        f'<url><loc>{BASE_URL}/about.html</loc><priority>0.6</priority></url>',
-        f'<url><loc>{BASE_URL}/contact.html</loc><priority>0.4</priority></url>',
-        f'<url><loc>{BASE_URL}/faq.html</loc><priority>0.7</priority></url>',
-        f'<url><loc>{BASE_URL}/tools/dog-calorie-calculator.html</loc><priority>0.9</priority></url>',
-        f'<url><loc>{BASE_URL}/tools/cat-calorie-calculator.html</loc><priority>0.9</priority></url>',
-        f'<url><loc>{BASE_URL}/tools/dog-age-calculator.html</loc><priority>0.8</priority></url>',
-        f'<url><loc>{BASE_URL}/tools/pet-bmi-calculator.html</loc><priority>0.8</priority></url>',
-        f'<url><loc>{BASE_URL}/tools/pet-water-intake-calculator.html</loc><priority>0.7</priority></url>',
-        f'<url><loc>{BASE_URL}/blog/</loc><priority>0.8</priority></url>'
-    ]
+def generate_sitemap(posts):
+    urlset = Element('urlset', xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     
-    for a in articles:
-        urls.append(f'<url><loc>{BASE_URL}/blog/{a["file"]}</loc><priority>0.7</priority></url>')
+    url = SubElement(urlset, 'url')
+    loc = SubElement(url, 'loc')
+    loc.text = BASE_URL + '/'
+    lastmod = SubElement(url, 'lastmod')
+    lastmod.text = datetime.now().strftime("%Y-%m-%d")
     
-    urls += [
-        f'<url><loc>{BASE_URL}/privacy.html</loc><priority>0.3</priority></url>',
-        f'<url><loc>{BASE_URL}/terms.html</loc><priority>0.3</priority></url>',
-        f'<url><loc>{BASE_URL}/disclaimer.html</loc><priority>0.3</priority></url>',
-        f'<url><loc>{BASE_URL}/disclosure.html</loc><priority>0.3</priority></url>',
-        f'<url><loc>{BASE_URL}/sitemap.html</loc><priority>0.3</priority></url>'
-    ]
+    for post in posts:
+        url = SubElement(urlset, 'url')
+        loc = SubElement(url, 'loc')
+        loc.text = post['url']
+        lastmod = SubElement(url, 'lastmod')
+        lastmod.text = post['date']
+        priority = SubElement(url, 'priority')
+        priority.text = '0.8'
     
-    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    sitemap += '\n'.join(urls)
-    sitemap += '\n</urlset>'
+    tools = glob.glob("tools/*.html")
+    for tool in tools:
+        url = SubElement(urlset, 'url')
+        loc = SubElement(url, 'loc')
+        loc.text = f"{BASE_URL}/{tool.replace('\\', '/')}"
+        lastmod = SubElement(url, 'lastmod')
+        lastmod.text = datetime.now().strftime("%Y-%m-%d")
+        priority = SubElement(url, 'priority')
+        priority.text = '0.6'
     
-    with open('sitemap.xml', 'w', encoding='utf-8') as f:
-        f.write(sitemap)
+    xml_str = minidom.parseString(tostring(urlset)).toprettyxml(indent="  ")
+    with open(SITEMAP_FILE, 'w', encoding='utf-8') as f:
+        f.write(xml_str)
 
-def update_llms(articles):
-    llms = f'# PetCalCentral\n> Free, science-based pet health calculators and feeding guides for dogs and cats.\n\n'
-    llms += '## Core Tools\n' + '\n'.join([
-        f'- [Dog Calorie Calculator]({BASE_URL}/tools/dog-calorie-calculator.html)',
-        f'- [Cat Calorie Calculator]({BASE_URL}/tools/cat-calorie-calculator.html)',
-        f'- [Dog Age Calculator]({BASE_URL}/tools/dog-age-calculator.html)',
-        f'- [Pet BMI Calculator]({BASE_URL}/tools/pet-bmi-calculator.html)',
-        f'- [Pet Water Intake Calculator]({BASE_URL}/tools/pet-water-intake-calculator.html)'
-    ]) + '\n\n## Guides\n'
-    llms += '\n'.join([f'- [{a["title"]}]({BASE_URL}/blog/{a["file"]})' for a in articles])
-    llms += f'\n\n## Documentation\n- [About]({BASE_URL}/about.html) | [FAQ]({BASE_URL}/faq.html) | [Privacy]({BASE_URL}/privacy.html) | [Terms]({BASE_URL}/terms.html) | [Disclaimer]({BASE_URL}/disclaimer.html) | [Disclosure]({BASE_URL}/disclosure.html)'
-    
-    with open('llms.txt', 'w', encoding='utf-8') as f:
-        f.write(llms)
+def generate_llms(posts):
+    content = "# PetCalCentral - Blog Posts\n\n"
+    for post in posts:
+        content += f"- {post['date']}: {post['title']} ({post['url']})\n"
+    with open(LLMS_FILE, 'w', encoding='utf-8') as f:
+        f.write(content)
 
 def main():
-    articles = []
-    for f in os.listdir(BLOG_DIR):
-        if f.endswith('.html') and f != 'index.html':
-            articles.append(extract_meta(os.path.join(BLOG_DIR, f)))
+    blog_files = glob.glob(f"{BLOG_DIR}/*.html")
+    blog_files = [f for f in blog_files if not f.endswith("index.html")]
+    posts = []
+    for file in blog_files:
+        meta = extract_metadata(file)
+        posts.append(meta)
     
-    update_blog_index(articles)
-    update_sitemap(articles)
-    update_llms(articles)
-    print(f'Updated {len(articles)} articles.')
+    generate_index(posts)
+    generate_sitemap(posts)
+    generate_llms(posts)
+    print(f"Updated {len(posts)} posts, regenerated index, sitemap, llms.txt")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
