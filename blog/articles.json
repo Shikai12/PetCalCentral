@@ -1,5 +1,37 @@
 [
   {
+    "title": "How Many Calories Does My Dog Actually Need?",
+    "file": "dog-calorie-guide.html",
+    "date": "2026-05-14",
+    "excerpt": "Most dog owners guess wrong on portions. Here's the real formula for calculating your dog's daily calorie needs.",
+    "tags": ["Dog Health", "Feeding", "Calorie Calculator"],
+    "author": "the math-averse dog dad"
+  },
+  {
+    "title": "Is My Cat Overweight? A Practical Guide",
+    "file": "cat-weight-guide.html",
+    "date": "2026-05-14",
+    "excerpt": "The honest truth about cat weight. Includes a free calorie calculator and what to do if your cat is, well, a bit chunky.",
+    "tags": ["Cat Health", "Weight Management"],
+    "author": "the reformed kibble overloader"
+  },
+  {
+    "title": "The Real Way to Calculate Dog Years (Not ×7)",
+    "file": "dog-age-guide.html",
+    "date": "2026-05-14",
+    "excerpt": "The 'multiply by 7' rule is garbage. Here's the actual science behind calculating your dog's age in human years.",
+    "tags": ["Dog Health", "Age", "Dog Age Calculator"],
+    "author": "the science nerd who loves dogs"
+  },
+  {
+    "title": "Is My Pet Drinking Enough Water?",
+    "file": "pet-water-guide.html",
+    "date": "2026-05-14",
+    "excerpt": "Dehydration is dangerous for pets. Here's how to calculate exactly how much water your dog or cat should drink daily.",
+    "tags": ["Pet Health", "Water Intake"],
+    "author": "the concerned pet parent"
+  },
+  {
     "title": "I Bought a Slow Feeder Bowl. Here's What Actually Happened.",
     "file": "slow-feeder.html",
     "date": "2026-05-14",
