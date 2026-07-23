@@ -1,74 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Vet Said Gus Is Fat. I'm Still Processing.</title>
-  <meta name="description" content="My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight. I have no idea if this will work.">
-  <meta property="og:title" content="The Vet Said Gus Is Fat. I'm Still Processing.">
-  <meta property="og:description" content="My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight.">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fffbeb; color: #451a03; }
-    .container-custom { max-width: 700px; margin: 0 auto; padding: 2.5rem 1.5rem; }
-    .post-content p { margin-bottom: 1.3rem; line-height: 1.7; font-size: 1rem; }
-    .post-content p:first-of-type { font-size: 1.1rem; font-weight: 500; }
-    .meta { color: #92400e; font-size: 0.85rem; margin-bottom: 1.5rem; }
-    .sig { margin-top: 2.5rem; padding-top: 1rem; border-top: 2px dashed #fcd34d; color: #92400e; font-size: 0.95rem; }
-    .sig a { color: #b45309; }
-    h1 { font-size: 1.8rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.3rem; }
-    .highlight { background: #fef3c7; padding: 0.1rem 0.3rem; border-radius: 3px; }
-    .cta-blue { background: #ebf4ff; border-left: 4px solid #3b82f6; border-radius: 0.5rem; padding: 1rem; margin: 1.5rem 0; }
-    .btn-blue { background: #2563eb; color: white; border-radius: 0.5rem; padding: 0.5rem 1.2rem; display: inline-block; text-decoration: none; }
-    @media (max-width: 640px) { h1 { font-size: 1.4rem; } }
-    img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "The Vet Said Gus Is Fat. I'm Still Processing.",
-    "description": "My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight.",
-    "author": { "@type": "Person", "name": "the guy who overfed his golden" },
-    "datePublished": "2026-05-08",
-    "dateModified": "2026-05-08",
-    "mainEntityOfPage": "https://petcalcentral.com/blog/gus-weight-check.html"
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vet Said Gus Is Fat. I'm Still Processing.</title>
+<meta name="description" content="My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight. I have no idea if this will work.">
+<meta name="author" content="Alex Morgan">
+<link rel="canonical" href="https://petcalcentral.com/blog/weight-check.html">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Vet Said Gus Is Fat. I'm Still Processing.">
+<meta property="og:description" content="My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight. I have no idea if this will work.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://petcalcentral.com/blog/weight-check.html">
+<meta property="og:image" content="https://petcalcentral.com/images/blog/weight-check.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Vet Said Gus Is Fat. I'm Still Processing.">
+<meta name="twitter:description" content="My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight. I have no idea if this will work.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/blog/weight-check.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+<!-- Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Vet Said Gus Is Fat. I'm Still Processing.",
+  "description": "My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight. I have no idea if this will work.",
+  "image": "https://petcalcentral.com/images/blog/weight-check.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Alex Morgan",
+    "jobTitle": "Pet Health Writer",
+    "url": "https://petcalcentral.com/about.html"
+  },
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-05-08",
+  "publisher": {
+    "@type": "Organization",
+    "name": "PetCalCentral",
+    "url": "https://petcalcentral.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://petcalcentral.com/blog/weight-check.html"
   }
-  </script>
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://petcalcentral.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://petcalcentral.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Dog Health",
+      "item": "https://petcalcentral.com/blog/index.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "The Vet Said Gus Is Fat. I'm Still Processing.",
+      "item": "https://petcalcentral.com/blog/weight-check.html"
+    }
+  ]
+}
+</script>
+
+<!-- SearchAction Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://petcalcentral.com/",
+  "name": "PetCalCentral",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://petcalcentral.com/blog/index.html?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 </head>
 <body>
-<div class="container-custom">
-  <article>
+
+<nav class="pcc-nav">
+  <div class="pcc-nav-container">
+    <a href="../index.html" class="pcc-logo">🐾 PetCalCentral</a>
+    <button class="pcc-nav-toggle" onclick="pccToggleMenu()" aria-label="Toggle menu">&#9776;</button>
+    <ul class="pcc-nav-links" id="mainNav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../tools/index.html">Tools</a></li>
+      <li><a href="./index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="pcc-breadcrumb">
+  <a href="../index.html">Home</a> <span>/</span> <a href="./index.html">Blog</a> <span>/</span> <span aria-current="page">The Vet Said Gus Is Fat. I'm Still Processing.</span>
+</div>
+
+<article class="pcc-post-container">
+
+  <div class="pcc-ad-slot" data-ad-slot="article_top"></div>
+
+  <header class="pcc-post-header">
     <h1>The Vet Said Gus Is Fat. I'm Still Processing.</h1>
-    <div class="meta">May 8, 2026</div>
-    <div class="post-content">
-      <p>Took Gus for his checkup last week. Annual shots, whatever.</p>
+    <div class="pcc-post-meta">
+      <span>2026-05-08</span> &middot; <span>2 min read</span> &middot; <span class="pcc-category-badge">Dog Health</span>
+    </div>
+    <div class="pcc-article-tags">
+      <span class="pcc-tag">Dog Health</span><span class="pcc-tag">Weight</span><span class="pcc-tag">Vet Visit</span>
+    </div>
+  </header>
+
+  <img src="../images/gus_on_scale.jpg" alt="Golden retriever Gus standing on a veterinary scale" width="800" height="450" loading="lazy">
+
+  <div class="pcc-ad-slot" data-ad-slot="article_middle"></div>
+
+  <div class="pcc-post-content">
+<!-- ARTICLE_CONTENT_START -->
+<p>Took Gus for his checkup last week. Annual shots, whatever.</p>
       <p>The vet tech weighs him. Scale says 82. I don't know if that's pounds or what but it sounds heavy.</p>
       <img src="/images/gus_on_scale.jpg" alt="Golden retriever Gus standing on a veterinary scale" loading="lazy">
       <p>Dr. Martinez comes in. Nice lady, has a sticker on her laptop that says <span class="highlight">"I vaccinate therefore I am."</span> She feels Gus's ribs and goes "hmm." You know that hmm. The bad hmm.</p>
-      <p>"He's a bit..." she pauses. "...fluffy."</p>
+      
+
+<a href="../tools/dog-calorie-calculator.html" class="pcc-inline-tool">
+  <div class="pcc-inline-tool-icon">🐕</div>
+  <div class="pcc-inline-tool-content">
+    <div class="pcc-inline-tool-title">Dog Calorie Calculator</div>
+    <div class="pcc-inline-tool-desc">Find the right daily calorie target for weight loss.</div>
+    <div class="pcc-inline-tool-privacy"><em>All data stays in your browser — we never see it.</em></div>
+  </div>
+  <div class="pcc-inline-tool-arrow">→</div>
+</a>
+
+<p>"He's a bit..." she pauses. "...fluffy."</p>
       <p>Fluffy. She called my dog fluffy.</p>
       <p>Ideal weight is apparently 75. I don't know what that means in real life. Is that a lot? A little? I nodded like I understood.</p>
-      <p>She said cut back to two and a half cups. I was giving him three. Plus treats. Plus the occasional piece of cheese when I'm making sandwiches and he does the sad eyes.</p>
+      
+
+<a href="../tools/pet-bmi-calculator.html" class="pcc-inline-tool">
+  <div class="pcc-inline-tool-icon">⚖️</div>
+  <div class="pcc-inline-tool-content">
+    <div class="pcc-inline-tool-title">Pet BMI Calculator</div>
+    <div class="pcc-inline-tool-desc">See where your dog falls on the healthy weight scale.</div>
+    <div class="pcc-inline-tool-privacy"><em>All data stays in your browser — we never see it.</em></div>
+  </div>
+  <div class="pcc-inline-tool-arrow">→</div>
+</a>
+
+<p>She said cut back to two and a half cups. I was giving him three. Plus treats. Plus the occasional piece of cheese when I'm making sandwiches and he does the sad eyes.</p>
       <p>So now it's 2.5 cups. And green beans instead of Milk-Bones. The vet suggested green beans. I thought she'd lost her mind. But Gus eats them? Like, actually eats them? I don't get dogs.</p>
       <p>It's been... I want to say four days? Maybe five? I lost track. He stares at his bowl after. Just stands there looking at me like "that's it?"</p>
       <p>I feel guilty every time.</p>
       <p>I don't know if this will work. I don't know if 75 pounds is even achievable. I don't know if I'm doing this right. The vet gave me a pamphlet but I left it in the car and it's probably covered in coffee now.</p>
       <p>I'll update if anything changes. Or if I give up. Both seem likely.</p>
-      <p>If you're dealing with a chunky dog, check out <a href="https://petcalcentral.com/tools/dog-bmi.html">our dog BMI calculator</a>. Also, <a href="https://petcalcentral.com/blog/slow-feeder-works.html">here's how a slow feeder helped Gus stop throwing up</a> (even if he's still fluffy).</p>
+      <p>If you're dealing with a chunky dog, check out <a href="../tools/dog-bmi.html">our dog BMI calculator</a>. Also, <a href="./slow-feeder-works.html">here's how a slow feeder helped Gus stop throwing up</a> (even if he's still fluffy).</p>
       <div class="cta-blue">
         <p class="font-bold">🥕 Want to track your dog's weight?</p>
-        <p>Use our free <a href="https://petcalcentral.com/tools/dog-calorie.html" class="underline">calorie counter</a> and join my "fluffy dog" support group.</p>
+        <p>Use our free <a href="../tools/dog-calorie.html" class="underline">calorie counter</a> and join my "fluffy dog" support group.</p>
         <a href="#" class="btn-blue">Get weight loss tips →</a>
-      </div>
+<!-- ARTICLE_CONTENT_END -->
+  </div>
+
+  <!-- ==================== 作者框 ==================== -->
+  <div class="pcc-author-box">
+    <img src="../images/about/author-alex.jpg" alt="Alex Morgan" class="pcc-author-avatar" width="80" height="80" loading="lazy" onerror="this.style.display='none';this.parentNode.querySelector('.pcc-author-avatar-fallback').style.display='flex';">
+    <div class="pcc-author-avatar-fallback" style="display:none;width:80px;height:80px;border-radius:50%;background:#ddd;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#666;flex-shrink:0;">A</div>
+    <div class="pcc-author-info">
+      <h4 class="pcc-author-name">Alex Morgan</h4>
+      <p class="pcc-author-title">Pet Health Writer</p>
+      <p class="pcc-author-bio">Alex is a Denver-based pet parent who writes about real experiences with dogs and cats. Not a vet — just someone who has made every mistake so you don't have to.</p>
+      <p class="pcc-author-location">📍 Denver, CO</p>
+      <a href="../about.html" class="pcc-author-bio-link">Read full bio →</a>
     </div>
-    <div class="sig">
-      — Alex<br>
-      <a href="/blog/">← All posts</a>
+  </div>
+
+  
+
+</article>
+
+<!-- ==================== 尾部两栏布局 ==================== -->
+<div class="pcc-post-footer">
+  <!-- 左栏: 相关文章 -->
+  <div class="pcc-related-articles">
+    <h3>Related Articles</h3>
+    <div id="relatedPosts" class="pcc-related-list">
+      <a href="./gus-ear-infection.html" class="pcc-related-card"><h4>Gus Got an Ear Infection and I Panicked for No Reason</h4><p>2026-06-12</p></a>
+<a href="./dog-calorie-guide.html" class="pcc-related-card"><h4>How Many Calories Does My Dog Actually Need?</h4><p>2026-05-14</p></a>
+<a href="./my-cat-is-fat.html" class="pcc-related-card"><h4>My Cat Is Fat</h4><p>2025-10-01</p></a>
+
     </div>
-  </article>
+    <div id="related-articles-dynamic" class="pcc-related-list" style="display:none;"></div>
+  </div>
+  <!-- 右栏: 推荐工具 -->
+  <div class="pcc-recommended-tools">
+    <h3>Recommended Tools</h3>
+    <div id="relatedTools" class="pcc-tool-rec-list">
+      <a href="../tools/dog-calorie-calculator.html" class="pcc-related-card"><h4>Dog Calorie Calculator</h4><p>Track nutrition during recovery</p></a>
+<a href="../tools/pet-water-intake-calculator.html" class="pcc-related-card"><h4>Pet Water Intake Calculator</h4><p>Monitor hydration levels</p></a>
+
+    </div>
+    <div id="recommended-tools-dynamic" class="pcc-tool-rec-list" style="display:none;"></div>
+  </div>
 </div>
+
+
+
+<div class="pcc-ad-slot" data-ad-slot="article_bottom"></div>
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <h4>Tools</h4>
+      <a href="../tools/cat-calorie-calculator.html">Cat Calorie Calculator</a>
+      <a href="../tools/dog-age-calculator.html">Dog Age Calculator</a>
+      <a href="../tools/dog-calorie-calculator.html">Dog Calorie Calculator</a>
+      <a href="../tools/pet-bmi-calculator.html">Pet BMI Calculator</a>
+      <a href="../tools/pet-cost-estimator.html">Pet Cost Estimator</a>
+      <a href="../tools/pet-water-intake-calculator.html">Pet Water Intake Calculator</a>
+    </div>
+    <div>
+      <h4>Blog & Resources</h4>
+      <a href="../index.html">Home</a>
+      <a href="./index.html">All Articles</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../sitemap.html">Sitemap</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../terms.html">Terms of Use</a>
+      <a href="../disclaimer.html">Disclaimer</a>
+      <a href="../disclosure.html">Ad Disclosure</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="../about.html">About Us</a>
+      <a href="../contact.html">Contact</a>
+      <p class="pcc-footer-disclaimer">For educational purposes only.</p>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>PetCalCentral. All rights reserved. This site contains affiliate links and advertisements.</p>
+    <p>Not professional advice. Consult a qualified professional for your specific situation.</p>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+<script>
+function pccToggleMenu() {
+  document.getElementById('mainNav').classList.toggle('active');
+}
+
+// ===== Related Articles: JS Dynamic Fallback =====
+(function() {
+  var staticContainer = document.getElementById('relatedPosts');
+  var dynamicContainer = document.getElementById('related-articles-dynamic');
+  var staticCards = staticContainer ? staticContainer.querySelectorAll('.pcc-related-card').length : 0;
+  if (staticCards >= 3) return;
+
+  fetch('../articles.json')
+    .then(function(r) { return r.json(); })
+    .then(function(articles) {
+      if (!articles || articles.length === 0) return;
+      var currentSlug = 'weight-check';
+      var current = articles.find(function(a) { return a.slug === currentSlug; });
+      var related = [];
+
+      if (current) {
+        related = articles.filter(function(a) {
+          return a.slug !== currentSlug && a.category === current.category;
+        });
+        if (related.length < 3 && current.tags && current.tags.length) {
+          var tagMatches = articles.filter(function(a) {
+            if (a.slug === currentSlug) return false;
+            if (related.some(function(r) { return r.slug === a.slug; })) return false;
+            return a.tags && a.tags.some(function(t) { return current.tags.indexOf(t) !== -1; });
+          });
+          related = related.concat(tagMatches);
+        }
+        while (related.length < 3) {
+          var rand = articles[Math.floor(Math.random() * articles.length)];
+          if (rand.slug !== currentSlug && !related.some(function(r) { return r.slug === rand.slug; })) {
+            related.push(rand);
+          }
+        }
+      } else {
+        related = articles.slice(0, 3);
+      }
+
+      var html = related.slice(0, 3).map(function(a) {
+        return '<a href="./' + a.slug + '.html" class="pcc-related-card">' +
+          '<h4>' + a.title + '</h4>' +
+          '<p>' + (a.date_published || a.date || 'Recent') + '</p></a>';
+      }).join('');
+
+      if (html) {
+        dynamicContainer.innerHTML = html;
+        dynamicContainer.style.display = 'block';
+        if (staticContainer) staticContainer.style.display = 'none';
+      }
+    })
+    .catch(function() {});
+})();
+
+// ===== Recommended Tools: JS Dynamic Fallback =====
+(function() {
+  var staticContainer = document.getElementById('relatedTools');
+  var dynamicContainer = document.getElementById('recommended-tools-dynamic');
+  var staticCards = staticContainer ? staticContainer.querySelectorAll('.pcc-related-card').length : 0;
+  if (staticCards >= 2) return;
+
+  var toolMap = {
+    'DEFAULT': [
+      ['../tools/cat-calorie-calculator.html', 'Cat Calorie Calculator', 'Try our free calculator'],
+      ['../tools/dog-age-calculator.html', 'Dog Age Calculator', 'Try our free calculator'],
+      ['../tools/dog-calorie-calculator.html', 'Dog Calorie Calculator', 'Try our free calculator']
+    ]
+  };
+  var tools = toolMap['Dog Health'] || toolMap['DEFAULT'] || [];
+  var html = '';
+  for (var i = 0; i < tools.length; i++) {
+    var t = tools[i];
+    html += '<a href="' + t[0] + '" class="pcc-related-card">' +
+      '<h4>' + t[1] + '</h4>' +
+      '<p>' + t[2] + '</p></a>';
+  }
+
+  if (html) {
+    dynamicContainer.innerHTML = html;
+    dynamicContainer.style.display = 'block';
+    if (staticContainer) staticContainer.style.display = 'none';
+  }
+})();
+</script>
+
 </body>
 </html>
