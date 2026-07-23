@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetCalCentral — Free Pet Health Calculators & Feeding Guides</title>
+<meta name="description" content="Free, vet-informed calculators for dog calories, cat portions, dog age, pet BMI, water intake, and annual costs. No sign-ups. No fuss. Built by a pet parent who got tired of googling at 2 AM.">
+<link rel="canonical" href="https://petcalcentral.com/">
+<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+<link rel="stylesheet" href="./style.css">
+
+<!-- Open Graph -->
+<meta property="og:title" content="PetCalCentral — Free Pet Health Calculators & Feeding Guides">
+<meta property="og:description" content="Free, vet-informed calculators for dog calories, cat portions, dog age, pet BMI, water intake, and annual costs. No sign-ups. No fuss.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PetCalCentral — Free Pet Health Calculators & Feeding Guides">
+<meta name="twitter:description" content="Free, vet-informed calculators for dog calories, cat portions, dog age, pet BMI, water intake, and annual costs.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "PetCalCentral",
+  "url": "https://petcalcentral.com/",
+  "description": "Free, vet-informed pet health calculators and feeding guides.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://petcalcentral.com/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://petcalcentral.com/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="./index.html" class="pcc-nav-brand">
+      <span class="pcc-nav-brand-icon">🐾</span>
+      <span>PetCalCentral</span>
+    </a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">
+      ☰
+    </button>
+    <ul class="pcc-nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./tools/index.html">Tools</a></li>
+      <li><a href="./blog/index.html">Blog</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pcc-hero">
+  <div class="pcc-hero-inner">
+    <div class="pcc-hero-content">
+      <h1 class="pcc-hero-title">Stop Googling at <span>2 AM</span></h1>
+      <p class="pcc-hero-subtitle">Free pet health calculators built by someone who spent two years spiraling over kibble portions. Get exact numbers for calories, age, BMI, water, and costs — no sign-ups, no paywalls, no judgment.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="./tools/index.html" class="pcc-btn pcc-btn-primary">Try the Tools</a>
+        <a href="./blog/index.html" class="pcc-btn pcc-btn-secondary">Read the Blog</a>
+      </div>
+    </div>
+    <div class="pcc-hero-image">
+      <img src="./images/hero-pets.jpg" alt="Golden retriever and British shorthair cat sitting together" width="600" height="450" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Hero Top -->
+<div class="pcc-ad-slot" data-ad-slot="hero_top"></div>
+
+<!-- Tools Section -->
+<section class="pcc-section pcc-section-alt">
+  <div class="pcc-container">
+    <div class="pcc-section-header">
+      <h2>Free Pet Health Calculators</h2>
+      <p>Science-backed, vet-informed tools. Your data stays in your browser — we never see it.</p>
+    </div>
+    <div class="pcc-grid-3 pcc-animate-stagger">
+      <a href="./tools/dog-calorie-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">🐕</span>
+        <h3 class="pcc-tool-title">Dog Calorie Calculator</h3>
+        <p class="pcc-tool-desc">Find the exact daily calories your dog needs based on breed, weight, and activity level. Uses the RER formula vets actually use.</p>
+        <span class="pcc-tool-cta">Calculate Now →</span>
+      </a>
+      <a href="./tools/cat-calorie-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">🐈</span>
+        <h3 class="pcc-tool-title">Cat Calorie Calculator</h3>
+        <p class="pcc-tool-desc">Indoor or outdoor? Kitten or adult? Learn your cat's ideal daily portion in seconds. Adjusted for feline metabolism.</p>
+        <span class="pcc-tool-cta">Calculate Now →</span>
+      </a>
+      <a href="./tools/dog-age-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">📅</span>
+        <h3 class="pcc-tool-title">Dog Age Calculator</h3>
+        <p class="pcc-tool-desc">Forget the old "multiply by 7" rule. Convert dog years to human years with the latest epigenetic clock science.</p>
+        <span class="pcc-tool-cta">Check Now →</span>
+      </a>
+      <a href="./tools/pet-bmi-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">⚖️</span>
+        <h3 class="pcc-tool-title">Pet BMI Calculator</h3>
+        <p class="pcc-tool-desc">Is your pet at a healthy weight? Quick check with breed-specific Body Condition Score ranges.</p>
+        <span class="pcc-tool-cta">Check Now →</span>
+      </a>
+      <a href="./tools/pet-water-intake-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">💧</span>
+        <h3 class="pcc-tool-title">Water Intake Calculator</h3>
+        <p class="pcc-tool-desc">How much water should your pet drink daily? Factors in diet, activity, and weather. Get the exact number.</p>
+        <span class="pcc-tool-cta">Calculate Now →</span>
+      </a>
+      <a href="./tools/pet-cost-estimator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">💰</span>
+        <h3 class="pcc-tool-title">Pet Cost Estimator</h3>
+        <p class="pcc-tool-desc">Food, vet visits, insurance, toys, emergencies — calculate your annual pet budget before you panic.</p>
+        <span class="pcc-tool-cta">Estimate Now →</span>
+      </a>
+    </div>
+    <div class="pcc-text-center pcc-mt-xl">
+      <a href="./tools/index.html" class="pcc-btn pcc-btn-secondary">View All Tools</a>
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Middle -->
+<div class="pcc-ad-slot" data-ad-slot="middle"></div>
+
+<!-- Articles Section -->
+<section class="pcc-section">
+  <div class="pcc-container">
+    <div class="pcc-section-header">
+      <h2>Latest from the Blog</h2>
+      <p>Honest stories from someone who's been there — spilled kibble, late-night vet visits, and all.</p>
+    </div>
+    <!-- INDEX_ARTICLES_START -->
+
+
+
+
+
+
+
+
+
+
+
+    <div class="pcc-grid-3">
+      <a href="./blog/phoenix-heat-pet-health-emergency.html" class="pcc-card pcc-article-card">
+        <img src="./images/blog/phoenix-heat-pet-health-emergency.jpg" alt="Phoenix Heat Pet Health Emergency"My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying." — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">Phoenix Heat Pet Health Emergency</h3>
+        <p class="pcc-card-excerpt">Why My Dog's Heat Stroke Cost Me $4,200—And the Pet Insurance Covered Nothing Megan O'Connor I was carrying my dog Cooper into the emergency vet at 9 ...</p>
+        <div class="pcc-card-meta">July 06, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="./blog/vet-said-chubby-internet-said-thicc.html" class="pcc-card pcc-article-card">
+        <img src="./images/blog/vet-said-chubby-internet-said-thicc.jpg" alt="Vet Said Chubby Internet Said Thicc"My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying." — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">Vet Said Chubby Internet Said Thicc</h3>
+        <p class="pcc-card-excerpt">The Instagram comments were unanimous. "He's so thicc!" "What a chonky boy!" "Absolute unit!" My golden retriever, Cooper, had become something of a m...</p>
+        <div class="pcc-card-meta">July 06, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="./blog/the-emergency-vet-bill-that-emptied-my-savings-account.html" class="pcc-card pcc-article-card">
+        <img src="./images/blog/the-emergency-vet-bill-that-emptied-my-savings-account.jpg" alt="The Emergency Vet Bill That Emptied My Savings Account"My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying." — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">The Emergency Vet Bill That Emptied My Savings Account</h3>
+        <p class="pcc-card-excerpt">The Emergency Vet Bill That Emptied My Savings Account I was watching the Broncos game at a bar on Colfax when my phone rang. It was my neighbor, Mrs....</p>
+        <div class="pcc-card-meta">June 30, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="./blog/my-vet-said-my-dog-is-obese.html" class="pcc-card pcc-article-card">
+        <img src="./images/blog/my-vet-said-my-dog-is-obese.jpg" alt="My Vet Said My Dog Is Obese"My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying." — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">My Vet Said My Dog Is Obese</h3>
+        <p class="pcc-card-excerpt">"My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying." "My vet said my dog is obese. My dog food bag says 'Com...</p>
+        <div class="pcc-card-meta">June 24, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="./blog/gus-ear-infection.html" class="pcc-card pcc-article-card">
+        <img src="./images/blog/gus-ear-infection.jpg" alt="Gus Got an Ear Infection and I Panicked for No Reason"My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying." — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">Gus Got an Ear Infection and I Panicked for No Reason</h3>
+        <p class="pcc-card-excerpt">Gus woke me up scratching his ear at 6 AM. It smelled sour. I panicked. It was yeast. Here's what I learned about dog ear infections.</p>
+        <div class="pcc-card-meta">June 12, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="./blog/reddit-feeding-mistake.html" class="pcc-card pcc-article-card">
+        <img src="./images/blog/reddit-feeding-mistake.jpg" alt="I Asked Reddit for Feeding Advice. It Was a Mistake. — PetCalCentral"My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying.""My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying." — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">I Asked Reddit for Feeding Advice. It Was a Mistake. — PetCalCentral</h3>
+        <p class="pcc-card-excerpt">I posted on r/dogs asking for feeding advice. I got 147 comments. Half said raw diet. Half said kibble. Someone said I was abusing Gus.</p>
+        <div class="pcc-card-meta">June 01, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+<!-- INDEX_ARTICLES_END -->
+    <div class="pcc-text-center pcc-mt-xl">
+      <a href="./blog/index.html" class="pcc-btn pcc-btn-secondary">Read All Articles</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats / Trust Section -->
+<section class="pcc-section pcc-section-alt">
+  <div class="pcc-container">
+    <div class="pcc-section-header">
+      <h2>Built on Real Numbers</h2>
+      <p>Every calculator uses published veterinary research. Every story comes from actual experience.</p>
+    </div>
+    <div class="pcc-stat-grid">
+      <div class="pcc-stat-card">
+        <div class="pcc-stat-number">6</div>
+        <div class="pcc-stat-label">Free Calculators</div>
+      </div>
+      <div class="pcc-stat-card">
+        <div class="pcc-stat-number">0</div>
+        <div class="pcc-stat-label">Sign-ups Required</div>
+      </div>
+      <div class="pcc-stat-card">
+        <div class="pcc-stat-number">100%</div>
+        <div class="pcc-stat-label">Data Stays Local</div>
+      </div>
+      <div class="pcc-stat-card">
+        <div class="pcc-stat-number">2</div>
+        <div class="pcc-stat-label">Pets Who Started This</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Footer -->
+<div class="pcc-ad-slot" data-ad-slot="footer"></div>
+
+<!-- Footer -->
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM. Not a vet. Just a spreadsheet addict with two pets.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./tools/dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./tools/cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./tools/dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./tools/pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./tools/pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./tools/pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
+        <li><a href="./blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./privacy.html">Privacy Policy</a></li>
+        <li><a href="./terms.html">Terms of Service</a></li>
+        <li><a href="./disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="./disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+
+<script src="./ads-loader.js"></script>
+</body>
+</html>
