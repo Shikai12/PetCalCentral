@@ -1,110 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet BMI Calculator - Healthy Weight Check | PetCalCentral</title>
-    <meta name="description" content="Check if your pet is at a healthy weight. Free instant breed-specific results.">
-    <meta property="og:title" content="Pet BMI Calculator - PetCalCentral">
-    <meta property="og:description" content="Free pet weight status check.">
-    <meta property="og:url" content="https://petcalcentral.com/tools/pet-bmi-calculator.html">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"HowTo","name":"Pet BMI Calculator","step":[{"@type":"HowToStep","name":"Select pet type"},{"@type":"HowToStep","name":"Enter weight"},{"@type":"HowToStep","name":"Select breed size"},{"@type":"HowToStep","name":"View result"}]}
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',warm:'#fef9ef'}}}}</script>
-</head>
-<body class="bg-white text-gray-800">
-
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
-        <nav class="hidden md:flex space-x-6 text-sm font-medium">
-            <a href="/">Home</a><a href="/tools/" class="text-brand font-semibold">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a>
-        </nav>
-    </div>
-</header>
-
-<main class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-extrabold leading-tight mb-4">Pet BMI Calculator</h1>
-    <p class="text-gray-500 mb-8 text-lg">Quick check: is your pet underweight, ideal, or overweight?</p>
-
-    <div class="bg-warm rounded-2xl p-6 md:p-8 border border-green-100 shadow-sm mb-8">
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <label class="block font-semibold mb-1" for="petType">Pet Type</label>
-                <select id="petType" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="dog" selected>Dog</option>
-                    <option value="cat">Cat</option>
-                </select>
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="weight">Weight (lbs)</label>
-                <input type="number" id="weight" placeholder="e.g. 55" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none">
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="breedSize">Breed Size</label>
-                <select id="breedSize" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="small">Small</option>
-                    <option value="medium" selected>Medium</option>
-                    <option value="large">Large</option>
-                </select>
-            </div>
-        </div>
-        <button onclick="calcBMI()" class="mt-6 w-full bg-brand text-white py-4 rounded-xl text-lg font-bold hover:bg-brandDark transition shadow-md">Check Weight Status →</button>
-    </div>
-
-    <div id="result" class="hidden bg-white rounded-2xl p-6 md:p-8 border-2 shadow-lg mb-8 text-center">
-        <p class="text-gray-500 mb-2">Weight Status</p>
-        <p class="text-3xl font-extrabold" id="statusText">Ideal</p>
-        <p class="text-gray-500 mt-2 text-lg" id="statusMsg"></p>
-        <div class="w-full bg-gray-200 rounded-full h-4 mt-4"><div class="h-4 rounded-full transition-all duration-500" id="statusBar" style="width:50%"></div></div>
-        <div id="ad-result-below" class="mt-6"></div>
-    </div>
-
-    <div id="ad-content-mid" class="mb-8"></div>
-
-    <div class="prose max-w-none text-lg leading-relaxed space-y-3">
-        <h2 class="text-2xl font-bold mt-8">How We Estimate BMI</h2>
-        <p>This tool approximates the veterinary Body Condition Score (1-9 scale). We compare your pet's weight against breed-size reference ranges. A score of 4-5 is ideal — ribs easily felt but not visible, with a clear waist from above.</p>
-        <p class="text-sm text-gray-400 mt-4"><em>Estimate only. A veterinarian's hands-on assessment is the gold standard.</em></p>
-    </div>
-</main>
-
-<footer class="bg-gray-900 text-gray-400 py-12 mt-12">
-    <div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4">
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
-        <a href="/terms.html" class="hover:text-white">Terms</a>
-        <a href="/disclaimer.html" class="hover:text-white">Disclaimer</a>
-        <a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a>
-        <p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p>
-    </div>
-</footer>
-
-<script>
-function calcBMI() {
-    const w = parseFloat(document.getElementById('weight').value);
-    if (!w || w <= 0) { alert('Please enter a valid weight.'); return; }
-    const type = document.getElementById('petType').value;
-    const size = document.getElementById('breedSize').value;
-    const ranges = {
-        dog: { small:[5,20], medium:[20,55], large:[55,100] },
-        cat: { small:[6,10], medium:[8,12], large:[10,18] }
-    };
-    const [lo, hi] = ranges[type][size];
-    let status, color, msg, pct;
-    if (w < lo) { status='Underweight'; color='text-yellow-500'; msg='Talk to your vet about a safe weight gain plan.'; pct=20; }
-    else if (w <= hi) { status='Ideal Weight'; color='text-brand'; msg='Your pet appears to be at a healthy weight.'; pct=50; }
-    else { status='Overweight'; color='text-red-500'; msg='Consider a vet checkup and gradual calorie reduction.'; pct=80; }
-    document.getElementById('statusText').textContent = status;
-    document.getElementById('statusText').className = 'text-3xl font-extrabold ' + color;
-    document.getElementById('statusMsg').textContent = msg;
-    document.getElementById('statusBar').style.width = pct + '%';
-    document.getElementById('statusBar').className = 'h-4 rounded-full ' + (pct===50?'bg-brand':pct===20?'bg-yellow-400':'bg-red-500');
-    document.getElementById('result').classList.remove('hidden');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet BMI Calculator — PetCalCentral</title>
+<meta name="description" content="Check if your pet is at a healthy weight with breed-specific Body Condition Score ranges. Track weight history with visual charts.">
+<link rel="canonical" href="https://petcalcentral.com/tools/pet-bmi-calculator.html">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../style.css">
+<meta property="og:title" content="Pet BMI Calculator — PetCalCentral">
+<meta property="og:description" content="Check if your pet is at a healthy weight with breed-specific Body Condition Score ranges.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/tools/pet-bmi-calculator.html">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pet BMI Calculator — PetCalCentral">
+<meta name="twitter:description" content="Check if your pet is at a healthy weight with breed-specific Body Condition Score ranges.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pet BMI Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "url": "https://petcalcentral.com/tools/pet-bmi-calculator.html",
+  "description": "Estimate pet BMI using breed-specific Body Condition Score ranges. Track weight history and compare multiple pets.",
+  "author": {"@type": "Person", "name": "Ethan Barrett"}
 }
 </script>
-<script src="/ads.js"></script>
-<div id="ad-footer-bottom"></div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petcalcentral.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://petcalcentral.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Pet BMI Calculator", "item": "https://petcalcentral.com/tools/pet-bmi-calculator.html"}
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="../index.html" class="pcc-nav-brand"><span class="pcc-nav-brand-icon">🐾</span><span>PetCalCentral</span></a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">☰</button>
+    <ul class="pcc-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="./index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Ad Slot: Tool Top -->
+<div class="pcc-ad-slot" data-ad-slot="tool_top"></div>
+
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">Pet BMI Calculator</span>
+  </nav>
+</div>
+<section class="pcc-tool-page">
+  <div class="pcc-container">
+    <div class="pcc-tool-header">
+      <h1>⚖️ Pet BMI Calculator</h1>
+      <p>Is your pet at a healthy weight? Quick check with breed-specific Body Condition Score ranges. A score of 4-5 is ideal — ribs easily felt but not visible, with a clear waist from above.</p>
+    </div>
+    <!-- Share Bar -->
+    <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0;padding:1rem 1.25rem;background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);" class="pcc-share-bar">
+      <span style="font-weight:600;font-size:0.9375rem;color:var(--pcc-text);">Share this tool:</span>
+      <button onclick="shareTool('copy')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">📋 Copy</button>
+      <button onclick="shareTool('twitter')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">𝕏 Post</button>
+      <button onclick="shareTool('facebook')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">f Share</button>
+      <button onclick="shareTool('reddit')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">🤖 Reddit</button>
+      <button onclick="shareTool('email')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">✉️ Email</button>
+      <span id="shareCopiedMsg" style="font-size:0.8125rem;color:var(--pcc-success);font-weight:600;opacity:0;transition:opacity 0.3s;">✓ Copied!</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+      <div class="pcc-tool-form">
+        <h3 style="margin-bottom:1.5rem;">Enter Your Pet's Details</h3>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="bmiPetName">Pet's Name (optional)</label>
+          <input type="text" id="bmiPetName" class="pcc-form-input" placeholder="e.g., Gus or Mochi">
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="bmiPetType">Pet Type</label>
+          <select id="bmiPetType" class="pcc-form-select">
+            <option value="">Select pet type...</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="bmiWeight">Current Weight (lbs)</label>
+          <input type="number" id="bmiWeight" class="pcc-form-input" placeholder="e.g., 78" min="1" max="300" step="0.1">
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="bmiBreedSize">Breed Size</label>
+          <select id="bmiBreedSize" class="pcc-form-select">
+            <option value="">Select breed size...</option>
+            <option value="small">Small (under 20 lbs)</option>
+            <option value="medium">Medium (20-50 lbs)</option>
+            <option value="large">Large (50-90 lbs)</option>
+            <option value="giant">Giant (over 90 lbs)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="bmiBodyScore">Body Condition Score (1-9)</label>
+          <select id="bmiBodyScore" class="pcc-form-select">
+            <option value="">Select body condition...</option>
+            <option value="1">1 — Very Thin</option>
+            <option value="2">2 — Underweight</option>
+            <option value="3">3 — Thin</option>
+            <option value="4">4 — Ideal</option>
+            <option value="5">5 — Ideal</option>
+            <option value="6">6 — Overweight</option>
+            <option value="7">7 — Heavy</option>
+            <option value="8">8 — Obese</option>
+            <option value="9">9 — Severely Obese</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="bmiGoalWeight">Goal Weight (lbs, optional)</label>
+          <input type="number" id="bmiGoalWeight" class="pcc-form-input" placeholder="e.g., 75" min="1" max="300" step="0.1">
+        </div>
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+          <button onclick="calculateBMI()" class="pcc-btn pcc-btn-primary">Calculate BMI</button>
+          <button onclick="clearBMIForm()" class="pcc-btn pcc-btn-secondary">Reset</button>
+        </div>
+        <p style="font-size:0.8125rem;color:var(--pcc-text-light);margin-top:1rem;font-style:italic;">All data stays in your browser — we never see it.</p>
+      </div>
+      <div>
+        <div id="bmiResult" class="pcc-tool-result">
+          <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
+            <svg id="bmiRing" width="200" height="200" viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="80" fill="none" stroke="var(--pcc-border)" stroke-width="16"/>
+              <circle id="bmiRingProgress" cx="100" cy="100" r="80" fill="none" stroke="var(--pcc-primary)" stroke-width="16" stroke-linecap="round" stroke-dasharray="502" stroke-dashoffset="502" transform="rotate(-90 100 100)" style="transition:stroke-dashoffset 1s ease;"/>
+              <text id="bmiRingText" x="100" y="95" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="700" fill="var(--pcc-text)">—</text>
+              <text id="bmiRingLabel" x="100" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="var(--pcc-text-muted)">BCS Score</text>
+            </svg>
+          </div>
+          <div class="pcc-result-details" id="bmiDetails">
+            <p><strong>Status:</strong> <span id="bmiStatus">—</span></p>
+            <p><strong>Current Weight:</strong> <span id="bmiCurrentWeight">—</span> lbs</p>
+            <p><strong>Ideal Range:</strong> <span id="bmiIdealRange">—</span></p>
+            <p><strong>Delta:</strong> <span id="bmiDelta">—</span></p>
+            <p style="margin-top:1rem;font-size:0.875rem;color:var(--pcc-text-muted);">BCS is the veterinary gold standard. A score of 4-5 is ideal. A hands-on assessment by your veterinarian is always the most accurate method.</p>
+          </div>
+        </div>
+        <div id="bmiStageCards" style="margin-top:1.5rem;display:none;">
+          <h4 style="margin-bottom:1rem;">Body Condition Stages</h4>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;">
+            <div id="stage1" style="padding:1rem;border-radius:var(--pcc-radius-md);border:2px solid var(--pcc-border);text-align:center;opacity:0.5;">
+              <div style="font-size:1.5rem;margin-bottom:0.25rem;">😟</div>
+              <div style="font-weight:700;font-size:0.875rem;">Underweight</div>
+              <div style="font-size:0.75rem;color:var(--pcc-text-muted);">BCS 1-3</div>
+            </div>
+            <div id="stage2" style="padding:1rem;border-radius:var(--pcc-radius-md);border:2px solid var(--pcc-border);text-align:center;opacity:0.5;">
+              <div style="font-size:1.5rem;margin-bottom:0.25rem;">😊</div>
+              <div style="font-weight:700;font-size:0.875rem;">Ideal</div>
+              <div style="font-size:0.75rem;color:var(--pcc-text-muted);">BCS 4-5</div>
+            </div>
+            <div id="stage3" style="padding:1rem;border-radius:var(--pcc-radius-md);border:2px solid var(--pcc-border);text-align:center;opacity:0.5;">
+              <div style="font-size:1.5rem;margin-bottom:0.25rem;">😰</div>
+              <div style="font-weight:700;font-size:0.875rem;">Overweight</div>
+              <div style="font-size:0.75rem;color:var(--pcc-text-muted);">BCS 6-9</div>
+            </div>
+          </div>
+        </div>
+        <div class="pcc-chart-container" style="margin-top:1.5rem;">
+          <h4 style="margin-bottom:1rem;">Weight Trend</h4>
+          <canvas id="bmiChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="pcc-mt-xl">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h3>Weight History</h3>
+        <div style="display:flex;gap:0.5rem;">
+          <button onclick="exportBMICSV()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Export CSV</button>
+          <button onclick="clearBMIHistory()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Clear All</button>
+        </div>
+      </div>
+      <div id="bmiHistoryContainer">
+        <table class="pcc-history-table" id="bmiHistoryTable">
+          <thead><tr><th>Date</th><th>Name</th><th>Type</th><th>Weight</th><th>BCS</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="bmiHistoryTableBody"></tbody>
+        </table>
+        <p id="bmiNoHistory" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">No entries yet. Calculate your pet's BMI above.</p>
+      </div>
+    </div>
+    <div class="pcc-mt-xl">
+      <h3 style="margin-bottom:1rem;">Compare Multiple Pets</h3>
+      <div id="bmiCompareContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;"></div>
+      <p id="bmiNoCompare" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">Add at least 2 pets to compare.</p>
+    </div>
+    
+    
+
+<!-- Ad Slot: Tool Middle -->
+<div class="pcc-ad-slot" data-ad-slot="tool_middle"></div>
+
+<div class="pcc-mt-2xl">
+      <div class="pcc-article-footer-grid">
+        <div class="pcc-article-footer-section">
+          <!-- Ad Slot: Tool Middle -->
+
+
+<h3>Related Articles</h3>
+          <ul class="pcc-related-articles-list">
+            <li><a href="../blog/my-cat-is-fat.html">My Cat Is Fat</a><span>May 12, 2026</span></li>
+            <li><a href="../blog/weight-check.html">The Vet Said Gus Is Fat. I'm Still Processing.</a><span>May 8, 2026</span></li>
+            <li><a href="../blog/weight-tracking-year.html">I Tracked Gus's Weight for a Year. Here's the Graph.</a><span>June 1, 2026</span></li>
+          </ul>
+        </div>
+        <div class="pcc-article-footer-section">
+          <h3>Recommended Tools</h3>
+          <ul class="pcc-recommended-tools-list">
+            <li><a href="./dog-calorie-calculator.html"><span class="pcc-tool-mini-icon">🐕</span><span class="pcc-tool-mini-title">Dog Calorie Calculator</span></a></li>
+            <li><a href="./cat-calorie-calculator.html"><span class="pcc-tool-mini-icon">🐈</span><span class="pcc-tool-mini-title">Cat Calorie Calculator</span></a></li>
+            <li><a href="./pet-water-intake-calculator.html"><span class="pcc-tool-mini-icon">💧</span><span class="pcc-tool-mini-title">Water Intake Calculator</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;padding:1.5rem;background:var(--pcc-bg-alt);border-radius:var(--pcc-radius-lg);font-size:0.9375rem;color:var(--pcc-text-muted);">
+      <strong style="color:var(--pcc-text);">
+
+<!-- Ad Slot: Tool Bottom -->
+<div class="pcc-ad-slot" data-ad-slot="tool_bottom"></div>
+Disclaimer:</strong> This tool approximates the veterinary Body Condition Score (1-9 scale). A score of 4-5 is ideal. A veterinarian's hands-on assessment is the gold standard. This is informational only.
+    </div>
+  </div>
+</section>
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Service</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js"></script>
+<script>
+const BMI_STORAGE = 'pcc_bmi_history';
+function loadBMIHistory() { try { return JSON.parse(localStorage.getItem(BMI_STORAGE)) || []; } catch { return []; } }
+function saveBMIHistory(data) { localStorage.setItem(BMI_STORAGE, JSON.stringify(data)); }
+
+function calculateBMI() {
+  const name = document.getElementById('bmiPetName').value.trim() || 'Unnamed Pet';
+  const type = document.getElementById('bmiPetType').value;
+  const weight = parseFloat(document.getElementById('bmiWeight').value);
+  const breedSize = document.getElementById('bmiBreedSize').value;
+  const bcs = parseInt(document.getElementById('bmiBodyScore').value);
+  const goalWeight = parseFloat(document.getElementById('bmiGoalWeight').value) || 0;
+
+  if (!type || !weight || !breedSize || !bcs) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  let status = '', color = '';
+  if (bcs <= 3) { status = 'Underweight'; color = '#D4A03D'; }
+  else if (bcs <= 5) { status = 'Ideal Weight'; color = '#3D8B5F'; }
+  else if (bcs <= 7) { status = 'Overweight'; color = '#C4943D'; }
+  else { status = 'Obese'; color = '#C44D4D'; }
+
+  const idealRanges = {
+    'small': {'dog': '8-18 lbs', 'cat': '6-12 lbs'},
+    'medium': {'dog': '25-45 lbs', 'cat': '8-12 lbs'},
+    'large': {'dog': '55-85 lbs', 'cat': '8-12 lbs'},
+    'giant': {'dog': '90-150 lbs', 'cat': '8-12 lbs'}
+  };
+  const idealRange = idealRanges[breedSize]?.[type] || 'Varies';
+
+  let delta = '';
+  if (goalWeight > 0) {
+    const diff = weight - goalWeight;
+    delta = diff > 0 ? `+${diff.toFixed(1)} lbs to lose` : diff < 0 ? `${Math.abs(diff).toFixed(1)} lbs to gain` : 'At goal weight';
+  } else {
+    delta = 'Set a goal weight to see delta';
+  }
+
+  document.getElementById('bmiResult').classList.add('pcc-result-visible');
+  document.getElementById('bmiRingText').textContent = bcs;
+  document.getElementById('bmiRingProgress').setAttribute('stroke', color);
+  const offset = 502 - (bcs / 9) * 502;
+  setTimeout(() => {
+    document.getElementById('bmiRingProgress').setAttribute('stroke-dashoffset', offset);
+  }, 100);
+
+  document.getElementById('bmiStatus').textContent = status;
+  document.getElementById('bmiStatus').style.color = color;
+  document.getElementById('bmiCurrentWeight').textContent = weight;
+  document.getElementById('bmiIdealRange').textContent = idealRange;
+  document.getElementById('bmiDelta').textContent = delta;
+
+  document.getElementById('bmiStageCards').style.display = 'block';
+  document.getElementById('stage1').style.opacity = bcs <= 3 ? '1' : '0.5';
+  document.getElementById('stage1').style.borderColor = bcs <= 3 ? color : 'var(--pcc-border)';
+  document.getElementById('stage2').style.opacity = (bcs >= 4 && bcs <= 5) ? '1' : '0.5';
+  document.getElementById('stage2').style.borderColor = (bcs >= 4 && bcs <= 5) ? color : 'var(--pcc-border)';
+  document.getElementById('stage3').style.opacity = bcs >= 6 ? '1' : '0.5';
+  document.getElementById('stage3').style.borderColor = bcs >= 6 ? color : 'var(--pcc-border)';
+
+  drawBMIChart();
+
+  const history = loadBMIHistory();
+  history.unshift({
+    id: Date.now(), date: new Date().toLocaleDateString(), name: name,
+    type: type, weight: weight, breedSize: breedSize, bcs: bcs,
+    status: status, goalWeight: goalWeight || 0
+  });
+  if (history.length > 50) history.pop();
+  saveBMIHistory(history);
+  renderBMIHistory();
+  renderBMICompare();
+}
+
+function drawBMIChart() {
+  const history = loadBMIHistory();
+  const canvas = document.getElementById('bmiChart');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr; canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  const w = rect.width, h = rect.height, pad = 40;
+  ctx.clearRect(0, 0, w, h);
+
+  if (history.length < 2) {
+    ctx.fillStyle = 'var(--pcc-text-muted)';
+    ctx.font = '14px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Need at least 2 entries to show trend', w / 2, h / 2);
+    return;
+  }
+
+  const entries = history.slice(0, 10).reverse();
+  const maxW = Math.max(...entries.map(e => e.weight)) * 1.1;
+  const minW = Math.min(...entries.map(e => e.weight)) * 0.9;
+
+  ctx.strokeStyle = 'var(--pcc-border)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = h - pad - (i / 4) * (h - pad * 2);
+    ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(w - pad, y); ctx.stroke();
+  }
+
+  ctx.strokeStyle = 'var(--pcc-primary)';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  entries.forEach((entry, i) => {
+    const x = pad + (i / (entries.length - 1)) * (w - pad * 2);
+    const y = h - pad - ((entry.weight - minW) / (maxW - minW)) * (h - pad * 2);
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  entries.forEach((entry, i) => {
+    const x = pad + (i / (entries.length - 1)) * (w - pad * 2);
+    const y = h - pad - ((entry.weight - minW) / (maxW - minW)) * (h - pad * 2);
+    ctx.fillStyle = 'var(--pcc-primary)';
+    ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.arc(x, y, 2, 0, Math.PI * 2); ctx.fill();
+  });
+}
+
+function renderBMIHistory() {
+  const history = loadBMIHistory();
+  const tbody = document.getElementById('bmiHistoryTableBody');
+  const noHistory = document.getElementById('bmiNoHistory');
+  if (history.length === 0) {
+    tbody.innerHTML = ''; noHistory.style.display = 'block';
+    document.getElementById('bmiHistoryTable').style.display = 'none'; return;
+  }
+  noHistory.style.display = 'none';
+  document.getElementById('bmiHistoryTable').style.display = 'table';
+  const typeLabels = {'dog': 'Dog', 'cat': 'Cat'};
+  const sizeLabels = {'small': 'Small', 'medium': 'Medium', 'large': 'Large', 'giant': 'Giant'};
+  tbody.innerHTML = history.map(item => `
+    <tr>
+      <td>${item.date}</td><td>${item.name}</td><td>${typeLabels[item.type] || item.type}</td>
+      <td>${item.weight} lbs</td><td>${item.bcs}</td><td><strong style="color:${item.bcs <= 3 ? '#D4A03D' : item.bcs <= 5 ? '#3D8B5F' : '#C44D4D'}">${item.status}</strong></td>
+      <td><button onclick="deleteBMIEntry(${item.id})" style="background:none;border:none;color:var(--pcc-danger);cursor:pointer;font-size:0.875rem;">Delete</button></td>
+    </tr>
+  `).join('');
+}
+
+function renderBMICompare() {
+  const history = loadBMIHistory();
+  const container = document.getElementById('bmiCompareContainer');
+  const noCompare = document.getElementById('bmiNoCompare');
+  if (history.length < 2) { container.innerHTML = ''; noCompare.style.display = 'block'; return; }
+  noCompare.style.display = 'none';
+  container.innerHTML = history.slice(0, 4).map(item => {
+    const color = item.bcs <= 3 ? '#D4A03D' : item.bcs <= 5 ? '#3D8B5F' : '#C44D4D';
+    return `
+    <div style="background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);padding:1.5rem;text-align:center;">
+      <div style="font-size:1.5rem;margin-bottom:0.5rem;">${item.type === 'dog' ? '🐕' : '🐈'}</div>
+      <h4 style="margin-bottom:0.25rem;">${item.name}</h4>
+      <p style="font-size:0.875rem;color:var(--pcc-text-muted);margin-bottom:1rem;">${item.weight} lbs · BCS ${item.bcs}</p>
+      <div style="font-family:var(--pcc-font-heading);font-size:1.5rem;font-weight:700;color:${color};">${item.status}</div>
+    </div>
+  `}).join('');
+}
+
+function deleteBMIEntry(id) {
+  let history = loadBMIHistory();
+  history = history.filter(h => h.id !== id);
+  saveBMIHistory(history);
+  renderBMIHistory(); renderBMICompare(); drawBMIChart();
+}
+
+function clearBMIForm() {
+  document.getElementById('bmiPetName').value = '';
+  document.getElementById('bmiPetType').value = '';
+  document.getElementById('bmiWeight').value = '';
+  document.getElementById('bmiBreedSize').value = '';
+  document.getElementById('bmiBodyScore').value = '';
+  document.getElementById('bmiGoalWeight').value = '';
+  document.getElementById('bmiResult').classList.remove('pcc-result-visible');
+  document.getElementById('bmiRingText').textContent = '—';
+  document.getElementById('bmiRingProgress').setAttribute('stroke-dashoffset', '502');
+  document.getElementById('bmiStageCards').style.display = 'none';
+  const canvas = document.getElementById('bmiChart');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function clearBMIHistory() {
+  if (confirm('Clear all BMI history?')) {
+    localStorage.removeItem(BMI_STORAGE);
+    renderBMIHistory(); renderBMICompare(); drawBMIChart();
+  }
+}
+
+function exportBMICSV() {
+  const history = loadBMIHistory();
+  if (history.length === 0) { alert('No history to export.'); return; }
+  const headers = ['Date', 'Name', 'Type', 'Weight (lbs)', 'Breed Size', 'BCS', 'Status', 'Goal Weight'];
+  const rows = history.map(h => [h.date, h.name, h.type, h.weight, h.breedSize, h.bcs, h.status, h.goalWeight]);
+  const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'pet-bmi-history.csv'; a.click(); URL.revokeObjectURL(url);
+}
+
+renderBMIHistory(); renderBMICompare(); drawBMIChart();
+
+
+function shareTool(platform) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  let shareUrl = '';
+  switch(platform) {
+    case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title; break;
+    case 'facebook': shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url; break;
+    case 'reddit': shareUrl = 'https://reddit.com/submit?url=' + url + '&title=' + title; break;
+    case 'email': shareUrl = 'mailto:?subject=' + title + '&body=' + url; break;
+    case 'copy':
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          var msg = document.getElementById('shareCopiedMsg');
+          if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = window.location.href;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        var msg = document.getElementById('shareCopiedMsg');
+        if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+      }
+      return;
+  }
+  if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+}
+
+</script>
 </body>
 </html>
