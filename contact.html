@@ -1,26 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - PetCalCentral | Get in Touch</title>
-    <meta name="description" content="Have a question or suggestion for PetCalCentral? We'd love to hear from you. Reach out and we'll get back to you within 24 hours.">
-    <meta property="og:title" content="Contact Us - PetCalCentral"><meta property="og:description" content="Reach out and we'll respond within 24 hours.">
-    <meta property="og:url" content="https://petcalcentral.com/contact.html"><meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Contact Us - PetCalCentral"><meta name="twitter:description" content="Reach out to the PetCalCentral team.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',brandDark:'#15803d'}}}}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — PetCalCentral</title>
+<meta name="description" content="Get in touch with PetCalCentral. Share your pet story, suggest a calculator, or report a bug. We read every message.">
+<link rel="canonical" href="https://petcalcentral.com/contact.html">
+<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+<link rel="stylesheet" href="./style.css">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Contact Us — PetCalCentral">
+<meta property="og:description" content="Get in touch with PetCalCentral. Share your pet story, suggest a calculator, or report a bug.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/contact.html">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Us — PetCalCentral">
+<meta name="twitter:description" content="Get in touch with PetCalCentral. Share your pet story, suggest a calculator, or report a bug.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact PetCalCentral",
+  "url": "https://petcalcentral.com/contact.html",
+  "description": "Contact page for PetCalCentral. No professional services offered."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://petcalcentral.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://petcalcentral.com/contact.html"
+    }
+  ]
+}
+</script>
 </head>
-<body class="bg-white text-gray-800">
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50"><div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"><a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a><nav class="hidden md:flex space-x-6 text-sm font-medium"><a href="/">Home</a><a href="/tools/">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/contact.html" class="text-brand font-semibold">Contact</a></nav></div></header>
-<main class="max-w-2xl mx-auto px-4 py-16">
-    <h1 class="text-4xl font-extrabold mb-2">Contact Us</h1>
-    <p class="text-gray-500 mb-8">I read every message. Seriously.</p>
-    <div class="space-y-6 text-lg">
-        <div class="bg-green-50 rounded-xl p-6"><p class="text-2xl mb-1">📧</p><p class="font-semibold">Email</p><p><a href="mailto:hello@petcalcentral.com" class="text-brand underline">hello@petcalcentral.com</a></p><p class="text-sm text-gray-500 mt-1">Response time: usually within 24 hours.</p></div>
-        <div class="bg-green-50 rounded-xl p-6"><p class="text-2xl mb-1">💡</p><p class="font-semibold">What to write about?</p><ul class="list-disc pl-6 text-gray-600 space-y-2 text-base mt-2"><li>Suggest a new calculator you'd find useful</li><li>Report a bug (I'll fix it fast)</li><li>Share your pet's health success story</li><li>Ask about partnerships or affiliate opportunities</li></ul></div>
-        <p class="text-gray-400 text-sm">No spam. I'll never share your email address.</p>
+<body>
+
+<!-- Navigation -->
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="./index.html" class="pcc-nav-brand">
+      <span class="pcc-nav-brand-icon">🐾</span>
+      <span>PetCalCentral</span>
+    </a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">
+      ☰
+    </button>
+    <ul class="pcc-nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./tools/index.html">Tools</a></li>
+      <li><a href="./blog/index.html">Blog</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="./index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">Contact</span>
+  </nav>
+</div>
+
+<!-- Contact Content -->
+<section class="pcc-section">
+  <div class="pcc-container-narrow">
+    <h1 style="font-size:2.5rem;margin-bottom:1.5rem;">I Read Every Message. Seriously.</h1>
+
+    <p style="font-size:1.125rem;color:var(--pcc-text-muted);margin-bottom:2.5rem;">No forms. No chatbots. Just an email address and a human on the other end who checks his inbox between vet appointments and dog walks.</p>
+
+    <div style="background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);padding:2rem;margin-bottom:2rem;">
+      <h3 style="margin-bottom:1rem;">📧 Email</h3>
+      <a href="mailto:privacy@petcalcentral.com" class="pcc-contact-email">privacy@petcalcentral.com</a>
+      <p style="margin-top:1rem;font-size:0.937rem;color:var(--pcc-text-muted);">Response time: usually one to two weeks, sometimes longer if Gus has decided to eat something he shouldn't.</p>
     </div>
-</main>
-<footer class="bg-gray-900 text-gray-400 py-12"><div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4"><a href="/privacy.html" class="hover:text-white">Privacy</a><a href="/terms.html" class="hover:text-white">Terms</a><a href="/disclaimer.html" class="hover:text-white">Disclaimer</a><a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a><a href="/sitemap.html" class="hover:text-white">Sitemap</a><p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p></div></footer>
+
+    <h3 style="margin-top:2.5rem;margin-bottom:1rem;">What to Write About</h3>
+    <ul style="margin-bottom:2rem;">
+      <li>Suggest a new calculator you'd find useful</li>
+      <li>Report a bug (I'll fix it fast — probably at 2 AM)</li>
+      <li>Share your pet's health success story — we love featuring great stories from our community</li>
+      <li>Ask about partnerships or affiliate opportunities</li>
+      <li>Tell me I'm wrong about something (gently, please)</li>
+    </ul>
+
+    <p style="font-size:0.9375rem;color:var(--pcc-text-muted);">No spam. I'll never share your email address. I don't even have a newsletter to sign you up for.</p>
+
+    <!-- Declaration Block -->
+    <div class="pcc-contact-declaration">
+      <strong>Important Notice</strong>
+      <p>We do not offer professional services or consultation. If you would like to share your story, feel free to email us — we love featuring great stories from our community.</p>
+      <p style="margin-top:0.75rem;">General replies typically take one to two weeks or longer. For urgent pet health concerns, please contact a licensed veterinarian immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM. Not a vet. Just a spreadsheet addict with two pets.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./tools/dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./tools/cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./tools/dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./tools/pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./tools/pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./tools/pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
+        <li><a href="./blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./privacy.html">Privacy Policy</a></li>
+        <li><a href="./terms.html">Terms of Service</a></li>
+        <li><a href="./disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="./disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+
 </body>
 </html>
