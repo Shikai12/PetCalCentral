@@ -1,91 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Age Calculator - Convert to Human Years | PetCalCentral</title>
-    <meta name="description" content="Convert your dog's age to human years using the modern epigenetic clock formula. More accurate than the old ×7 rule.">
-    <meta property="og:title" content="Dog Age Calculator - PetCalCentral">
-    <meta property="og:description" content="Modern dog age conversion. Free, instant result.">
-    <meta property="og:url" content="https://petcalcentral.com/tools/dog-age-calculator.html">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"HowTo","name":"Dog Age Calculator","step":[{"@type":"HowToStep","name":"Enter dog's age"},{"@type":"HowToStep","name":"Select breed size"},{"@type":"HowToStep","name":"Get human age equivalent"}]}
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',warm:'#fef9ef'}}}}</script>
-</head>
-<body class="bg-white text-gray-800">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dog Age Calculator — PetCalCentral</title>
+<meta name="description" content="Convert dog years to human years using the latest epigenetic clock science. Forget the multiply by 7 rule. See your dog's life stage timeline.">
+<link rel="canonical" href="https://petcalcentral.com/tools/dog-age-calculator.html">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../style.css">
 
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
-        <nav class="hidden md:flex space-x-6 text-sm font-medium">
-            <a href="/">Home</a><a href="/tools/" class="text-brand font-semibold">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a>
-        </nav>
-    </div>
-</header>
+<meta property="og:title" content="Dog Age Calculator — PetCalCentral">
+<meta property="og:description" content="Convert dog years to human years using the latest epigenetic clock science. Forget the multiply by 7 rule.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/tools/dog-age-calculator.html">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
 
-<main class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-extrabold leading-tight mb-4">Dog Age Calculator</h1>
-    <p class="text-gray-500 mb-8 text-lg">Forget the old "multiply by 7" rule. Here's what science actually says.</p>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dog Age Calculator — PetCalCentral">
+<meta name="twitter:description" content="Convert dog years to human years using the latest epigenetic clock science.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
 
-    <div class="bg-warm rounded-2xl p-6 md:p-8 border border-green-100 shadow-sm mb-8">
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <label class="block font-semibold mb-1" for="dogAge">Dog's Age (years)</label>
-                <input type="number" id="dogAge" placeholder="e.g. 5" step="0.5" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none">
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="breedSize">Breed Size</label>
-                <select id="breedSize" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="small">Small (under 20 lbs)</option>
-                    <option value="medium" selected>Medium (20-50 lbs)</option>
-                    <option value="large">Large (over 50 lbs)</option>
-                </select>
-            </div>
-        </div>
-        <button onclick="calcAge()" class="mt-6 w-full bg-brand text-white py-4 rounded-xl text-lg font-bold hover:bg-brandDark transition shadow-md">Convert to Human Years →</button>
-    </div>
-
-    <div id="result" class="hidden bg-white rounded-2xl p-8 border-2 border-brand shadow-lg text-center mb-8">
-        <p class="text-gray-500 mb-2">Your dog is roughly</p>
-        <p class="text-5xl font-extrabold text-brand"><span id="humanAge">0</span></p>
-        <p class="text-gray-500 mt-2">human years old</p>
-        <div id="ad-result-below" class="mt-6"></div>
-    </div>
-
-    <div id="ad-content-mid" class="mb-8"></div>
-
-    <div class="prose max-w-none text-lg leading-relaxed space-y-3">
-        <h2 class="text-2xl font-bold mt-8">The Science Behind It</h2>
-        <p>The old "×7" rule is a myth. Modern research shows dogs age on an epigenetic clock — fast in their first two years, then slowing down. Small dogs age slower and live longer than large breeds. This calculator uses the formula: Human Age = 16 × ln(dog age) + 31, adjusted for breed size.</p>
-        <p class="text-sm text-gray-400 mt-4"><em>Based on research published in Cell Systems. For informational purposes.</em></p>
-    </div>
-</main>
-
-<footer class="bg-gray-900 text-gray-400 py-12 mt-12">
-    <div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4">
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
-        <a href="/terms.html" class="hover:text-white">Terms</a>
-        <a href="/disclaimer.html" class="hover:text-white">Disclaimer</a>
-        <a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a>
-        <p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p>
-    </div>
-</footer>
-
-<script>
-function calcAge() {
-    const age = parseFloat(document.getElementById('dogAge').value);
-    if (!age || age <= 0) { alert('Please enter a valid age.'); return; }
-    let human = 16 * Math.log(age) + 31;
-    const breed = document.getElementById('breedSize').value;
-    if (breed === 'small') human *= 0.9;
-    if (breed === 'large') human *= 1.15;
-    document.getElementById('humanAge').textContent = Math.round(human);
-    document.getElementById('result').classList.remove('hidden');
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Dog Age Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "url": "https://petcalcentral.com/tools/dog-age-calculator.html",
+  "description": "Convert dog years to human years using epigenetic clock research from Cell Systems. Adjusted for breed size.",
+  "author": {"@type": "Person", "name": "Ethan Barrett"}
 }
 </script>
-<script src="/ads.js"></script>
-<div id="ad-footer-bottom"></div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petcalcentral.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://petcalcentral.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Dog Age Calculator", "item": "https://petcalcentral.com/tools/dog-age-calculator.html"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="../index.html" class="pcc-nav-brand"><span class="pcc-nav-brand-icon">🐾</span><span>PetCalCentral</span></a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">☰</button>
+    <ul class="pcc-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="./index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Ad Slot: Tool Top -->
+<div class="pcc-ad-slot" data-ad-slot="tool_top"></div>
+
+
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">Dog Age Calculator</span>
+  </nav>
+</div>
+
+<section class="pcc-tool-page">
+  <div class="pcc-container">
+    <div class="pcc-tool-header">
+      <h1>📅 Dog Age Calculator</h1>
+      <p>Forget the old "multiply by 7" rule. Convert dog years to human years using the latest epigenetic clock science from Cell Systems. Adjusted for breed size — small dogs age slower, large dogs age faster after year two.</p>
+    </div>
+    <!-- Share Bar -->
+    <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0;padding:1rem 1.25rem;background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);" class="pcc-share-bar">
+      <span style="font-weight:600;font-size:0.9375rem;color:var(--pcc-text);">Share this tool:</span>
+      <button onclick="shareTool('copy')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">📋 Copy</button>
+      <button onclick="shareTool('twitter')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">𝕏 Post</button>
+      <button onclick="shareTool('facebook')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">f Share</button>
+      <button onclick="shareTool('reddit')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">🤖 Reddit</button>
+      <button onclick="shareTool('email')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">✉️ Email</button>
+      <span id="shareCopiedMsg" style="font-size:0.8125rem;color:var(--pcc-success);font-weight:600;opacity:0;transition:opacity 0.3s;">✓ Copied!</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+      <div class="pcc-tool-form">
+        <h3 style="margin-bottom:1.5rem;">Enter Your Dog's Details</h3>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="ageDogName">Dog's Name (optional)</label>
+          <input type="text" id="ageDogName" class="pcc-form-input" placeholder="e.g., Gus">
+        </div>
+
+        <div class="pcc-form-row">
+          <div class="pcc-form-group">
+            <label class="pcc-form-label" for="dogAgeYears">Age (years)</label>
+            <input type="number" id="dogAgeYears" class="pcc-form-input" placeholder="e.g., 4" min="0" max="30" step="0.1">
+          </div>
+          <div class="pcc-form-group">
+            <label class="pcc-form-label" for="dogAgeMonths">Age (months)</label>
+            <input type="number" id="dogAgeMonths" class="pcc-form-input" placeholder="e.g., 3" min="0" max="11" step="1">
+          </div>
+        </div>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="ageBreedSize">Breed Size</label>
+          <select id="ageBreedSize" class="pcc-form-select">
+            <option value="">Select breed size...</option>
+            <option value="small">Small (under 20 lbs) — Slower aging, longer lifespan</option>
+            <option value="medium">Medium (20-50 lbs) — Average aging rate</option>
+            <option value="large">Large (50-90 lbs) — Faster aging after year 2</option>
+            <option value="giant">Giant (over 90 lbs) — Fastest aging after year 2</option>
+          </select>
+        </div>
+
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+          <button onclick="calculateDogAge()" class="pcc-btn pcc-btn-primary">Calculate Human Age</button>
+          <button onclick="clearAgeForm()" class="pcc-btn pcc-btn-secondary">Reset</button>
+        </div>
+
+        <p style="font-size:0.8125rem;color:var(--pcc-text-light);margin-top:1rem;font-style:italic;">All data stays in your browser — we never see it.</p>
+      </div>
+
+      <div>
+        <div id="ageResult" class="pcc-tool-result">
+          <div class="pcc-result-number" id="humanAgeResult">—</div>
+          <div class="pcc-result-label">Human Years Equivalent</div>
+          <div class="pcc-result-details" id="ageResultDetails">
+            <p><strong>Dog Age:</strong> <span id="inputDogAge">—</span></p>
+            <p><strong>Breed Size:</strong> <span id="inputBreedSize">—</span></p>
+            <p><strong>Life Stage:</strong> <span id="lifeStageResult">—</span></p>
+            <p><strong>Expected Lifespan:</strong> <span id="expectedLifespan">—</span></p>
+            <p style="margin-top:1rem;font-size:0.875rem;color:var(--pcc-text-muted);">Formula: Human Age = 16 × ln(dog age) + 31, adjusted for breed size. Based on research published in Cell Systems. Small dogs age slower after year 2; giant dogs age significantly faster.</p>
+          </div>
+        </div>
+
+        <!-- Life Stage Progress Bar -->
+        <div class="pcc-chart-container" style="margin-top:1.5rem;">
+          <h4 style="margin-bottom:1rem;">Life Stage Progress</h4>
+          <div id="lifeStageProgress" style="display:none;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;font-size:0.875rem;font-weight:600;">
+              <span>Puppy</span><span>Adult</span><span>Senior</span>
+            </div>
+            <div style="width:100%;height:24px;background:var(--pcc-bg-alt);border-radius:12px;overflow:hidden;">
+              <div id="progressBar" style="width:0%;height:100%;background:linear-gradient(90deg, var(--pcc-accent), var(--pcc-primary));border-radius:12px;transition:width 1s ease;"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:0.5rem;font-size:0.8125rem;color:var(--pcc-text-muted);">
+              <span>0 yrs</span><span id="progressMidLabel">Mid</span><span id="progressEndLabel">End</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline Visualization -->
+    <div class="pcc-mt-xl" id="ageTimelineSection" style="display:none;">
+      <h3 style="margin-bottom:1.5rem;">Your Dog's Life Timeline</h3>
+      <div class="pcc-timeline" id="ageTimeline"></div>
+    </div>
+
+    <!-- History -->
+    <div class="pcc-mt-xl">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h3>Saved Dogs</h3>
+        <div style="display:flex;gap:0.5rem;">
+          <button onclick="exportAgeCSV()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Export CSV</button>
+          <button onclick="clearAgeHistory()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Clear All</button>
+        </div>
+      </div>
+      <div id="ageHistoryContainer">
+        <table class="pcc-history-table" id="ageHistoryTable">
+          <thead><tr><th>Date</th><th>Name</th><th>Dog Age</th><th>Breed</th><th>Human Age</th><th>Life Stage</th><th>Actions</th></tr></thead>
+          <tbody id="ageHistoryTableBody"></tbody>
+        </table>
+        <p id="ageNoHistory" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">No dogs saved yet. Calculate your dog's age above.</p>
+      </div>
+    </div>
+
+    <!-- Compare -->
+    <div class="pcc-mt-xl">
+      <h3 style="margin-bottom:1rem;">Compare Multiple Dogs</h3>
+      <div id="ageCompareContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;"></div>
+      <p id="ageNoCompare" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">Add at least 2 dogs to compare ages.</p>
+    </div>
+
+    
+
+<!-- Ad Slot: Tool Middle -->
+<div class="pcc-ad-slot" data-ad-slot="tool_middle"></div>
+
+<div class="pcc-mt-2xl">
+      <div class="pcc-article-footer-grid">
+        <div class="pcc-article-footer-section">
+          <!-- Ad Slot: Tool Middle -->
+
+
+<h3>Related Articles</h3>
+          <ul class="pcc-related-articles-list">
+            <li><a href="../blog/dog-years-myth.html">The Day I Realized 'Dog Years' Is a Lie</a><span>June 1, 2026</span></li>
+            <li><a href="../blog/puppy-feeding-guide.html">Raising Gus: What I Learned Feeding a Puppy</a><span>May 12, 2026</span></li>
+          </ul>
+        </div>
+        <div class="pcc-article-footer-section">
+          <h3>Recommended Tools</h3>
+          <ul class="pcc-recommended-tools-list">
+            <li><a href="./dog-calorie-calculator.html"><span class="pcc-tool-mini-icon">🐕</span><span class="pcc-tool-mini-title">Dog Calorie Calculator</span></a></li>
+            <li><a href="./pet-bmi-calculator.html"><span class="pcc-tool-mini-icon">⚖️</span><span class="pcc-tool-mini-title">Pet BMI Calculator</span></a></li>
+            <li><a href="./pet-cost-estimator.html"><span class="pcc-tool-mini-icon">💰</span><span class="pcc-tool-mini-title">Pet Cost Estimator</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1.5rem;background:var(--pcc-bg-alt);border-radius:var(--pcc-radius-lg);font-size:0.9375rem;color:var(--pcc-text-muted);">
+      <strong style="color:var(--pcc-text);">
+
+<!-- Ad Slot: Tool Bottom -->
+<div class="pcc-ad-slot" data-ad-slot="tool_bottom"></div>
+Disclaimer:</strong> This calculator uses the formula Human Age = 16 × ln(dog age) + 31, adjusted for breed size based on epigenetic clock research published in Cell Systems. This is an estimate for informational purposes and not a replacement for veterinary assessment of your dog's actual health and aging status.
+    </div>
+  </div>
+</section>
+
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Service</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+<script>
+const AGE_STORAGE = 'pcc_dog_age_history';
+
+function loadAgeHistory() { try { return JSON.parse(localStorage.getItem(AGE_STORAGE)) || []; } catch { return []; } }
+function saveAgeHistory(data) { localStorage.setItem(AGE_STORAGE, JSON.stringify(data)); }
+
+function calculateDogAge() {
+  const name = document.getElementById('ageDogName').value.trim() || 'Unnamed Dog';
+  const years = parseFloat(document.getElementById('dogAgeYears').value) || 0;
+  const months = parseFloat(document.getElementById('dogAgeMonths').value) || 0;
+  const breedSize = document.getElementById('ageBreedSize').value;
+
+  if (years < 0 || months < 0 || months > 11 || (!years && !months) || !breedSize) {
+    alert('Please enter a valid age and select breed size.');
+    return;
+  }
+
+  const totalYears = years + months / 12;
+
+  // Base formula: Human Age = 16 * ln(dog age) + 31
+  let humanAge = 16 * Math.log(totalYears) + 31;
+
+  // Breed size adjustments
+  const breedAdjustments = { 'small': 0.85, 'medium': 1.0, 'large': 1.15, 'giant': 1.3 };
+  humanAge *= (breedAdjustments[breedSize] || 1.0);
+
+  // For puppies under 1 year, use simplified linear mapping
+  if (totalYears < 1) {
+    humanAge = totalYears * 15; // First year = 15 human years
+  } else if (totalYears < 2) {
+    humanAge = 15 + (totalYears - 1) * 9; // Second year = +9
+  }
+
+  humanAge = Math.round(humanAge);
+
+  // Life stage
+  let lifeStage = '';
+  let lifespan = 0;
+  const lifespans = { 'small': 16, 'medium': 13, 'large': 11, 'giant': 9 };
+  lifespan = lifespans[breedSize] || 12;
+
+  if (totalYears < 0.5) lifeStage = 'Neonate';
+  else if (totalYears < 1) lifeStage = 'Puppy';
+  else if (totalYears < 2) lifeStage = 'Adolescent';
+  else if (totalYears < 7) lifeStage = 'Adult';
+  else if (totalYears < 10) lifeStage = 'Mature';
+  else if (totalYears < lifespan * 0.75) lifeStage = 'Senior';
+  else lifeStage = 'Geriatric';
+
+  // Display results
+  document.getElementById('ageResult').classList.add('pcc-result-visible');
+  document.getElementById('humanAgeResult').textContent = humanAge;
+  document.getElementById('inputDogAge').textContent = totalYears.toFixed(1) + ' years';
+  document.getElementById('inputBreedSize').textContent = breedSize.charAt(0).toUpperCase() + breedSize.slice(1);
+  document.getElementById('lifeStageResult').textContent = lifeStage;
+  document.getElementById('expectedLifespan').textContent = lifespan + ' years (typical for ' + breedSize + ' breeds)';
+
+  // Progress bar
+  document.getElementById('lifeStageProgress').style.display = 'block';
+  const progressPct = Math.min((totalYears / lifespan) * 100, 100);
+  setTimeout(() => {
+    document.getElementById('progressBar').style.width = progressPct + '%';
+  }, 100);
+  document.getElementById('progressMidLabel').textContent = (lifespan / 2).toFixed(0) + ' yrs';
+  document.getElementById('progressEndLabel').textContent = lifespan + ' yrs';
+
+  // Timeline
+  document.getElementById('ageTimelineSection').style.display = 'block';
+  const timeline = document.getElementById('ageTimeline');
+  const stages = [
+    { age: 0, label: 'Birth', desc: 'Neonate stage. Eyes and ears open around 2-3 weeks.' },
+    { age: 0.5, label: '6 Months', desc: 'Halfway through puppyhood. Teething complete. Socialization critical period.' },
+    { age: 1, label: '1 Year', desc: 'Physically mature for small breeds. Large breeds still growing. Human age equivalent: ~15 years.' },
+    { age: 2, label: '2 Years', desc: 'Fully mature for most breeds. Prime adult years begin. Human age equivalent: ~24 years.' },
+    { age: 5, label: '5 Years', desc: 'Mid-life for most breeds. Regular health screenings recommended. Human age equivalent: ~' + Math.round(16 * Math.log(5) + 31) + ' years.' },
+    { age: 7, label: '7 Years', desc: 'Senior status begins for large breeds. Consider senior diet and more frequent vet visits.' },
+    { age: 10, label: '10 Years', desc: 'Senior/geriatric for most breeds. Joint supplements and dental care become critical.' },
+    { age: lifespan, label: lifespan + ' Years', desc: 'Typical maximum lifespan for ' + breedSize + ' breeds. Some individuals live longer with excellent care.' }
+  ];
+
+  timeline.innerHTML = stages.map(s => `
+    <div class="pcc-timeline-item">
+      <div class="pcc-timeline-date">${s.age === 0 ? 'Birth' : s.age + ' years'}</div>
+      <div class="pcc-timeline-content">
+        <strong>${s.label}</strong><br>
+        ${s.desc}
+      </div>
+    </div>
+  `).join('');
+
+  // Save history
+  const history = loadAgeHistory();
+  history.unshift({
+    id: Date.now(), date: new Date().toLocaleDateString(), name: name,
+    dogAge: totalYears.toFixed(1), breed: breedSize, humanAge: humanAge,
+    lifeStage: lifeStage, lifespan: lifespan
+  });
+  if (history.length > 50) history.pop();
+  saveAgeHistory(history);
+  renderAgeHistory();
+  renderAgeCompare();
+}
+
+function renderAgeHistory() {
+  const history = loadAgeHistory();
+  const tbody = document.getElementById('ageHistoryTableBody');
+  const noHistory = document.getElementById('ageNoHistory');
+  const breedLabels = {'small':'Small','medium':'Medium','large':'Large','giant':'Giant'};
+  if (history.length === 0) {
+    tbody.innerHTML = ''; noHistory.style.display = 'block';
+    document.getElementById('ageHistoryTable').style.display = 'none'; return;
+  }
+  noHistory.style.display = 'none';
+  document.getElementById('ageHistoryTable').style.display = 'table';
+  tbody.innerHTML = history.map(item => `
+    <tr>
+      <td>${item.date}</td><td>${item.name}</td><td>${item.dogAge} yrs</td>
+      <td>${breedLabels[item.breed] || item.breed}</td>
+      <td><strong>${item.humanAge}</strong></td><td>${item.lifeStage}</td>
+      <td><button onclick="deleteAgeEntry(${item.id})" style="background:none;border:none;color:var(--pcc-danger);cursor:pointer;font-size:0.875rem;">Delete</button></td>
+    </tr>
+  `).join('');
+}
+
+function renderAgeCompare() {
+  const history = loadAgeHistory();
+  const container = document.getElementById('ageCompareContainer');
+  const noCompare = document.getElementById('ageNoCompare');
+  if (history.length < 2) { container.innerHTML = ''; noCompare.style.display = 'block'; return; }
+  noCompare.style.display = 'none';
+  container.innerHTML = history.slice(0, 4).map(item => `
+    <div style="background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);padding:1.5rem;text-align:center;">
+      <div style="font-size:1.5rem;margin-bottom:0.5rem;">🐕</div>
+      <h4 style="margin-bottom:0.25rem;">${item.name}</h4>
+      <p style="font-size:0.875rem;color:var(--pcc-text-muted);margin-bottom:1rem;">${item.dogAge} dog yrs · ${item.breed}</p>
+      <div style="font-family:var(--pcc-font-heading);font-size:2.5rem;font-weight:700;color:var(--pcc-primary);">${item.humanAge}</div>
+      <div style="font-size:0.875rem;color:var(--pcc-text-muted);">human years</div>
+      <div style="margin-top:0.75rem;font-size:0.8125rem;color:var(--pcc-text-light);">${item.lifeStage}</div>
+    </div>
+  `).join('');
+}
+
+function deleteAgeEntry(id) {
+  let history = loadAgeHistory();
+  history = history.filter(h => h.id !== id);
+  saveAgeHistory(history);
+  renderAgeHistory(); renderAgeCompare();
+}
+
+function clearAgeForm() {
+  document.getElementById('ageDogName').value = '';
+  document.getElementById('dogAgeYears').value = '';
+  document.getElementById('dogAgeMonths').value = '';
+  document.getElementById('ageBreedSize').value = '';
+  document.getElementById('ageResult').classList.remove('pcc-result-visible');
+  document.getElementById('humanAgeResult').textContent = '—';
+  document.getElementById('lifeStageProgress').style.display = 'none';
+  document.getElementById('ageTimelineSection').style.display = 'none';
+}
+
+function clearAgeHistory() {
+  if (confirm('Clear all saved dogs?')) {
+    localStorage.removeItem(AGE_STORAGE);
+    renderAgeHistory(); renderAgeCompare();
+  }
+}
+
+function exportAgeCSV() {
+  const history = loadAgeHistory();
+  if (history.length === 0) { alert('No history to export.'); return; }
+  const headers = ['Date', 'Name', 'Dog Age', 'Breed Size', 'Human Age', 'Life Stage', 'Expected Lifespan'];
+  const rows = history.map(h => [h.date, h.name, h.dogAge, h.breed, h.humanAge, h.lifeStage, h.lifespan]);
+  const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'dog-age-history.csv'; a.click(); URL.revokeObjectURL(url);
+}
+
+renderAgeHistory(); renderAgeCompare();
+
+
+function shareTool(platform) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  let shareUrl = '';
+  switch(platform) {
+    case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title; break;
+    case 'facebook': shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url; break;
+    case 'reddit': shareUrl = 'https://reddit.com/submit?url=' + url + '&title=' + title; break;
+    case 'email': shareUrl = 'mailto:?subject=' + title + '&body=' + url; break;
+    case 'copy':
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          var msg = document.getElementById('shareCopiedMsg');
+          if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = window.location.href;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        var msg = document.getElementById('shareCopiedMsg');
+        if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+      }
+      return;
+  }
+  if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+}
+
+</script>
 </body>
 </html>
