@@ -1,72 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About PetCalCentral | The Person Behind the Calculators</title>
-    <meta name="description" content="I built PetCalCentral because my dog got fat and my cat wouldn't stop knocking things off my desk. Here's the full story.">
-    <meta property="og:title" content="About PetCalCentral | The Person Behind the Calculators">
-    <meta property="og:description" content="I built PetCalCentral because my dog got fat. Here's the full story.">
-    <meta property="og:url" content="https://petcalcentral.com/about.html">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="About PetCalCentral">
-    <meta name="twitter:description" content="I built this site because my dog got fat.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',brandDark:'#15803d',warm:'#fef9ef'}}}}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About PetCalCentral | The Person Behind the Calculators</title>
+<meta name="description" content="Meet Ethan Barrett — IT guy in Denver who built PetCalCentral after his golden retriever Gus hit 85 pounds and his vet raised an eyebrow. Not a vet. Just a spreadsheet addict.">
+<link rel="canonical" href="https://petcalcentral.com/about.html">
+<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+<link rel="stylesheet" href="./style.css">
+
+<!-- Open Graph -->
+<meta property="og:title" content="About PetCalCentral | The Person Behind the Calculators">
+<meta property="og:description" content="Meet Ethan Barrett — IT guy in Denver who built PetCalCentral after his golden retriever Gus hit 85 pounds.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://petcalcentral.com/about.html">
+<meta property="og:image" content="https://petcalcentral.com/images/about/author-ethan-barrett.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About PetCalCentral | The Person Behind the Calculators">
+<meta name="twitter:description" content="Meet Ethan Barrett — IT guy in Denver who built PetCalCentral after his golden retriever Gus hit 85 pounds.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/about/author-ethan-barrett.jpg">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Ethan Barrett",
+    "jobTitle": "IT Systems Administrator & Pet Health Calculator Developer",
+    "url": "https://petcalcentral.com/about.html",
+    "image": "https://petcalcentral.com/images/about/author-ethan-barrett.jpg",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "University of Colorado Boulder",
+      "sameAs": "https://www.colorado.edu/"
+    },
+    "knowsAbout": [
+      "Pet Nutrition",
+      "Pet Weight Management",
+      "Dog Care",
+      "Cat Care",
+      "Pet Health Calculators"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "PetCalCentral",
+      "url": "https://petcalcentral.com/"
+    },
+    "description": "IT Systems Administrator in Denver, Colorado. Built PetCalCentral after struggling to manage his golden retriever Gus's weight. Not a veterinarian."
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://petcalcentral.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://petcalcentral.com/about.html"
+    }
+  ]
+}
+</script>
 </head>
-<body class="bg-white text-gray-800">
+<body>
 
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
-        <nav class="hidden md:flex space-x-6 text-sm font-medium">
-            <a href="/">Home</a><a href="/tools/">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html" class="text-brand font-semibold">About</a>
-        </nav>
-    </div>
-</header>
+<!-- Navigation -->
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="./index.html" class="pcc-nav-brand">
+      <span class="pcc-nav-brand-icon">🐾</span>
+      <span>PetCalCentral</span>
+    </a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">
+      ☰
+    </button>
+    <ul class="pcc-nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./tools/index.html">Tools</a></li>
+      <li><a href="./blog/index.html">Blog</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
 
-<main class="max-w-3xl mx-auto px-4 py-16">
-    <h1 class="text-4xl font-extrabold mb-6">About This Site</h1>
+<!-- Breadcrumb -->
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="./index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">About</span>
+  </nav>
+</div>
 
-    <div class="prose max-w-none text-lg leading-relaxed space-y-5">
-        <p>Gus got fat.</p>
+<!-- About Content -->
+<section class="pcc-section">
+  <div class="pcc-container">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;">
+      <!-- Author Photo -->
+      <div style="position:sticky;top:100px;">
+        <img src="./images/about/author-ethan-barrett.jpg" alt="Ethan Barrett with Gus and Mochi in Denver" width="400" height="500" loading="lazy" style="border-radius:20px;box-shadow:0 16px 48px rgba(45,90,61,0.12);">
+        <div style="margin-top:1.5rem;text-align:center;">
+          <h3 style="margin-bottom:0.25rem;">Ethan Barrett</h3>
+          <p style="font-size:0.875rem;color:var(--pcc-text-muted);">Denver, Colorado</p>
+        </div>
+      </div>
 
-        <p>That's how this started. My golden retriever hit 85 pounds. The vet raised an eyebrow and said something about "golden receivers." I went home, made a spreadsheet, and built a calorie calculator that night. It was ugly. It worked.</p>
+      <!-- Author Story -->
+      <div>
+        <h1 style="font-size:2.5rem;margin-bottom:1.5rem;">Gus Got Fat. That's How This Started.</h1>
+
+        <p>My golden retriever hit 85 pounds. The vet raised an eyebrow and said something about "golden receivers." I went home, made a spreadsheet, and built a calorie calculator that night. It was ugly. It worked.</p>
 
         <p>Then friends at the dog park wanted it. Then strangers on Reddit. Then a cat owner asked for a feline version. Mochi — my British Shorthair who came from a hoarding situation — was 15 pounds at the time and the vet had just called her "obese." So I built that one too.</p>
 
         <p>One tool became five. Spreadsheets became a website. PetCalCentral is what happened when I stopped googling "best dog food" at midnight and started building the thing I actually needed.</p>
 
-        <h2 class="text-2xl font-bold mt-10">What This Site Is</h2>
-        <p>A collection of free pet health calculators. Dog calories. Cat portions. Age conversion. BMI estimates. Water intake. All based on published veterinary research — APOP guidelines, AAHA recommendations. No accounts. No paywalls. No "sign up for our newsletter."</p>
+        <h2 style="margin-top:2.5rem;">What This Site Is</h2>
+        <p>A collection of free pet health calculators. Dog calories. Cat portions. Age conversion. BMI estimates. Water intake. Annual cost estimates. All based on published veterinary research — APOP guidelines, AAHA recommendations, Cell Systems epigenetic clock research. No accounts. No paywalls. No "sign up for our newsletter."</p>
 
-        <h2 class="text-2xl font-bold mt-10">What This Site Is Not</h2>
-        <p>Veterinary advice. I'm not a vet. I'm an IT guy in Denver who got a puppy on impulse in 2022 and spent two years googling things at 2 AM. If your pet is sick, call a professional. If you want a starting point for a conversation with that professional, use our tools.</p>
+        <h2 style="margin-top:2.5rem;">What This Site Is Not</h2>
+        <p>Veterinary advice. I'm not a vet. I'm an IT systems administrator in Denver who got a puppy on impulse in 2022 and spent two years googling things at 2 AM. If your pet is sick, call a professional. If you want a starting point for a conversation with that professional, use our tools.</p>
 
-        <p>Some links on this site are affiliate links. If you buy something through them, I may earn a small commission at no extra cost to you. I only recommend products I've actually used on Gus or Mochi. Read the <a href="/disclosure.html" class="text-brand underline">full disclosure</a> if you want the details.</p>
+        <h2 style="margin-top:2.5rem;">My Background</h2>
+        <p>I graduated from the <strong>University of Colorado Boulder</strong> in 2014 with a Bachelor of Science in Computer Science. I've spent the last decade working as an IT systems administrator, mostly remote, which means I have the flexibility to take Gus to the vet at 10:30 AM on a Tuesday when he decides to eat a crayon.</p>
 
-        <h2 class="text-2xl font-bold mt-10">The Animals</h2>
-        <p><strong>Gus</strong> — Golden retriever, 4 years old. Weighed 85 pounds, now 78. Goal weight 75. His greatest predator is the vacuum cleaner. He once ate a crayon. He's currently dreaming about tater tots he stole off someone's plate at a brewery in RiNo.</p>
+        <p>My expertise in pet health comes from four years of hands-on experience, hundreds of hours reading veterinary nutrition guidelines, and a lot of very direct conversations with Dr. Patel (Mochi's vet at Boulder Veterinary Hospital) and Dr. Martinez (Gus's vet at Denver Animal Care). I don't have a DVM. I have a spreadsheet and a lot of anxiety.</p>
 
-        <p><strong>Mochi</strong> — British Shorthair, adopted June 2024 from a hoarding situation. Was 15.2 pounds when Dr. Patel called her obese. Now around 10.2 after a year of measured meals and a $7 wand toy from Chewy. She knocks things off my desk when I write. She's on the desk right now.</p>
+        <h2 style="margin-top:2.5rem;">The Animals</h2>
 
-        <p>— I live in Denver with both of them. Gus is chewing something. I should go check.</p>
+        <div style="background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);padding:1.5rem;margin:1.5rem 0;">
+          <h4 style="margin-bottom:0.5rem;">🐕 Gus — Golden Retriever, 4 years old</h4>
+          <p style="margin-bottom:0.5rem;">Weighed 85 pounds, now 78. Goal weight 75. His greatest predator is the vacuum cleaner. He once ate a crayon. He's currently dreaming about tater tots he stole off someone's plate at a brewery in RiNo.</p>
+        </div>
 
-        <p class="mt-6">📧 <a href="mailto:hello@petcalcentral.com" class="text-brand underline">hello@petcalcentral.com</a></p>
+        <div style="background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);padding:1.5rem;margin:1.5rem 0;">
+          <h4 style="margin-bottom:0.5rem;">🐈 Mochi — British Shorthair, adopted June 2024</h4>
+          <p style="margin-bottom:0.5rem;">Came from a hoarding situation — forty cats in a two-bedroom apartment. Was 15.2 pounds when Dr. Patel called her obese. Now around 10.2 after a year of measured meals and a $7 wand toy from Chewy. She knocks things off my desk when I write. She's on the desk right now.</p>
+        </div>
+
+        <p>I live in Denver with both of them. Gus is chewing something. I should go check.</p>
+
+        <p style="margin-top:2rem;"><strong>Some links on this site are affiliate links.</strong> If you buy something through them, I may earn a small commission at no extra cost to you. I only recommend products I've actually used on Gus or Mochi. Read the full <a href="./disclosure.html">affiliate disclosure</a> if you want the details.</p>
+      </div>
     </div>
-</main>
+  </div>
+</section>
 
-<footer class="bg-gray-900 text-gray-400 py-12 mt-12">
-    <div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4">
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
-        <a href="/terms.html" class="hover:text-white">Terms</a>
-        <a href="/disclaimer.html" class="hover:text-white">Disclaimer</a>
-        <a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a>
-        <a href="/sitemap.html" class="hover:text-white">Sitemap</a>
-        <p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p>
+<!-- Ad Slot: About Bottom -->
+<div class="pcc-ad-slot" data-ad-slot="about_bottom"></div>
+
+<!-- Footer -->
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM. Not a vet. Just a spreadsheet addict with two pets.</p>
     </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./tools/dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./tools/cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./tools/dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./tools/pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./tools/pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./tools/pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
+        <li><a href="./blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./privacy.html">Privacy Policy</a></li>
+        <li><a href="./terms.html">Terms of Service</a></li>
+        <li><a href="./disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="./disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
 </footer>
 
+<script src="./ads-loader.js"></script>
 </body>
 </html>
