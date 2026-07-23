@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Cost Estimator — PetCalCentral</title>
+<meta name="description" content="Calculate your annual pet budget: food, vet visits, insurance, toys, emergencies. Compare different scenarios and export your budget plan.">
+<link rel="canonical" href="https://petcalcentral.com/tools/pet-cost-estimator.html">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../style.css">
+<meta property="og:title" content="Pet Cost Estimator — PetCalCentral">
+<meta property="og:description" content="Calculate your annual pet budget: food, vet visits, insurance, toys, emergencies. Compare scenarios and export your budget plan.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/tools/pet-cost-estimator.html">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pet Cost Estimator — PetCalCentral">
+<meta name="twitter:description" content="Calculate your annual pet budget: food, vet visits, insurance, toys, emergencies.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pet Cost Estimator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "url": "https://petcalcentral.com/tools/pet-cost-estimator.html",
+  "description": "Calculate annual pet costs including food, vet visits, insurance, toys, and emergencies. Compare scenarios and export budget plans.",
+  "author": {"@type": "Person", "name": "Ethan Barrett"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petcalcentral.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://petcalcentral.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Pet Cost Estimator", "item": "https://petcalcentral.com/tools/pet-cost-estimator.html"}
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="../index.html" class="pcc-nav-brand"><span class="pcc-nav-brand-icon">🐾</span><span>PetCalCentral</span></a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">☰</button>
+    <ul class="pcc-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="./index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Ad Slot: Tool Top -->
+<div class="pcc-ad-slot" data-ad-slot="tool_top"></div>
+
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">Pet Cost Estimator</span>
+  </nav>
+</div>
+<section class="pcc-tool-page">
+  <div class="pcc-container">
+    <div class="pcc-tool-header">
+      <h1>💰 Pet Cost Estimator</h1>
+      <p>Food, vet visits, insurance, toys, emergencies — calculate your annual pet budget before you panic. Compare different scenarios and export your budget plan. I spent $300 on a smart litter box and $0 on therapy. Let me help you avoid my mistakes.</p>
+    </div>
+    <!-- Share Bar -->
+    <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0;padding:1rem 1.25rem;background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);" class="pcc-share-bar">
+      <span style="font-weight:600;font-size:0.9375rem;color:var(--pcc-text);">Share this tool:</span>
+      <button onclick="shareTool('copy')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">📋 Copy</button>
+      <button onclick="shareTool('twitter')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">𝕏 Post</button>
+      <button onclick="shareTool('facebook')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">f Share</button>
+      <button onclick="shareTool('reddit')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">🤖 Reddit</button>
+      <button onclick="shareTool('email')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">✉️ Email</button>
+      <span id="shareCopiedMsg" style="font-size:0.8125rem;color:var(--pcc-success);font-weight:600;opacity:0;transition:opacity 0.3s;">✓ Copied!</span>
+    </div>
+
+    <!-- Split Screen Layout J -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+      <!-- Scenario A -->
+      <div class="pcc-tool-form">
+        <h3 style="margin-bottom:1.5rem;">Scenario A: Basic Care</h3>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costPetTypeA">Pet Type</label>
+          <select id="costPetTypeA" class="pcc-form-select">
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costSizeA">Size / Breed</label>
+          <select id="costSizeA" class="pcc-form-select">
+            <option value="small">Small (under 20 lbs)</option>
+            <option value="medium">Medium (20-50 lbs)</option>
+            <option value="large">Large (50-90 lbs)</option>
+            <option value="giant">Giant (over 90 lbs)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costAgeA">Age</label>
+          <select id="costAgeA" class="pcc-form-select">
+            <option value="puppy">Puppy / Kitten (0-1 year)</option>
+            <option value="adult">Adult (1-7 years)</option>
+            <option value="senior">Senior (7+ years)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costFoodA">Food Quality</label>
+          <select id="costFoodA" class="pcc-form-select">
+            <option value="budget">Budget ($1-2/day)</option>
+            <option value="mid">Mid-Range ($2-4/day)</option>
+            <option value="premium">Premium ($4-7/day)</option>
+            <option value="raw">Raw / Fresh ($7-12/day)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costInsuranceA">Pet Insurance</label>
+          <select id="costInsuranceA" class="pcc-form-select">
+            <option value="none">No Insurance</option>
+            <option value="basic">Basic Plan ($20-40/mo)</option>
+            <option value="comprehensive">Comprehensive ($40-80/mo)</option>
+            <option value="premium">Premium ($80-150/mo)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costGroomingA">Grooming Frequency</label>
+          <select id="costGroomingA" class="pcc-form-select">
+            <option value="none">Self-Groom / None</option>
+            <option value="occasional">Occasional ($30-50/visit, 4x/year)</option>
+            <option value="regular">Regular ($40-70/visit, monthly)</option>
+            <option value="frequent">Frequent ($50-100/visit, bi-weekly)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Scenario B -->
+      <div class="pcc-tool-form">
+        <h3 style="margin-bottom:1.5rem;">Scenario B: Premium Care</h3>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costPetTypeB">Pet Type</label>
+          <select id="costPetTypeB" class="pcc-form-select">
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costSizeB">Size / Breed</label>
+          <select id="costSizeB" class="pcc-form-select">
+            <option value="small">Small (under 20 lbs)</option>
+            <option value="medium">Medium (20-50 lbs)</option>
+            <option value="large">Large (50-90 lbs)</option>
+            <option value="giant">Giant (over 90 lbs)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costAgeB">Age</label>
+          <select id="costAgeB" class="pcc-form-select">
+            <option value="puppy">Puppy / Kitten (0-1 year)</option>
+            <option value="adult">Adult (1-7 years)</option>
+            <option value="senior">Senior (7+ years)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costFoodB">Food Quality</label>
+          <select id="costFoodB" class="pcc-form-select">
+            <option value="budget">Budget ($1-2/day)</option>
+            <option value="mid">Mid-Range ($2-4/day)</option>
+            <option value="premium">Premium ($4-7/day)</option>
+            <option value="raw">Raw / Fresh ($7-12/day)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costInsuranceB">Pet Insurance</label>
+          <select id="costInsuranceB" class="pcc-form-select">
+            <option value="none">No Insurance</option>
+            <option value="basic">Basic Plan ($20-40/mo)</option>
+            <option value="comprehensive">Comprehensive ($40-80/mo)</option>
+            <option value="premium">Premium ($80-150/mo)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="costGroomingB">Grooming Frequency</label>
+          <select id="costGroomingB" class="pcc-form-select">
+            <option value="none">Self-Groom / None</option>
+            <option value="occasional">Occasional ($30-50/visit, 4x/year)</option>
+            <option value="regular">Regular ($40-70/visit, monthly)</option>
+            <option value="frequent">Frequent ($50-100/visit, bi-weekly)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin:2rem 0;">
+      <button onclick="calculateCost()" class="pcc-btn pcc-btn-primary" style="font-size:1.125rem;padding:1rem 2.5rem;">Compare Scenarios</button>
+      <button onclick="clearCostForm()" class="pcc-btn pcc-btn-secondary" style="margin-left:1rem;">Reset</button>
+    </div>
+
+    <!-- Results: Split Screen -->
+    <div id="costResults" style="display:none;">
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:1.5rem;align-items:start;">
+        <!-- Result A -->
+        <div class="pcc-tool-form" style="text-align:center;">
+          <h3 style="color:var(--pcc-primary);margin-bottom:1rem;">Scenario A</h3>
+          <div class="pcc-result-number" id="costTotalA" style="font-size:2.5rem;">$0</div>
+          <div class="pcc-result-label">Annual Total</div>
+          <div style="margin-top:1.5rem;text-align:left;">
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Food</span><strong id="costFoodTotalA">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Vet / Wellness</span><strong id="costVetTotalA">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Insurance</span><strong id="costInsuranceTotalA">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Grooming</span><strong id="costGroomingTotalA">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Toys / Supplies</span><strong id="costToysTotalA">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;">
+              <span>Emergency Fund</span><strong id="costEmergencyTotalA">$0</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle: Difference -->
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;">↔️</div>
+          <div id="costDifference" style="font-family:var(--pcc-font-heading);font-size:2rem;font-weight:700;color:var(--pcc-accent);">$0</div>
+          <div style="font-size:0.875rem;color:var(--pcc-text-muted);margin-top:0.5rem;">Difference</div>
+          <div id="costDiffPercent" style="font-size:0.875rem;color:var(--pcc-text-muted);margin-top:0.25rem;">0%</div>
+          <div style="margin-top:1.5rem;">
+            <button onclick="exportCostReport()" class="pcc-btn pcc-btn-sm pcc-btn-accent">Export Report</button>
+          </div>
+        </div>
+
+        <!-- Result B -->
+        <div class="pcc-tool-form" style="text-align:center;">
+          <h3 style="color:var(--pcc-primary);margin-bottom:1rem;">Scenario B</h3>
+          <div class="pcc-result-number" id="costTotalB" style="font-size:2.5rem;">$0</div>
+          <div class="pcc-result-label">Annual Total</div>
+          <div style="margin-top:1.5rem;text-align:left;">
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Food</span><strong id="costFoodTotalB">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Vet / Wellness</span><strong id="costVetTotalB">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Insurance</span><strong id="costInsuranceTotalB">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Grooming</span><strong id="costGroomingTotalB">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--pcc-border);">
+              <span>Toys / Supplies</span><strong id="costToysTotalB">$0</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0.5rem 0;">
+              <span>Emergency Fund</span><strong id="costEmergencyTotalB">$0</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="pcc-chart-container" style="margin-top:2rem;">
+        <h4 style="margin-bottom:1rem;text-align:center;">Cost Breakdown Comparison</h4>
+        <canvas id="costChart" width="800" height="350"></canvas>
+      </div>
+    </div>
+
+    <div class="pcc-mt-xl">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h3>Saved Estimates</h3>
+        <div style="display:flex;gap:0.5rem;">
+          <button onclick="exportCostCSV()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Export CSV</button>
+          <button onclick="clearCostHistory()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Clear All</button>
+        </div>
+      </div>
+      <div id="costHistoryContainer">
+        <table class="pcc-history-table" id="costHistoryTable">
+          <thead><tr><th>Date</th><th>Scenario A</th><th>Scenario B</th><th>Difference</th><th>Actions</th></tr></thead>
+          <tbody id="costHistoryTableBody"></tbody>
+        </table>
+        <p id="costNoHistory" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">No estimates saved yet. Compare scenarios above.</p>
+      </div>
+    </div>
+
+    
+
+<!-- Ad Slot: Tool Middle -->
+<div class="pcc-ad-slot" data-ad-slot="tool_middle"></div>
+
+<div class="pcc-mt-2xl">
+      <div class="pcc-article-footer-grid">
+        <div class="pcc-article-footer-section">
+          <!-- Ad Slot: Tool Middle -->
+
+
+<h3>Related Articles</h3>
+          <ul class="pcc-related-articles-list">
+            <li><a href="../blog/dog-annual-cost.html">I Calculated How Much Gus Costs Me Per Year</a><span>June 1, 2026</span></li>
+            <li><a href="../blog/second-pet-lessons.html">What I Wish I Knew Before Adopting a Second Pet</a><span>June 1, 2026</span></li>
+          </ul>
+        </div>
+        <div class="pcc-article-footer-section">
+          <h3>Recommended Tools</h3>
+          <ul class="pcc-recommended-tools-list">
+            <li><a href="./dog-calorie-calculator.html"><span class="pcc-tool-mini-icon">🐕</span><span class="pcc-tool-mini-title">Dog Calorie Calculator</span></a></li>
+            <li><a href="./cat-calorie-calculator.html"><span class="pcc-tool-mini-icon">🐈</span><span class="pcc-tool-mini-title">Cat Calorie Calculator</span></a></li>
+            <li><a href="./pet-bmi-calculator.html"><span class="pcc-tool-mini-icon">⚖️</span><span class="pcc-tool-mini-title">Pet BMI Calculator</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1.5rem;background:var(--pcc-bg-alt);border-radius:var(--pcc-radius-lg);font-size:0.9375rem;color:var(--pcc-text-muted);">
+      <strong style="color:var(--pcc-text);">
+
+<!-- Ad Slot: Tool Bottom -->
+<div class="pcc-ad-slot" data-ad-slot="tool_bottom"></div>
+Disclaimer:</strong> Cost estimates are based on 2026 U.S. national averages and may vary significantly by location, breed, and individual pet needs. Emergency fund recommendations are estimates only. Actual costs may be higher or lower. This is informational only and not financial advice.
+    </div>
+  </div>
+</section>
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Service</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js"></script>
+<script>
+const COST_STORAGE = 'pcc_cost_history';
+function loadCostHistory() { try { return JSON.parse(localStorage.getItem(COST_STORAGE)) || []; } catch { return []; } }
+function saveCostHistory(data) { localStorage.setItem(COST_STORAGE, JSON.stringify(data)); }
+
+const costData = {
+  food: { budget: { dog: 1.5, cat: 1.2 }, mid: { dog: 3, cat: 2.5 }, premium: { dog: 5.5, cat: 4.5 }, raw: { dog: 9.5, cat: 8 } },
+  vet: { puppy: { dog: 800, cat: 600 }, adult: { dog: 500, cat: 400 }, senior: { dog: 1200, cat: 900 } },
+  insurance: { none: 0, basic: { dog: 30, cat: 25 }, comprehensive: { dog: 60, cat: 50 }, premium: { dog: 115, cat: 95 } },
+  grooming: { none: 0, occasional: { small: 160, medium: 200, large: 280, giant: 360 }, regular: { small: 480, medium: 600, large: 840, giant: 1080 }, frequent: { small: 1200, medium: 1500, large: 2100, giant: 2700 } },
+  toys: { small: 150, medium: 200, large: 300, giant: 400 },
+  emergency: { puppy: 300, adult: 500, senior: 800 }
+};
+
+function calculateScenario(type, size, age, food, insurance, grooming) {
+  const foodDaily = costData.food[food][type] || 3;
+  const foodAnnual = Math.round(foodDaily * 365);
+  const vetAnnual = costData.vet[age][type] || 500;
+  const insuranceMonthly = typeof costData.insurance[insurance] === 'number' ? 0 : (costData.insurance[insurance][type] || 0);
+  const insuranceAnnual = Math.round(insuranceMonthly * 12);
+  const groomingAnnual = typeof costData.grooming[grooming] === 'number' ? 0 : (costData.grooming[grooming][size] || 0);
+  const toysAnnual = costData.toys[size] || 200;
+  const emergencyAnnual = costData.emergency[age] || 500;
+  const total = foodAnnual + vetAnnual + insuranceAnnual + groomingAnnual + toysAnnual + emergencyAnnual;
+  return { food: foodAnnual, vet: vetAnnual, insurance: insuranceAnnual, grooming: groomingAnnual, toys: toysAnnual, emergency: emergencyAnnual, total: total };
+}
+
+function calculateCost() {
+  const a = calculateScenario(
+    document.getElementById('costPetTypeA').value,
+    document.getElementById('costSizeA').value,
+    document.getElementById('costAgeA').value,
+    document.getElementById('costFoodA').value,
+    document.getElementById('costInsuranceA').value,
+    document.getElementById('costGroomingA').value
+  );
+  const b = calculateScenario(
+    document.getElementById('costPetTypeB').value,
+    document.getElementById('costSizeB').value,
+    document.getElementById('costAgeB').value,
+    document.getElementById('costFoodB').value,
+    document.getElementById('costInsuranceB').value,
+    document.getElementById('costGroomingB').value
+  );
+
+  document.getElementById('costResults').style.display = 'block';
+  document.getElementById('costResults').scrollIntoView({ behavior: 'smooth' });
+
+  document.getElementById('costTotalA').textContent = '$' + a.total.toLocaleString();
+  document.getElementById('costFoodTotalA').textContent = '$' + a.food.toLocaleString();
+  document.getElementById('costVetTotalA').textContent = '$' + a.vet.toLocaleString();
+  document.getElementById('costInsuranceTotalA').textContent = '$' + a.insurance.toLocaleString();
+  document.getElementById('costGroomingTotalA').textContent = '$' + a.grooming.toLocaleString();
+  document.getElementById('costToysTotalA').textContent = '$' + a.toys.toLocaleString();
+  document.getElementById('costEmergencyTotalA').textContent = '$' + a.emergency.toLocaleString();
+
+  document.getElementById('costTotalB').textContent = '$' + b.total.toLocaleString();
+  document.getElementById('costFoodTotalB').textContent = '$' + b.food.toLocaleString();
+  document.getElementById('costVetTotalB').textContent = '$' + b.vet.toLocaleString();
+  document.getElementById('costInsuranceTotalB').textContent = '$' + b.insurance.toLocaleString();
+  document.getElementById('costGroomingTotalB').textContent = '$' + b.grooming.toLocaleString();
+  document.getElementById('costToysTotalB').textContent = '$' + b.toys.toLocaleString();
+  document.getElementById('costEmergencyTotalB').textContent = '$' + b.emergency.toLocaleString();
+
+  const diff = Math.abs(a.total - b.total);
+  const pct = a.total > 0 ? Math.round((diff / a.total) * 100) : 0;
+  document.getElementById('costDifference').textContent = '$' + diff.toLocaleString();
+  document.getElementById('costDiffPercent').textContent = pct + '% ' + (b.total > a.total ? 'more' : 'less') + ' for Scenario B';
+
+  drawCostChart(a, b);
+
+  const history = loadCostHistory();
+  history.unshift({
+    id: Date.now(), date: new Date().toLocaleDateString(),
+    totalA: a.total, totalB: b.total, difference: diff,
+    detailsA: a, detailsB: b
+  });
+  if (history.length > 50) history.pop();
+  saveCostHistory(history);
+  renderCostHistory();
+}
+
+function drawCostChart(a, b) {
+  const canvas = document.getElementById('costChart');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr; canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  const w = rect.width, h = rect.height, pad = 60;
+  const categories = ['Food', 'Vet', 'Insurance', 'Grooming', 'Toys', 'Emergency'];
+  const aVals = [a.food, a.vet, a.insurance, a.grooming, a.toys, a.emergency];
+  const bVals = [b.food, b.vet, b.insurance, b.grooming, b.toys, b.emergency];
+  const maxVal = Math.max(...aVals, ...bVals) * 1.2;
+  const barW = (w - pad * 2 - 80) / (categories.length * 2 + categories.length - 1);
+  const groupW = barW * 2 + 20;
+
+  ctx.clearRect(0, 0, w, h);
+
+  categories.forEach((cat, i) => {
+    const x = pad + i * groupW;
+    const aH = (aVals[i] / maxVal) * (h - pad * 2);
+    const bH = (bVals[i] / maxVal) * (h - pad * 2);
+    const ay = h - pad - aH;
+    const by = h - pad - bH;
+
+    ctx.fillStyle = '#2D5A3D';
+    ctx.beginPath(); ctx.roundRect(x, ay, barW, aH, 4); ctx.fill();
+    ctx.fillStyle = '#D4A03D';
+    ctx.beginPath(); ctx.roundRect(x + barW + 4, by, barW, bH, 4); ctx.fill();
+
+    ctx.fillStyle = '#2C2C2C'; ctx.font = '600 12px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(cat, x + barW + 2, h - pad + 20);
+  });
+
+  // Legend
+  ctx.fillStyle = '#2D5A3D'; ctx.fillRect(w - 120, 20, 12, 12);
+  ctx.fillStyle = '#2C2C2C'; ctx.font = '12px Inter, sans-serif'; ctx.textAlign = 'left';
+  ctx.fillText('Scenario A', w - 100, 30);
+  ctx.fillStyle = '#D4A03D'; ctx.fillRect(w - 120, 40, 12, 12);
+  ctx.fillStyle = '#2C2C2C';
+  ctx.fillText('Scenario B', w - 100, 50);
+
+  ctx.strokeStyle = 'rgba(45,90,61,0.1)'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = h - pad - (i / 4) * (h - pad * 2);
+    ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(w - pad, y); ctx.stroke();
+  }
+}
+
+function renderCostHistory() {
+  const history = loadCostHistory();
+  const tbody = document.getElementById('costHistoryTableBody');
+  const noHistory = document.getElementById('costNoHistory');
+  if (history.length === 0) {
+    tbody.innerHTML = ''; noHistory.style.display = 'block';
+    document.getElementById('costHistoryTable').style.display = 'none'; return;
+  }
+  noHistory.style.display = 'none';
+  document.getElementById('costHistoryTable').style.display = 'table';
+  tbody.innerHTML = history.map(item => `
+    <tr>
+      <td>${item.date}</td>
+      <td>$${item.totalA.toLocaleString()}</td>
+      <td>$${item.totalB.toLocaleString()}</td>
+      <td><strong style="color:${item.totalB > item.totalA ? 'var(--pcc-danger)' : 'var(--pcc-success)'}">$${item.difference.toLocaleString()}</strong></td>
+      <td><button onclick="deleteCostEntry(${item.id})" style="background:none;border:none;color:var(--pcc-danger);cursor:pointer;font-size:0.875rem;">Delete</button></td>
+    </tr>
+  `).join('');
+}
+
+function deleteCostEntry(id) {
+  let history = loadCostHistory();
+  history = history.filter(h => h.id !== id);
+  saveCostHistory(history);
+  renderCostHistory();
+}
+
+function clearCostForm() {
+  ['costPetTypeA','costSizeA','costAgeA','costFoodA','costInsuranceA','costGroomingA'].forEach(id => {
+    document.getElementById(id).selectedIndex = 0;
+  });
+  ['costPetTypeB','costSizeB','costAgeB','costFoodB','costInsuranceB','costGroomingB'].forEach(id => {
+    document.getElementById(id).selectedIndex = 0;
+  });
+  document.getElementById('costResults').style.display = 'none';
+}
+
+function clearCostHistory() {
+  if (confirm('Clear all saved estimates?')) {
+    localStorage.removeItem(COST_STORAGE);
+    renderCostHistory();
+  }
+}
+
+function exportCostCSV() {
+  const history = loadCostHistory();
+  if (history.length === 0) { alert('No history to export.'); return; }
+  const headers = ['Date', 'Scenario A Total', 'Scenario B Total', 'Difference', 'A Food', 'A Vet', 'A Insurance', 'A Grooming', 'A Toys', 'A Emergency', 'B Food', 'B Vet', 'B Insurance', 'B Grooming', 'B Toys', 'B Emergency'];
+  const rows = history.map(h => [
+    h.date, h.totalA, h.totalB, h.difference,
+    h.detailsA.food, h.detailsA.vet, h.detailsA.insurance, h.detailsA.grooming, h.detailsA.toys, h.detailsA.emergency,
+    h.detailsB.food, h.detailsB.vet, h.detailsB.insurance, h.detailsB.grooming, h.detailsB.toys, h.detailsB.emergency
+  ]);
+  const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'pet-cost-estimates.csv'; a.click(); URL.revokeObjectURL(url);
+}
+
+function exportCostReport() {
+  const history = loadCostHistory();
+  if (history.length === 0) { alert('Calculate first to generate a report.'); return; }
+  const latest = history[0];
+  const report = `PET COST ESTIMATION REPORT
+Generated: ${new Date().toLocaleString()}
+
+SCENARIO A (Basic Care)
+Total Annual Cost: $${latest.detailsA.total.toLocaleString()}
+- Food: $${latest.detailsA.food.toLocaleString()}
+- Vet/Wellness: $${latest.detailsA.vet.toLocaleString()}
+- Insurance: $${latest.detailsA.insurance.toLocaleString()}
+- Grooming: $${latest.detailsA.grooming.toLocaleString()}
+- Toys/Supplies: $${latest.detailsA.toys.toLocaleString()}
+- Emergency Fund: $${latest.detailsA.emergency.toLocaleString()}
+
+SCENARIO B (Premium Care)
+Total Annual Cost: $${latest.detailsB.total.toLocaleString()}
+- Food: $${latest.detailsB.food.toLocaleString()}
+- Vet/Wellness: $${latest.detailsB.vet.toLocaleString()}
+- Insurance: $${latest.detailsB.insurance.toLocaleString()}
+- Grooming: $${latest.detailsB.grooming.toLocaleString()}
+- Toys/Supplies: $${latest.detailsB.toys.toLocaleString()}
+- Emergency Fund: $${latest.detailsB.emergency.toLocaleString()}
+
+DIFFERENCE: $${latest.difference.toLocaleString()}
+
+Note: Estimates based on 2026 U.S. national averages. Actual costs vary by location and individual pet needs.
+`;
+  const blob = new Blob([report], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'pet-cost-report.txt'; a.click(); URL.revokeObjectURL(url);
+}
+
+renderCostHistory();
+
+
+function shareTool(platform) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  let shareUrl = '';
+  switch(platform) {
+    case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title; break;
+    case 'facebook': shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url; break;
+    case 'reddit': shareUrl = 'https://reddit.com/submit?url=' + url + '&title=' + title; break;
+    case 'email': shareUrl = 'mailto:?subject=' + title + '&body=' + url; break;
+    case 'copy':
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          var msg = document.getElementById('shareCopiedMsg');
+          if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = window.location.href;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        var msg = document.getElementById('shareCopiedMsg');
+        if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+      }
+      return;
+  }
+  if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+}
+
+</script>
+</body>
+</html>
