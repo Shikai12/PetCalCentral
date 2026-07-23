@@ -1,25 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - PetCalCentral | Pet Health & Calculator Questions Answered</title>
-    <meta name="description" content="Got questions about our pet calculators? Find answers about dog and cat calorie counting, BMI, water intake, and more.">
-    <meta property="og:title" content="FAQ - PetCalCentral | Pet Health & Calculator Questions"><meta property="og:description" content="Answers about dog and cat calorie counting, BMI, water intake, and more.">
-    <meta property="og:url" content="https://petcalcentral.com/faq.html"><meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="FAQ - PetCalCentral"><meta name="twitter:description" content="Real answers from real pet owners.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',brandDark:'#15803d',warm:'#fef9ef'}}}}</script>
-</head>
-<body class="bg-white text-gray-800">
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50"><div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"><a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a><nav class="hidden md:flex space-x-6 text-sm font-medium"><a href="/">Home</a><a href="/tools/">Tools</a><a href="/blog/">Blog</a><a href="/faq.html" class="text-brand font-semibold">FAQ</a><a href="/about.html">About</a></nav></div></header>
-<main class="max-w-3xl mx-auto px-4 py-16">
-    <h1 class="text-4xl font-extrabold mb-2">Frequently Asked Questions</h1>
-    <p class="text-gray-500 mb-8">Real questions from pet owners. Real answers. No fluff.</p>
-    <div class="space-y-4" id="faq-list"><p class="text-gray-400">Loading questions...</p></div>
-</main>
-<footer class="bg-gray-900 text-gray-400 py-12 mt-12"><div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4"><a href="/privacy.html" class="hover:text-white">Privacy</a><a href="/terms.html" class="hover:text-white">Terms</a><a href="/disclaimer.html" class="hover:text-white">Disclaimer</a><a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a><a href="/sitemap.html" class="hover:text-white">Sitemap</a><p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p></div></footer>
-<script>
-fetch('/faq.json').then(res=>res.json()).then(faqs=>{document.getElementById('faq-list').innerHTML=faqs.map((item,i)=>`<details class="bg-warm rounded-xl p-5 border border-green-100 group"><summary class="font-semibold text-lg cursor-pointer hover:text-brand transition">${item.q}</summary><p class="mt-3 text-gray-600 leading-relaxed">${item.a}</p></details>`).join('');const schema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a.replace(/<[^>]*>/g,'')}}))};const script=document.createElement('script');script.type='application/ld+json';script.textContent=JSON.stringify(schema);document.head.appendChild(script);});
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — PetCalCentral | Pet Health & Calculator Questions</title>
+<meta name="description" content="Frequently asked questions about PetCalCentral's free pet health calculators. How they work, data privacy, accuracy, and more.">
+<link rel="canonical" href="https://petcalcentral.com/faq.html">
+<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+<link rel="stylesheet" href="./style.css">
+
+<meta property="og:title" content="FAQ — PetCalCentral | Pet Health & Calculator Questions">
+<meta property="og:description" content="Frequently asked questions about PetCalCentral's free pet health calculators.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/faq.html">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQ — PetCalCentral | Pet Health & Calculator Questions">
+<meta name="twitter:description" content="Frequently asked questions about PetCalCentral's free pet health calculators.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are the calculators accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our calculators use published veterinary formulas (RER for calories, AAHA/APOP guidelines for BMI, Cell Systems research for age conversion). They are accurate for general estimates but cannot replace a veterinarian's assessment of your individual pet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my pet's data stored on your servers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All calculator data is stored locally in your browser using localStorage. It never leaves your device. We cannot see, access, or store your pet's information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to create an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. PetCalCentral requires no sign-ups, no accounts, and no passwords. Just open a calculator and start using it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these calculators a replacement for veterinary advice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely not. Our tools are for informational purposes only. Always consult a licensed veterinarian for medical advice, diagnosis, and treatment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I clear my calculator history?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each calculator has a 'Clear History' or 'Reset' button. You can also clear your browser's localStorage to remove all saved data."
+      }
+    }
+  ]
+}
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petcalcentral.com/"},
+    {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://petcalcentral.com/faq.html"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="./index.html" class="pcc-nav-brand"><span class="pcc-nav-brand-icon">🐾</span><span>PetCalCentral</span></a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">☰</button>
+    <ul class="pcc-nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./tools/index.html">Tools</a></li>
+      <li><a href="./blog/index.html">Blog</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="./index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">FAQ</span>
+  </nav>
+</div>
+
+<section class="pcc-section">
+  <div class="pcc-container-narrow">
+    <h1 style="font-size:2.5rem;margin-bottom:1.5rem;">Frequently Asked Questions</h1>
+    <p style="color:var(--pcc-text-muted);margin-bottom:2.5rem;">Real questions from pet owners. Real answers. No fluff.</p>
+
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.75rem;">Are the calculators accurate?</h3>
+      <p>Our calculators use published veterinary formulas — RER (Resting Energy Requirement) for calories, AAHA/APOP guidelines for BMI, and Cell Systems epigenetic clock research for age conversion. They are accurate for general estimates but <strong>cannot replace a veterinarian's assessment</strong> of your individual pet. Your dog might need 10% more or less than the calculator says. That's why we always say: use this as a starting point for a conversation with your vet.</p>
+    </div>
+
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.75rem;">Is my pet's data stored on your servers?</h3>
+      <p><strong>No.</strong> All calculator data is stored locally in your browser using localStorage. It never leaves your device. We cannot see it, access it, or store it. If you clear your browser data, your calculator history disappears. We don't even have a server to store it on. It's just you and your browser.</p>
+    </div>
+
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.75rem;">Do I need to create an account?</h3>
+      <p><strong>No.</strong> PetCalCentral requires no sign-ups, no accounts, no passwords, no email verification, no "create a free account to unlock this feature." I hate that stuff. You shouldn't need an account to figure out how much to feed your dog. Just open a calculator and start using it.</p>
+    </div>
+
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.75rem;">Are these calculators a replacement for veterinary advice?</h3>
+      <p><strong>Absolutely not.</strong> Our tools are for informational purposes only. Always consult a licensed veterinarian for medical advice, diagnosis, and treatment. If your pet is sick, call a vet. If your pet has an emergency, go to an emergency clinic. Do not use a website calculator to diagnose your pet. I am not a vet. I am an IT guy with a spreadsheet.</p>
+    </div>
+
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.75rem;">How do I clear my calculator history?</h3>
+      <p>Each calculator has a "Clear History" or "Reset" button. Click it and all your saved calculations for that tool are gone. You can also clear your browser's localStorage entirely, which will remove data from all our calculators. Your data. Your control.</p>
+    </div>
+
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.75rem;">Why are some links affiliate links?</h3>
+      <p>Some product links are affiliate links. If you buy through them, we earn a small commission at no extra cost to you. This helps keep the site free. We only recommend products we've actually used on Gus or Mochi. See our <a href="./disclosure.html">Affiliate Disclosure</a> for full details.</p>
+    </div>
+
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.75rem;">Can I suggest a new calculator?</h3>
+      <p>Yes! <a href="./contact.html">Email us</a> with your idea. If it's something I personally need (or enough people ask for it), I'll build it. I've built every calculator on this site because I needed it first.</p>
+    </div>
+
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.75rem;">Why is this site free?</h3>
+      <p>Because I built it for myself first. Then I realized other people might find it useful. The hosting costs are covered by affiliate commissions and my own pocket. It's not a business. It's a side project that got out of hand.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./tools/dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./tools/cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./tools/dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./tools/pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./tools/pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./tools/pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
+        <li><a href="./blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./privacy.html">Privacy Policy</a></li>
+        <li><a href="./terms.html">Terms of Service</a></li>
+        <li><a href="./disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="./disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+
 </body>
 </html>
