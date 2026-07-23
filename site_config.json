@@ -1,0 +1,63 @@
+{
+  "site_name": "PetCalCentral",
+  "domain": "petcalcentral.com",
+  "tagline": "Free Pet Health Calculators & Feeding Guides",
+  "description": "Free, vet-informed tools to help you make smarter decisions for your furry family. No sign-ups. No fuss.",
+  "language": "en",
+  "charset": "UTF-8",
+  "author": "Ethan Barrett",
+  "author_email": "privacy@petcalcentral.com",
+  "favicon": "./images/favicon.ico",
+  "og_image": "./images/og-default.jpg",
+  "theme_color": "#2D5A3D",
+  "css_prefix": "pcc",
+  "css_file": "./style.css",
+  "ads_loader": "./ads-loader.js",
+  "timezone": "America/Denver",
+  "launch_date": "2026-06-08",
+  "categories": [
+    "Pet Health",
+    "Pet Nutrition",
+    "Dog Care",
+    "Cat Care",
+    "Pet Calculators"
+  ],
+  "social": {
+    "twitter": "",
+    "facebook": "",
+    "instagram": "",
+    "reddit": ""
+  },
+  "analytics": {
+    "google_analytics": "PLACEHOLDER_GA_ID",
+    "enabled": false
+  },
+  "tools_count_target": 6,
+  "articles_count_target": 16,
+  "compliance_pages": [
+    "privacy.html",
+    "disclaimer.html",
+    "terms.html",
+    "disclosure.html",
+    "faq.html"
+  ],
+  "base_pages": [
+    "index.html",
+    "about.html",
+    "contact.html",
+    "404.html"
+  ],
+  "tool_pages": [
+    "tools/index.html",
+    "tools/dog-calorie-calculator.html",
+    "tools/cat-calorie-calculator.html",
+    "tools/dog-age-calculator.html",
+    "tools/pet-bmi-calculator.html",
+    "tools/pet-water-intake-calculator.html",
+    "tools/pet-cost-estimator.html"
+  ],
+  "blog_pages": [
+    "blog/index.html",
+    "blog/post.html"
+  ]
+}
