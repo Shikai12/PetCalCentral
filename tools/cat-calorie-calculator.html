@@ -1,103 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Calorie Calculator - Daily Food Portions | PetCalCentral</title>
-    <meta name="description" content="Calculate your cat's ideal daily calories. Indoor or outdoor? Get the right portions in seconds.">
-    <meta property="og:title" content="Cat Calorie Calculator - PetCalCentral">
-    <meta property="og:description" content="Free cat calorie tool. Indoor or outdoor — get the right portions.">
-    <meta property="og:url" content="https://petcalcentral.com/tools/cat-calorie-calculator.html">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"HowTo","name":"Cat Calorie Calculator","step":[{"@type":"HowToStep","name":"Enter weight"},{"@type":"HowToStep","name":"Choose indoor or outdoor"},{"@type":"HowToStep","name":"Get result"}]}
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',warm:'#fef9ef'}}}}</script>
-</head>
-<body class="bg-white text-gray-800">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cat Calorie Calculator — PetCalCentral</title>
+<meta name="description" content="Calculate your cat's exact daily calorie needs. Indoor or outdoor? Kitten or adult? Adjusted for feline metabolism. Save multiple cats and track history.">
+<link rel="canonical" href="https://petcalcentral.com/tools/cat-calorie-calculator.html">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../style.css">
 
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
-        <nav class="hidden md:flex space-x-6 text-sm font-medium">
-            <a href="/">Home</a><a href="/tools/" class="text-brand font-semibold">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a>
-        </nav>
-    </div>
-</header>
+<meta property="og:title" content="Cat Calorie Calculator — PetCalCentral">
+<meta property="og:description" content="Calculate your cat's exact daily calorie needs. Indoor or outdoor? Kitten or adult? Adjusted for feline metabolism.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/tools/cat-calorie-calculator.html">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
 
-<main class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-extrabold leading-tight mb-4">Cat Calorie Calculator</h1>
-    <p class="text-gray-500 mb-8 text-lg">Indoor or outdoor? Learn exactly how much to feed your cat each day.</p>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cat Calorie Calculator — PetCalCentral">
+<meta name="twitter:description" content="Calculate your cat's exact daily calorie needs. Indoor or outdoor? Kitten or adult?">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
 
-    <div class="bg-warm rounded-2xl p-6 md:p-8 border border-green-100 shadow-sm mb-8">
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <label class="block font-semibold mb-1" for="weight">Weight (lbs)</label>
-                <input type="number" id="weight" placeholder="e.g. 10" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none">
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="lifestyle">Lifestyle</label>
-                <select id="lifestyle" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="indoor" selected>Indoor (nap enthusiast)</option>
-                    <option value="outdoor">Outdoor (adventurer)</option>
-                    <option value="kitten">Kitten (growing)</option>
-                </select>
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="condition">Body Condition</label>
-                <select id="condition" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="ideal" selected>Ideal weight</option>
-                    <option value="underweight">Underweight</option>
-                    <option value="overweight">Overweight</option>
-                </select>
-            </div>
-        </div>
-        <button onclick="calculateCat()" class="mt-6 w-full bg-brand text-white py-4 rounded-xl text-lg font-bold hover:bg-brandDark transition shadow-md">Calculate Cat Calories →</button>
-    </div>
-
-    <div id="result" class="hidden bg-white rounded-2xl p-6 md:p-8 border-2 border-brand shadow-lg mb-8">
-        <h2 class="text-2xl font-bold mb-4">🐈 Your Cat's Daily Calorie Target</h2>
-        <div class="grid md:grid-cols-2 gap-4 text-center">
-            <div class="bg-warm rounded-xl p-6"><p class="text-gray-500 text-sm mb-1">Maintenance</p><p class="text-4xl font-extrabold text-brand"><span id="maintCals">0</span></p><p class="text-gray-500 text-sm">calories / day</p></div>
-            <div class="bg-warm rounded-xl p-6"><p class="text-gray-500 text-sm mb-1">Weight Loss</p><p class="text-4xl font-extrabold text-brand"><span id="lossCals">0</span></p><p class="text-gray-500 text-sm">calories / day</p></div>
-        </div>
-        <div id="ad-result-below" class="mt-6"></div>
-    </div>
-
-    <div id="ad-content-mid" class="mb-8"></div>
-
-    <div class="prose max-w-none text-lg leading-relaxed space-y-3">
-        <h2 class="text-2xl font-bold mt-8">How This Works</h2>
-        <p>Same RER formula, adjusted for feline metabolism. Indoor cats typically need 20-30% fewer calories. Kittens need about 2.5× their RER during their rapid growth phase. Based on published feline nutrition guidelines and APOP recommendations.</p>
-        <p class="text-sm text-gray-400 mt-4"><em>Informational only. Consult your vet for medical dietary advice.</em></p>
-    </div>
-</main>
-
-<footer class="bg-gray-900 text-gray-400 py-12 mt-12">
-    <div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4">
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
-        <a href="/terms.html" class="hover:text-white">Terms</a>
-        <a href="/disclaimer.html" class="hover:text-white">Disclaimer</a>
-        <a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a>
-        <p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p>
-    </div>
-</footer>
-
-<script>
-function calculateCat() {
-    const w = parseFloat(document.getElementById('weight').value);
-    if (!w || w <= 0) { alert('Please enter a valid weight.'); return; }
-    const kg = w * 0.453592;
-    const rer = 70 * Math.pow(kg, 0.75);
-    const factors = {indoor:1.2, outdoor:1.5, kitten:2.5};
-    const der = Math.round(rer * factors[document.getElementById('lifestyle').value]);
-    const loss = Math.round(der * 0.8);
-    document.getElementById('maintCals').textContent = der;
-    document.getElementById('lossCals').textContent = loss;
-    document.getElementById('result').classList.remove('hidden');
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Cat Calorie Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "url": "https://petcalcentral.com/tools/cat-calorie-calculator.html",
+  "description": "Calculate your cat's exact daily calorie needs based on weight, life stage, and indoor/outdoor status. Based on feline nutrition guidelines.",
+  "author": {"@type": "Person", "name": "Ethan Barrett"}
 }
 </script>
-<script src="/ads.js"></script>
-<div id="ad-footer-bottom"></div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petcalcentral.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://petcalcentral.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Cat Calorie Calculator", "item": "https://petcalcentral.com/tools/cat-calorie-calculator.html"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="../index.html" class="pcc-nav-brand"><span class="pcc-nav-brand-icon">🐾</span><span>PetCalCentral</span></a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">☰</button>
+    <ul class="pcc-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="./index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Ad Slot: Tool Top -->
+<div class="pcc-ad-slot" data-ad-slot="tool_top"></div>
+
+
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">Cat Calorie Calculator</span>
+  </nav>
+</div>
+
+<section class="pcc-tool-page">
+  <div class="pcc-container">
+    <div class="pcc-tool-header">
+      <h1>🐈 Cat Calorie Calculator</h1>
+      <p>Indoor or outdoor? Kitten or adult? Learn your cat's ideal daily portion in seconds. Adjusted for feline metabolism and life stage. Based on published feline nutrition guidelines and APOP recommendations.</p>
+    </div>
+    <!-- Share Bar -->
+    <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0;padding:1rem 1.25rem;background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);" class="pcc-share-bar">
+      <span style="font-weight:600;font-size:0.9375rem;color:var(--pcc-text);">Share this tool:</span>
+      <button onclick="shareTool('copy')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">📋 Copy</button>
+      <button onclick="shareTool('twitter')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">𝕏 Post</button>
+      <button onclick="shareTool('facebook')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">f Share</button>
+      <button onclick="shareTool('reddit')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">🤖 Reddit</button>
+      <button onclick="shareTool('email')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">✉️ Email</button>
+      <span id="shareCopiedMsg" style="font-size:0.8125rem;color:var(--pcc-success);font-weight:600;opacity:0;transition:opacity 0.3s;">✓ Copied!</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+      <div class="pcc-tool-form">
+        <h3 style="margin-bottom:1.5rem;">Enter Your Cat's Details</h3>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="catName">Cat's Name (optional)</label>
+          <input type="text" id="catName" class="pcc-form-input" placeholder="e.g., Mochi">
+        </div>
+
+        <div class="pcc-form-row">
+          <div class="pcc-form-group">
+            <label class="pcc-form-label" for="catWeight">Weight (lbs)</label>
+            <input type="number" id="catWeight" class="pcc-form-input" placeholder="e.g., 10.2" min="1" max="50" step="0.1">
+          </div>
+          <div class="pcc-form-group">
+            <label class="pcc-form-label" for="catAge">Age (years)</label>
+            <input type="number" id="catAge" class="pcc-form-input" placeholder="e.g., 4" min="0" max="30" step="0.1">
+          </div>
+        </div>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="catLifeStage">Life Stage</label>
+          <select id="catLifeStage" class="pcc-form-select">
+            <option value="">Select life stage...</option>
+            <option value="kitten">Kitten (0-6 months)</option>
+            <option value="junior">Junior (6-12 months)</option>
+            <option value="adult">Adult (1-7 years)</option>
+            <option value="senior">Senior (7-11 years)</option>
+            <option value="geriatric">Geriatric (11+ years)</option>
+          </select>
+        </div>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="catIndoor">Indoor / Outdoor Status</label>
+          <select id="catIndoor" class="pcc-form-select">
+            <option value="">Select status...</option>
+            <option value="indoor">Indoor Only (sedentary)</option>
+            <option value="indoor_active">Indoor Only (active/playful)</option>
+            <option value="outdoor">Outdoor Access</option>
+            <option value="mixed">Mixed Indoor/Outdoor</option>
+          </select>
+        </div>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="catBodyCondition">Body Condition</label>
+          <select id="catBodyCondition" class="pcc-form-select">
+            <option value="">Select body condition...</option>
+            <option value="underweight">Underweight (BCS 1-3)</option>
+            <option value="ideal">Ideal Weight (BCS 4-5)</option>
+            <option value="overweight">Overweight (BCS 6-7)</option>
+            <option value="obese">Obese (BCS 8-9)</option>
+          </select>
+        </div>
+
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+          <button onclick="calculateCatCalories()" class="pcc-btn pcc-btn-primary">Calculate Calories</button>
+          <button onclick="clearCatForm()" class="pcc-btn pcc-btn-secondary">Reset</button>
+        </div>
+
+        <p style="font-size:0.8125rem;color:var(--pcc-text-light);margin-top:1rem;font-style:italic;">All data stays in your browser — we never see it.</p>
+      </div>
+
+      <div>
+        <div id="catResult" class="pcc-tool-result">
+          <div class="pcc-result-number" id="catResultCalories">—</div>
+          <div class="pcc-result-label">Daily Calories (kcal)</div>
+          <div class="pcc-result-details" id="catResultDetails">
+            <p><strong>RER (Resting Energy):</strong> <span id="catRER">—</span> kcal/day</p>
+            <p><strong>DER (Daily Energy):</strong> <span id="catDER">—</span> kcal/day</p>
+            <p><strong>Weight Loss Target:</strong> <span id="catLoss">—</span> kcal/day</p>
+            <p><strong>Wet Food Equivalent:</strong> <span id="catWetFood">—</span> oz/day</p>
+            <p style="margin-top:1rem;font-size:0.875rem;color:var(--pcc-text-muted);">Indoor cats typically need 20-30% fewer calories than outdoor cats. Kittens need about 2.5x their RER during rapid growth. Based on AAFP and APOP feline nutrition guidelines.</p>
+          </div>
+        </div>
+
+        <div class="pcc-chart-container" style="margin-top:1.5rem;">
+          <h4 style="margin-bottom:1rem;">Calorie Comparison</h4>
+          <canvas id="catCalorieChart" width="400" height="250"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcc-mt-xl">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h3>Calculation History</h3>
+        <div style="display:flex;gap:0.5rem;">
+          <button onclick="exportCatCSV()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Export CSV</button>
+          <button onclick="clearCatHistory()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Clear All</button>
+        </div>
+      </div>
+      <div id="catHistoryContainer">
+        <table class="pcc-history-table" id="catHistoryTable">
+          <thead><tr><th>Date</th><th>Name</th><th>Weight</th><th>Life Stage</th><th>Indoor</th><th>RER</th><th>DER</th><th>Actions</th></tr></thead>
+          <tbody id="catHistoryTableBody"></tbody>
+        </table>
+        <p id="catNoHistory" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">No calculations yet. Enter your cat's details above.</p>
+      </div>
+    </div>
+
+    <div class="pcc-mt-xl">
+      <h3 style="margin-bottom:1rem;">Compare Multiple Cats</h3>
+      <div id="catCompareContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;"></div>
+      <p id="catNoCompare" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">Add at least 2 calculations to compare.</p>
+    </div>
+
+    
+
+<!-- Ad Slot: Tool Middle -->
+<div class="pcc-ad-slot" data-ad-slot="tool_middle"></div>
+
+<div class="pcc-mt-2xl">
+      <div class="pcc-article-footer-grid">
+        <div class="pcc-article-footer-section">
+          <!-- Ad Slot: Tool Middle -->
+
+
+<h3>Related Articles</h3>
+          <ul class="pcc-related-articles-list">
+            <li><a href="../blog/my-cat-is-fat.html">My Cat Is Fat</a><span>May 12, 2026</span></li>
+            <li><a href="../blog/stop-free-feeding.html">Why I Stopped Free-Feeding Mochi</a><span>May 8, 2026</span></li>
+            <li><a href="../blog/wet-food-math.html">Should I Switch My Cat to Wet Food? I Did the Math.</a><span>June 1, 2026</span></li>
+          </ul>
+        </div>
+        <div class="pcc-article-footer-section">
+          <h3>Recommended Tools</h3>
+          <ul class="pcc-recommended-tools-list">
+            <li><a href="./pet-bmi-calculator.html"><span class="pcc-tool-mini-icon">⚖️</span><span class="pcc-tool-mini-title">Pet BMI Calculator</span></a></li>
+            <li><a href="./pet-water-intake-calculator.html"><span class="pcc-tool-mini-icon">💧</span><span class="pcc-tool-mini-title">Water Intake Calculator</span></a></li>
+            <li><a href="./dog-calorie-calculator.html"><span class="pcc-tool-mini-icon">🐕</span><span class="pcc-tool-mini-title">Dog Calorie Calculator</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1.5rem;background:var(--pcc-bg-alt);border-radius:var(--pcc-radius-lg);font-size:0.9375rem;color:var(--pcc-text-muted);">
+      <strong style="color:var(--pcc-text);">
+
+<!-- Ad Slot: Tool Bottom -->
+<div class="pcc-ad-slot" data-ad-slot="tool_bottom"></div>
+Disclaimer:</strong> This calculator uses feline RER formulas adjusted for life stage and indoor/outdoor status. Indoor cats typically need 20-30% fewer calories. Weight loss targets use 80% of DER per APOP guidelines. This is informational only and not a replacement for professional veterinary advice.
+    </div>
+  </div>
+</section>
+
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Service</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+<script>
+const CAT_STORAGE = 'pcc_cat_calories_history';
+
+function loadCatHistory() { try { return JSON.parse(localStorage.getItem(CAT_STORAGE)) || []; } catch { return []; } }
+function saveCatHistory(data) { localStorage.setItem(CAT_STORAGE, JSON.stringify(data)); }
+
+function calculateCatCalories() {
+  const name = document.getElementById('catName').value.trim() || 'Unnamed Cat';
+  const weightLbs = parseFloat(document.getElementById('catWeight').value);
+  const age = parseFloat(document.getElementById('catAge').value);
+  const lifeStage = document.getElementById('catLifeStage').value;
+  const indoor = document.getElementById('catIndoor').value;
+  const bodyCondition = document.getElementById('catBodyCondition').value;
+
+  if (!weightLbs || weightLbs <= 0 || !lifeStage || !indoor) {
+    alert('Please enter weight, life stage, and indoor/outdoor status.');
+    return;
+  }
+
+  const weightKg = weightLbs * 0.453592;
+  const rer = 70 * Math.pow(weightKg, 0.75);
+
+  const lifeStageFactors = {
+    'kitten': 2.5, 'junior': 2.0, 'adult': 1.2, 'senior': 1.1, 'geriatric': 1.0
+  };
+  const indoorFactors = {
+    'indoor': 0.8, 'indoor_active': 1.0, 'outdoor': 1.3, 'mixed': 1.1
+  };
+
+  let factor = lifeStageFactors[lifeStage] || 1.2;
+  factor *= indoorFactors[indoor] || 1.0;
+
+  if (bodyCondition === 'overweight') factor *= 0.9;
+  if (bodyCondition === 'obese') factor *= 0.8;
+  if (bodyCondition === 'underweight') factor *= 1.2;
+
+  const der = Math.round(rer * factor);
+  const lossTarget = Math.round(der * 0.8);
+  const wetFoodOz = (der / 25).toFixed(1); // approx 25 kcal per oz wet food
+
+  document.getElementById('catResult').classList.add('pcc-result-visible');
+  document.getElementById('catResultCalories').textContent = der.toLocaleString();
+  document.getElementById('catRER').textContent = Math.round(rer).toLocaleString();
+  document.getElementById('catDER').textContent = der.toLocaleString();
+  document.getElementById('catLoss').textContent = lossTarget.toLocaleString();
+  document.getElementById('catWetFood').textContent = wetFoodOz;
+
+  drawCatChart(Math.round(rer), der, lossTarget);
+
+  const history = loadCatHistory();
+  history.unshift({
+    id: Date.now(), date: new Date().toLocaleDateString(), name: name,
+    weight: weightLbs, age: age || '-', lifeStage: lifeStage, indoor: indoor,
+    bodyCondition: bodyCondition || '-', rer: Math.round(rer), der: der
+  });
+  if (history.length > 50) history.pop();
+  saveCatHistory(history);
+  renderCatHistory();
+  renderCatCompare();
+}
+
+function drawCatChart(rer, der, loss) {
+  const canvas = document.getElementById('catCalorieChart');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr; canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  const w = rect.width, h = rect.height, pad = 40;
+  const barW = (w - pad * 2 - 40) / 3;
+  const maxVal = Math.max(rer, der, loss) * 1.2;
+  ctx.clearRect(0, 0, w, h);
+  [
+    { label: 'RER', value: rer, color: '#2D5A3D' },
+    { label: 'DER', value: der, color: '#D4A03D' },
+    { label: 'Loss', value: loss, color: '#C44D4D' }
+  ].forEach((bar, i) => {
+    const x = pad + i * (barW + 20);
+    const barH = (bar.value / maxVal) * (h - pad * 2);
+    const y = h - pad - barH;
+    ctx.fillStyle = bar.color;
+    ctx.beginPath();
+    ctx.roundRect(x, y, barW, barH, 8);
+    ctx.fill();
+    ctx.fillStyle = '#2C2C2C'; ctx.font = '600 14px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(bar.label, x + barW / 2, h - pad + 20);
+    ctx.font = '700 16px Inter, sans-serif';
+    ctx.fillText(Math.round(bar.value).toLocaleString(), x + barW / 2, y - 10);
+  });
+  ctx.strokeStyle = 'rgba(45,90,61,0.1)'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = h - pad - (i / 4) * (h - pad * 2);
+    ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(w - pad, y); ctx.stroke();
+  }
+}
+
+function renderCatHistory() {
+  const history = loadCatHistory();
+  const tbody = document.getElementById('catHistoryTableBody');
+  const noHistory = document.getElementById('catNoHistory');
+  const stageLabels = {'kitten':'Kitten','junior':'Junior','adult':'Adult','senior':'Senior','geriatric':'Geriatric'};
+  const indoorLabels = {'indoor':'Indoor','indoor_active':'Indoor Active','outdoor':'Outdoor','mixed':'Mixed'};
+  if (history.length === 0) {
+    tbody.innerHTML = ''; noHistory.style.display = 'block';
+    document.getElementById('catHistoryTable').style.display = 'none'; return;
+  }
+  noHistory.style.display = 'none';
+  document.getElementById('catHistoryTable').style.display = 'table';
+  tbody.innerHTML = history.map(item => `
+    <tr>
+      <td>${item.date}</td><td>${item.name}</td><td>${item.weight} lbs</td>
+      <td>${stageLabels[item.lifeStage] || item.lifeStage}</td>
+      <td>${indoorLabels[item.indoor] || item.indoor}</td>
+      <td>${item.rer.toLocaleString()}</td><td><strong>${item.der.toLocaleString()}</strong></td>
+      <td><button onclick="deleteCatEntry(${item.id})" style="background:none;border:none;color:var(--pcc-danger);cursor:pointer;font-size:0.875rem;">Delete</button></td>
+    </tr>
+  `).join('');
+}
+
+function renderCatCompare() {
+  const history = loadCatHistory();
+  const container = document.getElementById('catCompareContainer');
+  const noCompare = document.getElementById('catNoCompare');
+  if (history.length < 2) { container.innerHTML = ''; noCompare.style.display = 'block'; return; }
+  noCompare.style.display = 'none';
+  container.innerHTML = history.slice(0, 4).map(item => `
+    <div style="background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);padding:1.5rem;text-align:center;">
+      <div style="font-size:1.5rem;margin-bottom:0.5rem;">🐈</div>
+      <h4 style="margin-bottom:0.25rem;">${item.name}</h4>
+      <p style="font-size:0.875rem;color:var(--pcc-text-muted);margin-bottom:1rem;">${item.weight} lbs · ${item.lifeStage}</p>
+      <div style="font-family:var(--pcc-font-heading);font-size:2rem;font-weight:700;color:var(--pcc-primary);">${item.der.toLocaleString()}</div>
+      <div style="font-size:0.875rem;color:var(--pcc-text-muted);">kcal/day</div>
+    </div>
+  `).join('');
+}
+
+function deleteCatEntry(id) {
+  let history = loadCatHistory();
+  history = history.filter(h => h.id !== id);
+  saveCatHistory(history);
+  renderCatHistory(); renderCatCompare();
+}
+
+function clearCatForm() {
+  document.getElementById('catName').value = '';
+  document.getElementById('catWeight').value = '';
+  document.getElementById('catAge').value = '';
+  document.getElementById('catLifeStage').value = '';
+  document.getElementById('catIndoor').value = '';
+  document.getElementById('catBodyCondition').value = '';
+  document.getElementById('catResult').classList.remove('pcc-result-visible');
+  document.getElementById('catResultCalories').textContent = '—';
+  const canvas = document.getElementById('catCalorieChart');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function clearCatHistory() {
+  if (confirm('Clear all calculation history?')) {
+    localStorage.removeItem(CAT_STORAGE);
+    renderCatHistory(); renderCatCompare();
+  }
+}
+
+function exportCatCSV() {
+  const history = loadCatHistory();
+  if (history.length === 0) { alert('No history to export.'); return; }
+  const headers = ['Date', 'Name', 'Weight (lbs)', 'Age', 'Life Stage', 'Indoor/Outdoor', 'Body Condition', 'RER (kcal)', 'DER (kcal)'];
+  const rows = history.map(h => [h.date, h.name, h.weight, h.age, h.lifeStage, h.indoor, h.bodyCondition, h.rer, h.der]);
+  const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'cat-calorie-history.csv'; a.click(); URL.revokeObjectURL(url);
+}
+
+renderCatHistory(); renderCatCompare();
+
+
+function shareTool(platform) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  let shareUrl = '';
+  switch(platform) {
+    case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title; break;
+    case 'facebook': shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url; break;
+    case 'reddit': shareUrl = 'https://reddit.com/submit?url=' + url + '&title=' + title; break;
+    case 'email': shareUrl = 'mailto:?subject=' + title + '&body=' + url; break;
+    case 'copy':
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          var msg = document.getElementById('shareCopiedMsg');
+          if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = window.location.href;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        var msg = document.getElementById('shareCopiedMsg');
+        if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+      }
+      return;
+  }
+  if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+}
+
+</script>
 </body>
 </html>
