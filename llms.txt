@@ -1,8 +1,52 @@
-# PetCalCentral - Blog Posts
+# petcalcentral
 
-- 2026-05-14: I Bought a Slow Feeder Bowl. Here's What Actually Happened. (https://petcalcentral.com/blog/slow-feeder.html)
-- 2026-05-12: Gus Got an Ear Infection and I Panicked for No Reason | PetCalCentral (https://petcalcentral.com/blog/gus-ear-infection.html)
-- 2026-05-12: My Cat Is Fat | PetCalCentral (https://petcalcentral.com/blog/my-cat-is-fat.html)
-- 2026-05-12: Raising Gus: What I Learned Feeding a Puppy | PetCalCentral (https://petcalcentral.com/blog/puppy-feeding-guide.html)
-- 2026-05-08: The Vet Said Gus Is Fat. I'm Still Processing. (https://petcalcentral.com/blog/furbo.html)
-- 2026-05-08: The Vet Said Gus Is Fat. I'm Still Processing. (https://petcalcentral.com/blog/weight-check.html)
+Free online calculators and educational content. Not professional advice.
+
+## Pages
+- Home: https://petcalcentral.com/
+- Tools: https://petcalcentral.com/tools/
+- Blog: https://petcalcentral.com/blog/
+- About: https://petcalcentral.com/about.html
+- Contact: https://petcalcentral.com/contact.html
+- FAQ: https://petcalcentral.com/faq.html
+- Sitemap: https://petcalcentral.com/sitemap.html
+
+## Tools
+- Cat Calorie Calculator — PetCalCentral: https://petcalcentral.com/tools/cat-calorie-calculator.html
+- Dog Age Calculator — PetCalCentral: https://petcalcentral.com/tools/dog-age-calculator.html
+- Dog Calorie Calculator — PetCalCentral: https://petcalcentral.com/tools/dog-calorie-calculator.html
+- Pet BMI Calculator — PetCalCentral: https://petcalcentral.com/tools/pet-bmi-calculator.html
+- Pet Cost Estimator — PetCalCentral: https://petcalcentral.com/tools/pet-cost-estimator.html
+- Pet Water Intake Calculator — PetCalCentral: https://petcalcentral.com/tools/pet-water-intake-calculator.html
+
+## Articles
+- Cat Calorie Myths Wet Vs Dry Food (cat-calorie-myths-wet-vs-dry-food) -- I was examining a cat named Mittens last week when her owner said the sentence I hear at least once a day: "But she loves her dry food." Mittens weighed 16 pounds. She's a domestic shorthair. She shou -- July 23, 2026
+- Phoenix Heat Pet Health Emergency (phoenix-heat-pet-health-emergency) -- Why My Dog's Heat Stroke Cost Me $4,200—And the Pet Insurance Covered Nothing Megan O'Connor I was carrying my dog Cooper into the emergency vet at 9 PM on a Tuesday when I realized I had made a mista -- July 06, 2026
+- Vet Said Chubby Internet Said Thicc (vet-said-chubby-internet-said-thicc) -- The Instagram comments were unanimous. "He's so thicc!" "What a chonky boy!" "Absolute unit!" My golden retriever, Cooper, had become something of a minor celebrity in my social circle, not because he -- July 06, 2026
+- The Emergency Vet Bill That Emptied My Savings Account (the-emergency-vet-bill-that-emptied-my-savings-account) -- The Emergency Vet Bill That Emptied My Savings Account I was watching the Broncos game at a bar on Colfax when my phone rang. It was my neighbor, Mrs. Patterson. She said, "Ethan, you need to come hom -- June 30, 2026
+- My Vet Said My Dog Is Obese (my-vet-said-my-dog-is-obese) -- "My Vet Said My Dog Is Obese. My Dog Food Bag Says 'Complete and Balanced.' Someone Is Lying." "My vet said my dog is obese. My dog food bag says 'Complete and Balanced.' Someone is lying." That's wha -- June 24, 2026
+- Gus Got an Ear Infection and I Panicked for No Reason (gus-ear-infection) -- Gus woke me up scratching his ear at 6 AM. It smelled sour. I panicked. It was yeast. Here's what I learned about dog ear infections. -- June 12, 2026
+- I Asked Reddit for Feeding Advice. It Was a Mistake. — PetCalCentral (reddit-feeding-mistake) -- I posted on r/dogs asking for feeding advice. I got 147 comments. Half said raw diet. Half said kibble. Someone said I was abusing Gus. -- June 01, 2026
+- What I Wish I Knew Before Adopting a Second Pet — PetCalCentral (second-pet-lessons) -- I thought two pets would be twice the work. I was wrong. It's three times the work. And five times the love. Here is what I learned the hard way. -- June 01, 2026
+- The 2 AM Google Spiral: Every Pet Owner's Ritual — PetCalCentral (midnight-google-spiral) -- 'Why is my dog licking his paw at 3 AM?' 'Can dogs eat grapes?' I've googled all of these. At 2 AM. While Gus snores and Mochi knocks things off my desk. -- May 30, 2026
+- Should I Switch My Cat to Wet Food? I Did the Math. — PetCalCentral (wet-food-math) -- Mochi was on dry food. Dr. Patel suggested wet food for weight loss and hydration. I calculated the cost difference, the calorie density, the moisture content. -- May 30, 2026
+- I Calculated How Much Gus Costs Me Per Year — PetCalCentral (dog-annual-cost) -- Food, vet visits, insurance, toys, the emergency visit when he ate a crayon — I added it all up. Gus costs me about $2,400 per year. -- May 26, 2026
+- Mochi's First Vet Visit: What Hoarding Survivors Need — PetCalCentral (hoarding-cat-first-vet) -- Forty cats in a two-bedroom apartment. Zero vet visits. Then Mochi came home with me, and everything changed. Here is what the first year actually cost. -- May 26, 2026
+- The Day I Realized 'Dog Years' Is a Lie — PetCalCentral (dog-years-myth) -- I told someone Gus was '28 in dog years.' They said 'that's not how it works.' I spent three hours reading a Cell Systems paper. -- May 22, 2026
+- Why My Vet Recommended Green Beans Instead of Treats — PetCalCentral (green-beans-treats) -- Dr. Martinez looked at Gus's weight chart and said 'no more treats.' I panicked. Then she said 'green beans.' I thought she was joking. -- May 22, 2026
+- How Much Water Should My Dog Actually Drink? — PetCalCentral (dog-water-guide) -- Gus drinks from the toilet. I know he shouldn't. But he does. I started measuring his water intake after a hot day in Denver when he seemed lethargic. -- May 18, 2026
+- I Tracked Gus's Weight for a Year. Here's the Graph. — PetCalCentral (weight-tracking-year) -- Every Saturday at 8 AM, I weigh Gus. Same scale, same spot, same ritual. I have 52 data points. The graph looks like a slow downward staircase with one alarming spike. -- May 18, 2026
+- Is My Cat Overweight? A Practical Guide (cat-weight-guide) -- The honest truth about cat weight. Includes a free calorie calculator and what to do if your cat is, well, a bit chunky. -- May 14, 2026
+- The Real Way to Calculate Dog Years (Not ×7) (dog-age-guide) -- The 'multiply by 7' rule is garbage. Here's the actual science behind calculating your dog's age in human years. -- May 14, 2026
+- How Many Calories Does My Dog Actually Need? (dog-calorie-guide) -- Most dog owners guess wrong on portions. Here's the real formula for calculating your dog's daily calorie needs. -- May 14, 2026
+- I Bought a Slow Feeder Bowl. Here's What Actually Happened. — PetCalCentral (orange-maze-bowl-chaos) -- Gus puked on the rug again. Third time this month. I ordered an orange maze bowl at midnight. Here's the honest review. -- May 14, 2026
+- Is My Pet Drinking Enough Water? (pet-water-guide) -- Dehydration is dangerous for pets. Here's how to calculate exactly how much water your dog or cat should drink daily. -- May 14, 2026
+- I Bought a Slow Feeder Bowl. Here's What Actually Happened. (slow-feeder) -- I tried a slow feeder bowl for my golden retriever Gus. It helped with vomiting but cleaning it is annoying. -- May 14, 2026
+- Raising Gus: What I Learned Feeding a Puppy — PetCalCentral (gus-puppy-measured-meals) -- I free-fed. That was stupid. Then I spiraled on puppy forums. Four years later, here is what actually worked for one golden retriever. -- May 12, 2026
+- My Cat Is Fat — PetCalCentral (mochi-obese-spreadsheet-diet) -- Dr. Patel said -- May 12, 2026
+- Gus Got an Ear Infection and I Panicked for No Reason — PetCalCentral (yeast-panic-at-6am) -- I spent an hour googling 'dog ear infection smell' at 6 AM. The vet took one look and said 'yeast.' I had already imagined the worst. Gus was fine in three days. I was not fine for a week. -- May 12, 2026
+- The Vet Said Gus Is Fat. I'm Still Processing. — PetCalCentral (fluffy-gus-82-pounds) -- 'He's a bit... fluffy.' Ideal weight is 75. He was 82. I nodded like I understood. I did not understand. -- May 08, 2026
+- Why I Stopped Free-Feeding Mochi — PetCalCentral (stop-free-feeding) -- I free-fed my cat for six months. Dr. Patel said -- May 08, 2026
+- The Vet Said Gus Is Fat. I'm Still Processing. (weight-check) -- My golden retriever Gus weighs 82 pounds. The vet says he needs to lose weight. I have no idea if this will work. -- May 08, 2026
+- Raising Gus: What I Learned Feeding a Puppy (puppy-feeding-guide) -- I got a puppy in 2022. July, I think. He's 4 now. Here's what I'd do differently. -- May 01, 2026
+- My Cat Is Fat (my-cat-is-fat) -- Dr. Patel said obese. I cried in the parking lot. Here's the year-long journey to get Mochi back to a healthy weight. -- October 01, 2025
