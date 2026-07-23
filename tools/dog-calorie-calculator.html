@@ -1,111 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Calorie Calculator - Daily Calorie Needs | PetCalCentral</title>
-    <meta name="description" content="Calculate your dog's exact daily calorie needs. Free, instant tool based on vet formulas.">
-    <meta property="og:title" content="Dog Calorie Calculator - PetCalCentral">
-    <meta property="og:description" content="Free dog calorie calculator. Get your pup's daily target.">
-    <meta property="og:url" content="https://petcalcentral.com/tools/dog-calorie-calculator.html">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"HowTo","name":"Dog Calorie Calculator","step":[{"@type":"HowToStep","name":"Enter weight"},{"@type":"HowToStep","name":"Select breed size and activity"},{"@type":"HowToStep","name":"Get result"}]}
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',warm:'#fef9ef'}}}}</script>
-</head>
-<body class="bg-white text-gray-800">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dog Calorie Calculator — PetCalCentral</title>
+<meta name="description" content="Calculate your dog's exact daily calorie needs using the RER formula. Input breed, weight, and activity level. Save multiple dogs, track history, and export reports.">
+<link rel="canonical" href="https://petcalcentral.com/tools/dog-calorie-calculator.html">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../style.css">
 
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
-        <nav class="hidden md:flex space-x-6 text-sm font-medium">
-            <a href="/">Home</a><a href="/tools/" class="text-brand font-semibold">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a>
-        </nav>
-    </div>
-</header>
+<meta property="og:title" content="Dog Calorie Calculator — PetCalCentral">
+<meta property="og:description" content="Calculate your dog's exact daily calorie needs using the RER formula. Input breed, weight, and activity level.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/tools/dog-calorie-calculator.html">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
 
-<main class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-extrabold leading-tight mb-4">Dog Calorie Calculator</h1>
-    <p class="text-gray-500 mb-8 text-lg">Find out exactly how many calories your dog needs each day.</p>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dog Calorie Calculator — PetCalCentral">
+<meta name="twitter:description" content="Calculate your dog's exact daily calorie needs using the RER formula.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
 
-    <div class="bg-warm rounded-2xl p-6 md:p-8 border border-green-100 shadow-sm mb-8">
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <label class="block font-semibold mb-1" for="weight">Weight (lbs)</label>
-                <input type="number" id="weight" placeholder="e.g. 50" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none">
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="breedSize">Breed Size</label>
-                <select id="breedSize" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="small">Small (under 20 lbs)</option>
-                    <option value="medium" selected>Medium (20-50 lbs)</option>
-                    <option value="large">Large (over 50 lbs)</option>
-                </select>
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="activity">Activity Level</label>
-                <select id="activity" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="1.2">Low (couch potato)</option>
-                    <option value="1.5" selected>Moderate (daily walks)</option>
-                    <option value="1.8">High (runs, hikes)</option>
-                    <option value="2.1">Very High (working dog)</option>
-                </select>
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="condition">Body Condition</label>
-                <select id="condition" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="ideal" selected>Ideal weight</option>
-                    <option value="underweight">Underweight</option>
-                    <option value="overweight">Overweight</option>
-                </select>
-            </div>
-        </div>
-        <button onclick="calculate()" class="mt-6 w-full bg-brand text-white py-4 rounded-xl text-lg font-bold hover:bg-brandDark transition shadow-md">Calculate Calories →</button>
-    </div>
-
-    <div id="result" class="hidden bg-white rounded-2xl p-6 md:p-8 border-2 border-brand shadow-lg mb-8">
-        <h2 class="text-2xl font-bold mb-4">🐕 Your Dog's Daily Calorie Target</h2>
-        <div class="grid md:grid-cols-2 gap-4 text-center">
-            <div class="bg-warm rounded-xl p-6"><p class="text-gray-500 text-sm mb-1">Maintenance</p><p class="text-4xl font-extrabold text-brand"><span id="maintCals">0</span></p><p class="text-gray-500 text-sm">calories / day</p></div>
-            <div class="bg-warm rounded-xl p-6"><p class="text-gray-500 text-sm mb-1">Weight Loss</p><p class="text-4xl font-extrabold text-brand"><span id="lossCals">0</span></p><p class="text-gray-500 text-sm">calories / day</p></div>
-        </div>
-        <div id="ad-result-below" class="mt-6"></div>
-    </div>
-
-    <div id="ad-content-mid" class="mb-8"></div>
-
-    <div class="prose max-w-none text-lg leading-relaxed space-y-3">
-        <h2 class="text-2xl font-bold mt-8">How This Works</h2>
-        <p>We use the Resting Energy Requirement formula: <strong>RER = 70 × (weight in kg)^0.75</strong> — the same method veterinary nutritionists use. Then multiply by activity level for Daily Energy Requirement. For weight loss, we use 80% of maintenance calories — the safe deficit recommended by APOP.</p>
-        <p class="text-sm text-gray-400 mt-4"><em>Based on guidelines from AAHA and APOP. This is informational, not veterinary advice.</em></p>
-    </div>
-</main>
-
-<footer class="bg-gray-900 text-gray-400 py-12 mt-12">
-    <div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4">
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
-        <a href="/terms.html" class="hover:text-white">Terms</a>
-        <a href="/disclaimer.html" class="hover:text-white">Disclaimer</a>
-        <a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a>
-        <p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p>
-    </div>
-</footer>
-
-<script>
-function calculate() {
-    const w = parseFloat(document.getElementById('weight').value);
-    if (!w || w <= 0) { alert('Please enter a valid weight.'); return; }
-    const kg = w * 0.453592;
-    const rer = 70 * Math.pow(kg, 0.75);
-    const der = Math.round(rer * parseFloat(document.getElementById('activity').value));
-    const loss = Math.round(der * 0.8);
-    document.getElementById('maintCals').textContent = der;
-    document.getElementById('lossCals').textContent = loss;
-    document.getElementById('result').classList.remove('hidden');
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Dog Calorie Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "url": "https://petcalcentral.com/tools/dog-calorie-calculator.html",
+  "description": "Calculate your dog's exact daily calorie needs using the veterinary RER formula. Based on AAHA and APOP guidelines.",
+  "author": {"@type": "Person", "name": "Ethan Barrett"}
 }
 </script>
-<script src="/ads.js"></script>
-<div id="ad-footer-bottom"></div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petcalcentral.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://petcalcentral.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Dog Calorie Calculator", "item": "https://petcalcentral.com/tools/dog-calorie-calculator.html"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="../index.html" class="pcc-nav-brand"><span class="pcc-nav-brand-icon">🐾</span><span>PetCalCentral</span></a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">☰</button>
+    <ul class="pcc-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="./index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Ad Slot: Tool Top -->
+<div class="pcc-ad-slot" data-ad-slot="tool_top"></div>
+
+
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">Dog Calorie Calculator</span>
+  </nav>
+</div>
+
+<section class="pcc-tool-page">
+  <div class="pcc-container">
+    <div class="pcc-tool-header">
+      <h1>🐕 Dog Calorie Calculator</h1>
+      <p>Find the exact daily calories your dog needs based on breed, weight, and activity. Uses the RER formula veterinary nutritionists actually use. Based on AAHA and APOP guidelines.</p>
+    </div>
+    <!-- Share Bar -->
+    <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0;padding:1rem 1.25rem;background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);" class="pcc-share-bar">
+      <span style="font-weight:600;font-size:0.9375rem;color:var(--pcc-text);">Share this tool:</span>
+      <button onclick="shareTool('copy')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">📋 Copy</button>
+      <button onclick="shareTool('twitter')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">𝕏 Post</button>
+      <button onclick="shareTool('facebook')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">f Share</button>
+      <button onclick="shareTool('reddit')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">🤖 Reddit</button>
+      <button onclick="shareTool('email')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">✉️ Email</button>
+      <span id="shareCopiedMsg" style="font-size:0.8125rem;color:var(--pcc-success);font-weight:600;opacity:0;transition:opacity 0.3s;">✓ Copied!</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+      <!-- Input Form -->
+      <div class="pcc-tool-form">
+        <h3 style="margin-bottom:1.5rem;">Enter Your Dog's Details</h3>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="dogName">Dog's Name (optional)</label>
+          <input type="text" id="dogName" class="pcc-form-input" placeholder="e.g., Gus">
+        </div>
+
+        <div class="pcc-form-row">
+          <div class="pcc-form-group">
+            <label class="pcc-form-label" for="dogWeight">Weight (lbs)</label>
+            <input type="number" id="dogWeight" class="pcc-form-input" placeholder="e.g., 78" min="1" max="300" step="0.1">
+          </div>
+          <div class="pcc-form-group">
+            <label class="pcc-form-label" for="dogAge">Age (years)</label>
+            <input type="number" id="dogAge" class="pcc-form-input" placeholder="e.g., 4" min="0" max="30" step="0.1">
+          </div>
+        </div>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="dogBreed">Breed Size</label>
+          <select id="dogBreed" class="pcc-form-select">
+            <option value="">Select breed size...</option>
+            <option value="small">Small (under 20 lbs)</option>
+            <option value="medium">Medium (20-50 lbs)</option>
+            <option value="large">Large (50-90 lbs)</option>
+            <option value="giant">Giant (over 90 lbs)</option>
+          </select>
+        </div>
+
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="dogActivity">Activity Level</label>
+          <select id="dogActivity" class="pcc-form-select">
+            <option value="">Select activity level...</option>
+            <option value="1.0">Neutered/Spayed Adult (1.0x)</option>
+            <option value="1.2">Intact Adult (1.2x)</option>
+            <option value="1.4">Light Activity (1.4x)</option>
+            <option value="1.6">Moderate Activity (1.6x)</option>
+            <option value="1.8">High Activity (1.8x)</option>
+            <option value="2.0">Very High Activity / Working Dog (2.0x)</option>
+            <option value="0.8">Weight Loss (0.8x)</option>
+            <option value="1.3">Weight Gain (1.3x)</option>
+            <option value="2.0">Puppy (0-4 months) (2.0x)</option>
+            <option value="1.6">Puppy (4-12 months) (1.6x)</option>
+            <option value="1.8">Pregnant (1.8x)</option>
+            <option value="4.0">Lactating (4.0x)</option>
+          </select>
+        </div>
+
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+          <button onclick="calculateDogCalories()" class="pcc-btn pcc-btn-primary">Calculate Calories</button>
+          <button onclick="clearDogForm()" class="pcc-btn pcc-btn-secondary">Reset</button>
+        </div>
+
+        <p style="font-size:0.8125rem;color:var(--pcc-text-light);margin-top:1rem;font-style:italic;">All data stays in your browser — we never see it.</p>
+      </div>
+
+      <!-- Result Panel -->
+      <div>
+        <div id="dogResult" class="pcc-tool-result">
+          <div class="pcc-result-number" id="resultCalories">—</div>
+          <div class="pcc-result-label">Daily Calories (kcal)</div>
+          <div class="pcc-result-details" id="resultDetails">
+            <p><strong>RER (Resting Energy):</strong> <span id="rerValue">—</span> kcal/day</p>
+            <p><strong>DER (Daily Energy):</strong> <span id="derValue">—</span> kcal/day</p>
+            <p><strong>Weight Loss Target:</strong> <span id="lossValue">—</span> kcal/day (80% of DER)</p>
+            <p style="margin-top:1rem;font-size:0.875rem;color:var(--pcc-text-muted);">Based on RER = 70 × (weight in kg)^0.75, multiplied by activity factor. For weight loss, use 80% of maintenance calories per APOP guidelines.</p>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="pcc-chart-container" style="margin-top:1.5rem;">
+          <h4 style="margin-bottom:1rem;">Calorie Breakdown</h4>
+          <canvas id="calorieChart" width="400" height="250"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Table -->
+    <div class="pcc-mt-xl">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h3>Calculation History</h3>
+        <div style="display:flex;gap:0.5rem;">
+          <button onclick="exportDogCSV()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Export CSV</button>
+          <button onclick="clearDogHistory()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Clear All</button>
+        </div>
+      </div>
+      <div id="historyTableContainer">
+        <table class="pcc-history-table" id="historyTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Weight</th>
+              <th>Activity</th>
+              <th>RER</th>
+              <th>DER</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+        <p id="noHistory" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">No calculations yet. Enter your dog's details above to get started.</p>
+      </div>
+    </div>
+
+    <!-- Compare Section -->
+    <div class="pcc-mt-xl">
+      <h3 style="margin-bottom:1rem;">Compare Multiple Dogs</h3>
+      <div id="compareContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;"></div>
+      <p id="noCompare" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">Add at least 2 calculations to compare side by side.</p>
+    </div>
+
+    <!-- Related Articles & Tools -->
+    
+
+<!-- Ad Slot: Tool Middle -->
+<div class="pcc-ad-slot" data-ad-slot="tool_middle"></div>
+
+<div class="pcc-mt-2xl">
+      <div class="pcc-article-footer-grid">
+        <div class="pcc-article-footer-section">
+          <!-- Ad Slot: Tool Middle -->
+
+
+<h3>Related Articles</h3>
+          <ul class="pcc-related-articles-list">
+            <li><a href="../blog/puppy-feeding-guide.html">Raising Gus: What I Learned Feeding a Puppy</a><span>May 12, 2026</span></li>
+            <li><a href="../blog/weight-check.html">The Vet Said Gus Is Fat. I'm Still Processing.</a><span>May 8, 2026</span></li>
+            <li><a href="../blog/green-beans-treats.html">Why My Vet Recommended Green Beans Instead of Treats</a><span>May 8, 2026</span></li>
+          </ul>
+        </div>
+        <div class="pcc-article-footer-section">
+          <h3>Recommended Tools</h3>
+          <ul class="pcc-recommended-tools-list">
+            <li><a href="./pet-bmi-calculator.html"><span class="pcc-tool-mini-icon">⚖️</span><span class="pcc-tool-mini-title">Pet BMI Calculator</span></a></li>
+            <li><a href="./pet-water-intake-calculator.html"><span class="pcc-tool-mini-icon">💧</span><span class="pcc-tool-mini-title">Water Intake Calculator</span></a></li>
+            <li><a href="./pet-cost-estimator.html"><span class="pcc-tool-mini-icon">💰</span><span class="pcc-tool-mini-title">Pet Cost Estimator</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1.5rem;background:var(--pcc-bg-alt);border-radius:var(--pcc-radius-lg);font-size:0.9375rem;color:var(--pcc-text-muted);">
+      <strong style="color:var(--pcc-text);">
+
+<!-- Ad Slot: Tool Bottom -->
+<div class="pcc-ad-slot" data-ad-slot="tool_bottom"></div>
+Disclaimer:</strong> This calculator uses the RER formula (Resting Energy Requirement = 70 × weight_kg^0.75) multiplied by an activity factor. For weight loss, we use 80% of maintenance calories per APOP guidelines. This is informational only and not a replacement for professional veterinary advice. Always consult your veterinarian before making dietary changes.
+    </div>
+  </div>
+</section>
+
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Service</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+<script>
+// Dog Calorie Calculator Logic
+const STORAGE_KEY = 'pcc_dog_calories_history';
+
+function loadHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  } catch { return []; }
+}
+
+function saveHistory(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function calculateDogCalories() {
+  const name = document.getElementById('dogName').value.trim() || 'Unnamed Dog';
+  const weightLbs = parseFloat(document.getElementById('dogWeight').value);
+  const age = parseFloat(document.getElementById('dogAge').value);
+  const breed = document.getElementById('dogBreed').value;
+  const activityFactor = parseFloat(document.getElementById('dogActivity').value);
+
+  if (!weightLbs || weightLbs <= 0 || !activityFactor) {
+    alert('Please enter a valid weight and select an activity level.');
+    return;
+  }
+
+  const weightKg = weightLbs * 0.453592;
+  const rer = 70 * Math.pow(weightKg, 0.75);
+  const der = Math.round(rer * activityFactor);
+  const lossTarget = Math.round(der * 0.8);
+
+  // Animate result
+  const resultEl = document.getElementById('dogResult');
+  resultEl.classList.add('pcc-result-visible');
+
+  document.getElementById('resultCalories').textContent = der.toLocaleString();
+  document.getElementById('rerValue').textContent = Math.round(rer).toLocaleString();
+  document.getElementById('derValue').textContent = der.toLocaleString();
+  document.getElementById('lossValue').textContent = lossTarget.toLocaleString();
+
+  // Draw chart
+  drawCalorieChart(rer, der, lossTarget);
+
+  // Save to history
+  const history = loadHistory();
+  const activityLabels = {
+    '1.0': 'Neutered Adult', '1.2': 'Intact Adult', '1.4': 'Light Activity',
+    '1.6': 'Moderate Activity', '1.8': 'High Activity', '2.0': 'Very High Activity',
+    '0.8': 'Weight Loss', '1.3': 'Weight Gain', '2.0-puppy0': 'Puppy 0-4mo',
+    '1.6-puppy4': 'Puppy 4-12mo', '1.8': 'Pregnant', '4.0': 'Lactating'
+  };
+  const activityLabel = activityLabels[document.getElementById('dogActivity').value] || 'Custom';
+
+  history.unshift({
+    id: Date.now(),
+    date: new Date().toLocaleDateString(),
+    name: name,
+    weight: weightLbs,
+    age: age || '-',
+    breed: breed || '-',
+    activity: activityLabel,
+    factor: activityFactor,
+    rer: Math.round(rer),
+    der: der,
+    lossTarget: lossTarget
+  });
+
+  if (history.length > 50) history.pop();
+  saveHistory(history);
+  renderHistory();
+  renderCompare();
+}
+
+function drawCalorieChart(rer, der, loss) {
+  const canvas = document.getElementById('calorieChart');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+
+  const w = rect.width, h = rect.height;
+  const pad = 40;
+  const barW = (w - pad * 2 - 40) / 3;
+  const maxVal = Math.max(rer, der, loss) * 1.2;
+
+  ctx.clearRect(0, 0, w, h);
+
+  // Bars
+  const bars = [
+    { label: 'RER', value: rer, color: '#2D5A3D' },
+    { label: 'DER', value: der, color: '#D4A03D' },
+    { label: 'Loss', value: loss, color: '#C44D4D' }
+  ];
+
+  bars.forEach((bar, i) => {
+    const x = pad + i * (barW + 20);
+    const barH = (bar.value / maxVal) * (h - pad * 2);
+    const y = h - pad - barH;
+
+    ctx.fillStyle = bar.color;
+    ctx.beginPath();
+    ctx.roundRect(x, y, barW, barH, 8);
+    ctx.fill();
+
+    // Label
+    ctx.fillStyle = '#2C2C2C';
+    ctx.font = '600 14px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(bar.label, x + barW / 2, h - pad + 20);
+
+    // Value
+    ctx.fillStyle = '#2C2C2C';
+    ctx.font = '700 16px Inter, sans-serif';
+    ctx.fillText(Math.round(bar.value).toLocaleString(), x + barW / 2, y - 10);
+  });
+
+  // Y-axis lines
+  ctx.strokeStyle = 'rgba(45,90,61,0.1)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = h - pad - (i / 4) * (h - pad * 2);
+    ctx.beginPath();
+    ctx.moveTo(pad, y);
+    ctx.lineTo(w - pad, y);
+    ctx.stroke();
+  }
+}
+
+function renderHistory() {
+  const history = loadHistory();
+  const tbody = document.getElementById('historyTableBody');
+  const noHistory = document.getElementById('noHistory');
+
+  if (history.length === 0) {
+    tbody.innerHTML = '';
+    noHistory.style.display = 'block';
+    document.getElementById('historyTable').style.display = 'none';
+    return;
+  }
+
+  noHistory.style.display = 'none';
+  document.getElementById('historyTable').style.display = 'table';
+
+  tbody.innerHTML = history.map(item => `
+    <tr>
+      <td>${item.date}</td>
+      <td>${item.name}</td>
+      <td>${item.weight} lbs</td>
+      <td>${item.activity}</td>
+      <td>${item.rer.toLocaleString()}</td>
+      <td><strong>${item.der.toLocaleString()}</strong></td>
+      <td><button onclick="deleteDogEntry(${item.id})" style="background:none;border:none;color:var(--pcc-danger);cursor:pointer;font-size:0.875rem;">Delete</button></td>
+    </tr>
+  `).join('');
+}
+
+function renderCompare() {
+  const history = loadHistory();
+  const container = document.getElementById('compareContainer');
+  const noCompare = document.getElementById('noCompare');
+
+  if (history.length < 2) {
+    container.innerHTML = '';
+    noCompare.style.display = 'block';
+    return;
+  }
+
+  noCompare.style.display = 'none';
+  container.innerHTML = history.slice(0, 4).map(item => `
+    <div style="background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);padding:1.5rem;text-align:center;">
+      <div style="font-size:1.5rem;margin-bottom:0.5rem;">🐕</div>
+      <h4 style="margin-bottom:0.25rem;">${item.name}</h4>
+      <p style="font-size:0.875rem;color:var(--pcc-text-muted);margin-bottom:1rem;">${item.weight} lbs · ${item.activity}</p>
+      <div style="font-family:var(--pcc-font-heading);font-size:2rem;font-weight:700;color:var(--pcc-primary);">${item.der.toLocaleString()}</div>
+      <div style="font-size:0.875rem;color:var(--pcc-text-muted);">kcal/day</div>
+    </div>
+  `).join('');
+}
+
+function deleteDogEntry(id) {
+  let history = loadHistory();
+  history = history.filter(h => h.id !== id);
+  saveHistory(history);
+  renderHistory();
+  renderCompare();
+}
+
+function clearDogForm() {
+  document.getElementById('dogName').value = '';
+  document.getElementById('dogWeight').value = '';
+  document.getElementById('dogAge').value = '';
+  document.getElementById('dogBreed').value = '';
+  document.getElementById('dogActivity').value = '';
+  document.getElementById('dogResult').classList.remove('pcc-result-visible');
+  document.getElementById('resultCalories').textContent = '—';
+  const canvas = document.getElementById('calorieChart');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function clearDogHistory() {
+  if (confirm('Clear all calculation history? This cannot be undone.')) {
+    localStorage.removeItem(STORAGE_KEY);
+    renderHistory();
+    renderCompare();
+  }
+}
+
+function exportDogCSV() {
+  const history = loadHistory();
+  if (history.length === 0) {
+    alert('No history to export.');
+    return;
+  }
+  const headers = ['Date', 'Name', 'Weight (lbs)', 'Age', 'Breed', 'Activity', 'RER (kcal)', 'DER (kcal)', 'Loss Target (kcal)'];
+  const rows = history.map(h => [h.date, h.name, h.weight, h.age, h.breed, h.activity, h.rer, h.der, h.lossTarget]);
+  const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'dog-calorie-history.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Init
+renderHistory();
+renderCompare();
+
+
+function shareTool(platform) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  let shareUrl = '';
+  switch(platform) {
+    case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title; break;
+    case 'facebook': shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url; break;
+    case 'reddit': shareUrl = 'https://reddit.com/submit?url=' + url + '&title=' + title; break;
+    case 'email': shareUrl = 'mailto:?subject=' + title + '&body=' + url; break;
+    case 'copy':
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          var msg = document.getElementById('shareCopiedMsg');
+          if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = window.location.href;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        var msg = document.getElementById('shareCopiedMsg');
+        if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+      }
+      return;
+  }
+  if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+}
+
+</script>
 </body>
 </html>
