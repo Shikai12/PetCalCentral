@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Pet Health Tools — PetCalCentral</title>
+<meta name="description" content="Science-backed, vet-informed pet health calculators. Dog calories, cat portions, dog age, pet BMI, water intake, and annual cost estimates. All free. No sign-ups.">
+<link rel="canonical" href="https://petcalcentral.com/tools/">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../style.css">
+
+<meta property="og:title" content="Free Pet Health Tools — PetCalCentral">
+<meta property="og:description" content="Science-backed, vet-informed pet health calculators. Dog calories, cat portions, dog age, pet BMI, water intake, and annual cost estimates.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/tools/">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Pet Health Tools — PetCalCentral">
+<meta name="twitter:description" content="Science-backed, vet-informed pet health calculators. Dog calories, cat portions, dog age, pet BMI, water intake, and annual cost estimates.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Free Pet Health Tools — PetCalCentral",
+  "url": "https://petcalcentral.com/tools/",
+  "description": "Collection of free pet health calculators including dog calorie, cat calorie, dog age, pet BMI, water intake, and cost estimator.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "item": {"@type": "SoftwareApplication", "name": "Dog Calorie Calculator", "url": "https://petcalcentral.com/tools/dog-calorie-calculator.html", "applicationCategory": "HealthApplication"}},
+      {"@type": "ListItem", "position": 2, "item": {"@type": "SoftwareApplication", "name": "Cat Calorie Calculator", "url": "https://petcalcentral.com/tools/cat-calorie-calculator.html", "applicationCategory": "HealthApplication"}},
+      {"@type": "ListItem", "position": 3, "item": {"@type": "SoftwareApplication", "name": "Dog Age Calculator", "url": "https://petcalcentral.com/tools/dog-age-calculator.html", "applicationCategory": "HealthApplication"}},
+      {"@type": "ListItem", "position": 4, "item": {"@type": "SoftwareApplication", "name": "Pet BMI Calculator", "url": "https://petcalcentral.com/tools/pet-bmi-calculator.html", "applicationCategory": "HealthApplication"}},
+      {"@type": "ListItem", "position": 5, "item": {"@type": "SoftwareApplication", "name": "Pet Water Intake Calculator", "url": "https://petcalcentral.com/tools/pet-water-intake-calculator.html", "applicationCategory": "HealthApplication"}},
+      {"@type": "ListItem", "position": 6, "item": {"@type": "SoftwareApplication", "name": "Pet Cost Estimator", "url": "https://petcalcentral.com/tools/pet-cost-estimator.html", "applicationCategory": "HealthApplication"}}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petcalcentral.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://petcalcentral.com/tools/"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="../index.html" class="pcc-nav-brand"><span class="pcc-nav-brand-icon">🐾</span><span>PetCalCentral</span></a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">☰</button>
+    <ul class="pcc-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="./index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">Tools</span>
+  </nav>
+</div>
+
+<section class="pcc-section">
+  <div class="pcc-container">
+    <div class="pcc-section-header">
+      <h1>Free Pet Health Calculators</h1>
+      <p>Science-backed, vet-informed tools to help you care for your furry family. Your data stays in your browser — we never see it.</p>
+    </div>
+
+    <!-- Ad Slot: Tool Top -->
+    <div class="pcc-ad-slot" data-ad-slot="tool_top"></div>
+
+    <!-- TOOLS_TOOLS_START -->
+
+    <div class="pcc-grid-3 pcc-animate-stagger">
+      <a href="./dog-calorie-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">🐕</span>
+        <h3 class="pcc-tool-title">Dog Calorie Calculator</h3>
+        <p class="pcc-tool-desc">Find the exact daily calories your dog needs based on breed, weight, and activity level.</p>
+        <span class="pcc-tool-cta">Calculate Now →</span>
+      </a>
+      <a href="./cat-calorie-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">🐈</span>
+        <h3 class="pcc-tool-title">Cat Calorie Calculator</h3>
+        <p class="pcc-tool-desc">Indoor or outdoor? Kitten or adult? Learn your cat's ideal daily portion in seconds.</p>
+        <span class="pcc-tool-cta">Calculate Now →</span>
+      </a>
+      <a href="./dog-age-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">📅</span>
+        <h3 class="pcc-tool-title">Dog Age Calculator</h3>
+        <p class="pcc-tool-desc">Forget the old "multiply by 7" rule. Convert dog years to human years with science.</p>
+        <span class="pcc-tool-cta">Check Now →</span>
+      </a>
+      <a href="./pet-bmi-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">⚖️</span>
+        <h3 class="pcc-tool-title">Pet BMI Calculator</h3>
+        <p class="pcc-tool-desc">Is your pet at a healthy weight? Quick check with breed-specific Body Condition Score.</p>
+        <span class="pcc-tool-cta">Check Now →</span>
+      </a>
+      <a href="./pet-water-intake-calculator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">💧</span>
+        <h3 class="pcc-tool-title">Water Intake Calculator</h3>
+        <p class="pcc-tool-desc">How much water should your pet drink daily? Factors in diet, activity, and weather.</p>
+        <span class="pcc-tool-cta">Calculate Now →</span>
+      </a>
+      <a href="./pet-cost-estimator.html" class="pcc-card pcc-tool-card">
+        <span class="pcc-tool-icon">💰</span>
+        <h3 class="pcc-tool-title">Pet Cost Estimator</h3>
+        <p class="pcc-tool-desc">Food, vet visits, insurance, toys, emergencies — calculate your annual pet budget.</p>
+        <span class="pcc-tool-cta">Estimate Now →</span>
+      </a>
+    </div>
+    
+<!-- TOOLS_TOOLS_END -->
+
+    <!-- Ad Slot: Tool Middle -->
+    <div class="pcc-ad-slot" data-ad-slot="tool_middle"></div>
+
+    <!-- TOOLS_ARTICLES_START -->
+
+
+
+
+
+    <!-- Related Articles -->
+    <div class="pcc-mt-2xl">
+      <h2 style="text-align:center;margin-bottom:2rem;">Related Articles</h2>
+            <a href="../blog/second-pet-lessons.html" class="pcc-card pcc-article-card">
+        <img src="../images/blog/second-pet-lessons.jpg" alt="What I Wish I Knew Before Adopting a Second Pet — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">What I Wish I Knew Before Adopting a Second Pet — PetCalCentral</h3>
+        <p class="pcc-card-excerpt">I thought two pets would be twice the work. I was wrong. It's three times the work. And five times the love. Here is what I learned the hard way.</p>
+        <div class="pcc-card-meta">June 01, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="../blog/midnight-google-spiral.html" class="pcc-card pcc-article-card">
+        <img src="../images/blog/midnight-google-spiral.jpg" alt="The 2 AM Google Spiral: Every Pet Owner's Ritual — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">The 2 AM Google Spiral: Every Pet Owner's Ritual — PetCalCentral</h3>
+        <p class="pcc-card-excerpt">'Why is my dog licking his paw at 3 AM?' 'Can dogs eat grapes?' I've googled all of these. At 2 AM. While Gus snores and Mochi knocks things off my de...</p>
+        <div class="pcc-card-meta">May 30, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="../blog/wet-food-math.html" class="pcc-card pcc-article-card">
+        <img src="../images/blog/wet-food-math.jpg" alt="Should I Switch My Cat to Wet Food? I Did the Math. — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">Should I Switch My Cat to Wet Food? I Did the Math. — PetCalCentral</h3>
+        <p class="pcc-card-excerpt">Mochi was on dry food. Dr. Patel suggested wet food for weight loss and hydration. I calculated the cost difference, the calorie density, the moisture...</p>
+        <div class="pcc-card-meta">May 30, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="../blog/dog-annual-cost.html" class="pcc-card pcc-article-card">
+        <img src="../images/blog/dog-annual-cost.jpg" alt="I Calculated How Much Gus Costs Me Per Year — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">I Calculated How Much Gus Costs Me Per Year — PetCalCentral</h3>
+        <p class="pcc-card-excerpt">Food, vet visits, insurance, toys, the emergency visit when he ate a crayon — I added it all up. Gus costs me about $2,400 per year.</p>
+        <div class="pcc-card-meta">May 26, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="../blog/hoarding-cat-first-vet.html" class="pcc-card pcc-article-card">
+        <img src="../images/blog/hoarding-cat-first-vet.jpg" alt="Mochi's First Vet Visit: What Hoarding Survivors Need — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">Mochi's First Vet Visit: What Hoarding Survivors Need — PetCalCentral</h3>
+        <p class="pcc-card-excerpt">Forty cats in a two-bedroom apartment. Zero vet visits. Then Mochi came home with me, and everything changed. Here is what the first year actually cos...</p>
+        <div class="pcc-card-meta">May 26, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+<a href="../blog/dog-years-myth.html" class="pcc-card pcc-article-card">
+        <img src="../images/blog/dog-years-myth.jpg" alt="The Day I Realized 'Dog Years' Is a Lie — PetCalCentral" class="pcc-card-image" width="400" height="200" loading="lazy">
+        <h3 class="pcc-card-title">The Day I Realized 'Dog Years' Is a Lie — PetCalCentral</h3>
+        <p class="pcc-card-excerpt">I told someone Gus was '28 in dog years.' They said 'that's not how it works.' I spent three hours reading a Cell Systems paper.</p>
+        <div class="pcc-card-meta">May 22, 2026</span><span>·</span><span>15 min read</span></div>
+      </a>
+      </div>
+    </div>
+
+    
+
+
+
+
+<!-- TOOLS_ARTICLES_END -->
+    <!-- Ad Slot: Tool Bottom -->
+    <div class="pcc-ad-slot" data-ad-slot="tool_bottom"></div>
+  </div>
+</section>
+
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Service</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+</body>
+</html>
