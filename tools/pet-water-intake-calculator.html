@@ -1,112 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Water Intake Calculator - Daily Hydration | PetCalCentral</title>
-    <meta name="description" content="How much water should your pet drink? Free daily hydration calculator for dogs and cats.">
-    <meta property="og:title" content="Pet Water Intake Calculator - PetCalCentral">
-    <meta property="og:description" content="Calculate daily hydration for dogs and cats. Free, instant result.">
-    <meta property="og:url" content="https://petcalcentral.com/tools/pet-water-intake-calculator.html">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"HowTo","name":"Pet Water Intake Calculator","step":[{"@type":"HowToStep","name":"Select pet type"},{"@type":"HowToStep","name":"Enter weight"},{"@type":"HowToStep","name":"Select diet type"},{"@type":"HowToStep","name":"Get result"}]}
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config={theme:{extend:{colors:{brand:'#16a34a',warm:'#fef9ef'}}}}</script>
-</head>
-<body class="bg-white text-gray-800">
-
-<header class="sticky top-0 bg-white/95 backdrop-blur border-b z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-2xl font-extrabold text-brand tracking-tight">🐾 PetCalCentral</a>
-        <nav class="hidden md:flex space-x-6 text-sm font-medium">
-            <a href="/">Home</a><a href="/tools/" class="text-brand font-semibold">Tools</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a>
-        </nav>
-    </div>
-</header>
-
-<main class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-extrabold leading-tight mb-4">Pet Water Intake Calculator</h1>
-    <p class="text-gray-500 mb-8 text-lg">How much water should your furry friend drink? Let's find out.</p>
-
-    <div class="bg-warm rounded-2xl p-6 md:p-8 border border-green-100 shadow-sm mb-8">
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <label class="block font-semibold mb-1" for="petType">Pet Type</label>
-                <select id="petType" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="dog" selected>Dog</option>
-                    <option value="cat">Cat</option>
-                </select>
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="weight">Weight (lbs)</label>
-                <input type="number" id="weight" placeholder="e.g. 40" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none">
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="diet">Diet Type</label>
-                <select id="diet" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="dry" selected>Dry food (kibble)</option>
-                    <option value="wet">Wet food (canned)</option>
-                    <option value="mixed">Mixed (both)</option>
-                </select>
-            </div>
-            <div>
-                <label class="block font-semibold mb-1" for="activity">Activity Level</label>
-                <select id="activity" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-brand focus:border-brand outline-none bg-white">
-                    <option value="low">Low</option>
-                    <option value="moderate" selected>Moderate</option>
-                    <option value="high">High</option>
-                </select>
-            </div>
-        </div>
-        <button onclick="calcWater()" class="mt-6 w-full bg-brand text-white py-4 rounded-xl text-lg font-bold hover:bg-brandDark transition shadow-md">Calculate Water Needs →</button>
-    </div>
-
-    <div id="result" class="hidden bg-white rounded-2xl p-6 md:p-8 border-2 border-brand shadow-lg text-center mb-8">
-        <h2 class="text-2xl font-bold mb-4">💧 Daily Water Recommendation</h2>
-        <p class="text-5xl font-extrabold text-brand"><span id="waterOz">0</span> <span class="text-lg text-gray-500">oz</span></p>
-        <p class="text-gray-500 mt-2">About <span id="waterCups" class="font-semibold">0</span> cups per day</p>
-        <p class="text-sm text-gray-400 mt-3">Pets on wet food get moisture from their diet and may drink less.</p>
-        <div id="ad-result-below" class="mt-6"></div>
-    </div>
-
-    <div id="ad-content-mid" class="mb-8"></div>
-
-    <div class="prose max-w-none text-lg leading-relaxed space-y-3">
-        <h2 class="text-2xl font-bold mt-8">How This Works</h2>
-        <p>General rule: 1 ounce of water per pound of body weight. Diet changes the number significantly — pets on wet food get up to 75% moisture from meals. Activity and weather also matter. This calculator factors in all three.</p>
-        <p class="text-sm text-gray-400 mt-4"><em>If your pet's drinking habits suddenly change, contact your vet.</em></p>
-    </div>
-</main>
-
-<footer class="bg-gray-900 text-gray-400 py-12 mt-12">
-    <div class="max-w-6xl mx-auto px-4 text-center text-sm space-x-4">
-        <a href="/privacy.html" class="hover:text-white">Privacy</a>
-        <a href="/terms.html" class="hover:text-white">Terms</a>
-        <a href="/disclaimer.html" class="hover:text-white">Disclaimer</a>
-        <a href="/disclosure.html" class="hover:text-white">Affiliate Disclosure</a>
-        <p class="mt-4 text-gray-600">&copy; 2026 PetCalCentral.</p>
-    </div>
-</footer>
-
-<script>
-function calcWater() {
-    const w = parseFloat(document.getElementById('weight').value);
-    if (!w || w <= 0) { alert('Please enter a valid weight.'); return; }
-    let base = w * 1.0;
-    const diet = document.getElementById('diet').value;
-    const act = document.getElementById('activity').value;
-    if (diet === 'wet') base *= 0.5;
-    if (diet === 'mixed') base *= 0.75;
-    if (act === 'high') base *= 1.3;
-    if (act === 'low') base *= 0.9;
-    const oz = Math.round(base);
-    document.getElementById('waterOz').textContent = oz;
-    document.getElementById('waterCups').textContent = (oz / 8).toFixed(1);
-    document.getElementById('result').classList.remove('hidden');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Water Intake Calculator — PetCalCentral</title>
+<meta name="description" content="Calculate how much water your pet should drink daily based on weight, diet, activity, and weather. Track hydration and get dehydration risk alerts.">
+<link rel="canonical" href="https://petcalcentral.com/tools/pet-water-intake-calculator.html">
+<link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+<link rel="stylesheet" href="../style.css">
+<meta property="og:title" content="Pet Water Intake Calculator — PetCalCentral">
+<meta property="og:description" content="Calculate how much water your pet should drink daily based on weight, diet, activity, and weather.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petcalcentral.com/tools/pet-water-intake-calculator.html">
+<meta property="og:image" content="https://petcalcentral.com/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pet Water Intake Calculator — PetCalCentral">
+<meta name="twitter:description" content="Calculate how much water your pet should drink daily based on weight, diet, activity, and weather.">
+<meta name="twitter:image" content="https://petcalcentral.com/images/og-default.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pet Water Intake Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "url": "https://petcalcentral.com/tools/pet-water-intake-calculator.html",
+  "description": "Calculate daily water intake for pets based on weight, diet type, activity level, and weather conditions. Includes hydration tracking.",
+  "author": {"@type": "Person", "name": "Ethan Barrett"}
 }
 </script>
-<script src="/ads.js"></script>
-<div id="ad-footer-bottom"></div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petcalcentral.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://petcalcentral.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Pet Water Intake Calculator", "item": "https://petcalcentral.com/tools/pet-water-intake-calculator.html"}
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="pcc-nav" role="navigation" aria-label="Main navigation">
+  <div class="pcc-nav-inner">
+    <a href="../index.html" class="pcc-nav-brand"><span class="pcc-nav-brand-icon">🐾</span><span>PetCalCentral</span></a>
+    <button class="pcc-nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.pcc-nav-links').classList.toggle('pcc-nav-open')">☰</button>
+    <ul class="pcc-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="./index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Ad Slot: Tool Top -->
+<div class="pcc-ad-slot" data-ad-slot="tool_top"></div>
+
+<div class="pcc-container pcc-mt-lg">
+  <nav class="pcc-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <a href="./index.html">Tools</a>
+    <span class="pcc-breadcrumb-separator">›</span>
+    <span class="pcc-breadcrumb-current">Pet Water Intake Calculator</span>
+  </nav>
+</div>
+<section class="pcc-tool-page">
+  <div class="pcc-container">
+    <div class="pcc-tool-header">
+      <h1>💧 Pet Water Intake Calculator</h1>
+      <p>How much water should your pet drink daily? Factors in diet, activity, and weather. Get the exact number and track daily intake with a hydration log. Dehydration is one of the most common preventable health issues in pets.</p>
+    </div>
+    <!-- Share Bar -->
+    <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0;padding:1rem 1.25rem;background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);" class="pcc-share-bar">
+      <span style="font-weight:600;font-size:0.9375rem;color:var(--pcc-text);">Share this tool:</span>
+      <button onclick="shareTool('copy')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">📋 Copy</button>
+      <button onclick="shareTool('twitter')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">𝕏 Post</button>
+      <button onclick="shareTool('facebook')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">f Share</button>
+      <button onclick="shareTool('reddit')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">🤖 Reddit</button>
+      <button onclick="shareTool('email')" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 0.875rem;background:#fff;border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-md);font-size:0.8125rem;cursor:pointer;color:var(--pcc-text);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--pcc-primary)'" onmouseout="this.style.borderColor='var(--pcc-border)'">✉️ Email</button>
+      <span id="shareCopiedMsg" style="font-size:0.8125rem;color:var(--pcc-success);font-weight:600;opacity:0;transition:opacity 0.3s;">✓ Copied!</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+      <div class="pcc-tool-form">
+        <h3 style="margin-bottom:1.5rem;">Enter Your Pet's Details</h3>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="waterPetName">Pet's Name (optional)</label>
+          <input type="text" id="waterPetName" class="pcc-form-input" placeholder="e.g., Gus">
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="waterPetType">Pet Type</label>
+          <select id="waterPetType" class="pcc-form-select">
+            <option value="">Select pet type...</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="waterWeight">Weight (lbs)</label>
+          <input type="number" id="waterWeight" class="pcc-form-input" placeholder="e.g., 78" min="1" max="300" step="0.1">
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="waterDiet">Diet Type</label>
+          <select id="waterDiet" class="pcc-form-select">
+            <option value="">Select diet type...</option>
+            <option value="dry">Dry Food Only (kibble)</option>
+            <option value="mixed">Mixed Dry + Wet Food</option>
+            <option value="wet">Wet Food Only</option>
+            <option value="raw">Raw / Homemade Diet</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="waterActivity">Activity Level</label>
+          <select id="waterActivity" class="pcc-form-select">
+            <option value="">Select activity level...</option>
+            <option value="sedentary">Sedentary (mostly indoors, little exercise)</option>
+            <option value="light">Light Activity (short walks, indoor play)</option>
+            <option value="moderate">Moderate Activity (daily walks, regular play)</option>
+            <option value="high">High Activity (long runs, outdoor play, working dog)</option>
+            <option value="very_high">Very High Activity (agility, hunting, herding)</option>
+          </select>
+        </div>
+        <div class="pcc-form-group">
+          <label class="pcc-form-label" for="waterWeather">Weather / Temperature</label>
+          <select id="waterWeather" class="pcc-form-select">
+            <option value="">Select weather...</option>
+            <option value="cold">Cold (under 50°F / 10°C)</option>
+            <option value="mild">Mild (50-75°F / 10-24°C)</option>
+            <option value="warm">Warm (75-85°F / 24-29°C)</option>
+            <option value="hot">Hot (85-95°F / 29-35°C)</option>
+            <option value="very_hot">Very Hot (over 95°F / 35°C)</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+          <button onclick="calculateWater()" class="pcc-btn pcc-btn-primary">Calculate Water Needs</button>
+          <button onclick="clearWaterForm()" class="pcc-btn pcc-btn-secondary">Reset</button>
+        </div>
+        <p style="font-size:0.8125rem;color:var(--pcc-text-light);margin-top:1rem;font-style:italic;">All data stays in your browser — we never see it.</p>
+      </div>
+      <div>
+        <div id="waterResult" class="pcc-tool-result">
+          <div class="pcc-result-number" id="waterResultValue">—</div>
+          <div class="pcc-result-label">Daily Water Intake (oz)</div>
+          <div class="pcc-result-details" id="waterResultDetails">
+            <p><strong>Base Requirement:</strong> <span id="waterBase">—</span> oz/day</p>
+            <p><strong>Diet Adjustment:</strong> <span id="waterDietAdj">—</span></p>
+            <p><strong>Activity Adjustment:</strong> <span id="waterActivityAdj">—</span></p>
+            <p><strong>Weather Adjustment:</strong> <span id="waterWeatherAdj">—</span></p>
+            <p><strong>Cups per Day:</strong> <span id="waterCups">—</span></p>
+            <div id="waterAlert" style="margin-top:1rem;padding:0.75rem;border-radius:var(--pcc-radius-md);font-size:0.875rem;font-weight:600;display:none;"></div>
+            <p style="margin-top:1rem;font-size:0.875rem;color:var(--pcc-text-muted);">General rule: 1 oz of water per lb of body weight per day. Adjusted for diet moisture content, activity level, and environmental temperature. Cats typically need less water than dogs. Wet food provides significant moisture.</p>
+          </div>
+        </div>
+        <div class="pcc-chart-container" style="margin-top:1.5rem;">
+          <h4 style="margin-bottom:1rem;">Water Breakdown</h4>
+          <canvas id="waterChart" width="400" height="250"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="pcc-mt-xl">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <h3>Calculation History</h3>
+        <div style="display:flex;gap:0.5rem;">
+          <button onclick="exportWaterCSV()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Export CSV</button>
+          <button onclick="clearWaterHistory()" class="pcc-btn pcc-btn-sm pcc-btn-secondary">Clear All</button>
+        </div>
+      </div>
+      <div id="waterHistoryContainer">
+        <table class="pcc-history-table" id="waterHistoryTable">
+          <thead><tr><th>Date</th><th>Name</th><th>Type</th><th>Weight</th><th>Diet</th><th>Water (oz)</th><th>Actions</th></tr></thead>
+          <tbody id="waterHistoryTableBody"></tbody>
+        </table>
+        <p id="waterNoHistory" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">No calculations yet. Enter your pet's details above.</p>
+      </div>
+    </div>
+    <div class="pcc-mt-xl">
+      <h3 style="margin-bottom:1rem;">Compare Multiple Pets</h3>
+      <div id="waterCompareContainer" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;"></div>
+      <p id="waterNoCompare" style="text-align:center;color:var(--pcc-text-muted);padding:2rem;">Add at least 2 pets to compare.</p>
+    </div>
+    
+    
+
+<!-- Ad Slot: Tool Middle -->
+<div class="pcc-ad-slot" data-ad-slot="tool_middle"></div>
+
+<div class="pcc-mt-2xl">
+      <div class="pcc-article-footer-grid">
+        <div class="pcc-article-footer-section">
+          <!-- Ad Slot: Tool Middle -->
+
+
+<h3>Related Articles</h3>
+          <ul class="pcc-related-articles-list">
+            <li><a href="../blog/dog-water-guide.html">How Much Water Should My Dog Actually Drink?</a><span>June 1, 2026</span></li>
+            <li><a href="../blog/puppy-feeding-guide.html">Raising Gus: What I Learned Feeding a Puppy</a><span>May 12, 2026</span></li>
+          </ul>
+        </div>
+        <div class="pcc-article-footer-section">
+          <h3>Recommended Tools</h3>
+          <ul class="pcc-recommended-tools-list">
+            <li><a href="./dog-calorie-calculator.html"><span class="pcc-tool-mini-icon">🐕</span><span class="pcc-tool-mini-title">Dog Calorie Calculator</span></a></li>
+            <li><a href="./cat-calorie-calculator.html"><span class="pcc-tool-mini-icon">🐈</span><span class="pcc-tool-mini-title">Cat Calorie Calculator</span></a></li>
+            <li><a href="./pet-bmi-calculator.html"><span class="pcc-tool-mini-icon">⚖️</span><span class="pcc-tool-mini-title">Pet BMI Calculator</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;padding:1.5rem;background:var(--pcc-bg-alt);border-radius:var(--pcc-radius-lg);font-size:0.9375rem;color:var(--pcc-text-muted);">
+      <strong style="color:var(--pcc-text);">
+
+<!-- Ad Slot: Tool Bottom -->
+<div class="pcc-ad-slot" data-ad-slot="tool_bottom"></div>
+Disclaimer:</strong> This calculator uses general veterinary guidelines (approximately 1 oz water per lb body weight daily, adjusted for diet moisture, activity, and temperature). Individual needs vary. This is informational only and not a replacement for veterinary advice. If you suspect dehydration, contact your veterinarian immediately.
+    </div>
+  </div>
+</section>
+<footer class="pcc-footer">
+  <div class="pcc-footer-grid">
+    <div>
+      <div class="pcc-footer-brand">🐾 PetCalCentral</div>
+      <p class="pcc-footer-desc">Free pet health calculators and honest stories from a guy in Denver who got tired of googling at 2 AM.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="./dog-calorie-calculator.html">Dog Calorie</a></li>
+        <li><a href="./cat-calorie-calculator.html">Cat Calorie</a></li>
+        <li><a href="./dog-age-calculator.html">Dog Age</a></li>
+        <li><a href="./pet-bmi-calculator.html">Pet BMI</a></li>
+        <li><a href="./pet-water-intake-calculator.html">Water Intake</a></li>
+        <li><a href="./pet-cost-estimator.html">Cost Estimator</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul class="pcc-footer-links">
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Service</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pcc-footer-bottom">
+    <p>© 2026 PetCalCentral. Built with anxiety and Excel spreadsheets in Denver, Colorado.</p>
+  </div>
+</footer>
+<script src="../ads-loader.js"></script>
+<script>
+const WATER_STORAGE = 'pcc_water_history';
+function loadWaterHistory() { try { return JSON.parse(localStorage.getItem(WATER_STORAGE)) || []; } catch { return []; } }
+function saveWaterHistory(data) { localStorage.setItem(WATER_STORAGE, JSON.stringify(data)); }
+
+function calculateWater() {
+  const name = document.getElementById('waterPetName').value.trim() || 'Unnamed Pet';
+  const type = document.getElementById('waterPetType').value;
+  const weight = parseFloat(document.getElementById('waterWeight').value);
+  const diet = document.getElementById('waterDiet').value;
+  const activity = document.getElementById('waterActivity').value;
+  const weather = document.getElementById('waterWeather').value;
+
+  if (!type || !weight || !diet || !activity || !weather) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  // Base: 1 oz per lb per day
+  let base = weight * 1.0;
+  if (type === 'cat') base *= 0.8; // Cats need less
+
+  // Diet adjustments
+  const dietFactors = { 'dry': 1.0, 'mixed': 0.85, 'wet': 0.6, 'raw': 0.7 };
+  const dietFactor = dietFactors[diet] || 1.0;
+  const dietAdj = base * (dietFactor - 1);
+
+  // Activity adjustments
+  const activityFactors = { 'sedentary': 0.9, 'light': 1.0, 'moderate': 1.15, 'high': 1.3, 'very_high': 1.5 };
+  const activityFactor = activityFactors[activity] || 1.0;
+  const activityAdj = base * (activityFactor - 1);
+
+  // Weather adjustments
+  const weatherFactors = { 'cold': 0.9, 'mild': 1.0, 'warm': 1.2, 'hot': 1.4, 'very_hot': 1.6 };
+  const weatherFactor = weatherFactors[weather] || 1.0;
+  const weatherAdj = base * (weatherFactor - 1);
+
+  const total = Math.round(base + dietAdj + activityAdj + weatherAdj);
+  const cups = (total / 8).toFixed(1);
+
+  document.getElementById('waterResult').classList.add('pcc-result-visible');
+  document.getElementById('waterResultValue').textContent = total;
+  document.getElementById('waterBase').textContent = Math.round(base);
+  document.getElementById('waterDietAdj').textContent = (dietAdj >= 0 ? '+' : '') + Math.round(dietAdj) + ' oz (' + diet + ')';
+  document.getElementById('waterActivityAdj').textContent = (activityAdj >= 0 ? '+' : '') + Math.round(activityAdj) + ' oz (' + activity + ')';
+  document.getElementById('waterWeatherAdj').textContent = (weatherAdj >= 0 ? '+' : '') + Math.round(weatherAdj) + ' oz (' + weather + ')';
+  document.getElementById('waterCups').textContent = cups + ' cups/day';
+
+  // Alert
+  const alertEl = document.getElementById('waterAlert');
+  alertEl.style.display = 'block';
+  if (weather === 'hot' || weather === 'very_hot') {
+    alertEl.style.background = 'rgba(196, 77, 77, 0.1)';
+    alertEl.style.color = 'var(--pcc-danger)';
+    alertEl.textContent = '⚠️ High temperature detected. Ensure fresh water is always available. Dehydration risk is elevated.';
+  } else if (total < weight * 0.5) {
+    alertEl.style.background = 'rgba(196, 77, 77, 0.1)';
+    alertEl.style.color = 'var(--pcc-danger)';
+    alertEl.textContent = '⚠️ Water intake appears low. Monitor your pet for signs of dehydration.';
+  } else {
+    alertEl.style.background = 'rgba(61, 139, 95, 0.1)';
+    alertEl.style.color = 'var(--pcc-success)';
+    alertEl.textContent = '✓ Water intake looks appropriate for your pet's profile.';
+  }
+
+  drawWaterChart(base, dietAdj, activityAdj, weatherAdj);
+
+  const history = loadWaterHistory();
+  history.unshift({
+    id: Date.now(), date: new Date().toLocaleDateString(), name: name,
+    type: type, weight: weight, diet: diet, activity: activity, weather: weather, total: total
+  });
+  if (history.length > 50) history.pop();
+  saveWaterHistory(history);
+  renderWaterHistory();
+  renderWaterCompare();
+}
+
+function drawWaterChart(base, diet, activity, weather) {
+  const canvas = document.getElementById('waterChart');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr; canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  const w = rect.width, h = rect.height, pad = 40;
+  const barW = (w - pad * 2 - 60) / 4;
+  const values = [base, base + diet, base + diet + activity, base + diet + activity + weather];
+  const labels = ['Base', '+Diet', '+Activity', '+Weather'];
+  const colors = ['#2D5A3D', '#D4A03D', '#4A7C5F', '#C44D4D'];
+  const maxVal = Math.max(...values) * 1.2;
+  ctx.clearRect(0, 0, w, h);
+
+  values.forEach((val, i) => {
+    const x = pad + i * (barW + 20);
+    const barH = (val / maxVal) * (h - pad * 2);
+    const y = h - pad - barH;
+    ctx.fillStyle = colors[i];
+    ctx.beginPath(); ctx.roundRect(x, y, barW, barH, 8); ctx.fill();
+    ctx.fillStyle = '#2C2C2C'; ctx.font = '600 14px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(labels[i], x + barW / 2, h - pad + 20);
+    ctx.font = '700 16px Inter, sans-serif';
+    ctx.fillText(Math.round(val).toLocaleString(), x + barW / 2, y - 10);
+  });
+
+  ctx.strokeStyle = 'rgba(45,90,61,0.1)'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = h - pad - (i / 4) * (h - pad * 2);
+    ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(w - pad, y); ctx.stroke();
+  }
+}
+
+function renderWaterHistory() {
+  const history = loadWaterHistory();
+  const tbody = document.getElementById('waterHistoryTableBody');
+  const noHistory = document.getElementById('waterNoHistory');
+  const typeLabels = {'dog': 'Dog', 'cat': 'Cat'};
+  const dietLabels = {'dry': 'Dry', 'mixed': 'Mixed', 'wet': 'Wet', 'raw': 'Raw'};
+  if (history.length === 0) {
+    tbody.innerHTML = ''; noHistory.style.display = 'block';
+    document.getElementById('waterHistoryTable').style.display = 'none'; return;
+  }
+  noHistory.style.display = 'none';
+  document.getElementById('waterHistoryTable').style.display = 'table';
+  tbody.innerHTML = history.map(item => `
+    <tr>
+      <td>${item.date}</td><td>${item.name}</td><td>${typeLabels[item.type] || item.type}</td>
+      <td>${item.weight} lbs</td><td>${dietLabels[item.diet] || item.diet}</td>
+      <td><strong>${item.total} oz</strong></td>
+      <td><button onclick="deleteWaterEntry(${item.id})" style="background:none;border:none;color:var(--pcc-danger);cursor:pointer;font-size:0.875rem;">Delete</button></td>
+    </tr>
+  `).join('');
+}
+
+function renderWaterCompare() {
+  const history = loadWaterHistory();
+  const container = document.getElementById('waterCompareContainer');
+  const noCompare = document.getElementById('waterNoCompare');
+  if (history.length < 2) { container.innerHTML = ''; noCompare.style.display = 'block'; return; }
+  noCompare.style.display = 'none';
+  container.innerHTML = history.slice(0, 4).map(item => `
+    <div style="background:var(--pcc-bg-card);border:1px solid var(--pcc-border);border-radius:var(--pcc-radius-lg);padding:1.5rem;text-align:center;">
+      <div style="font-size:1.5rem;margin-bottom:0.5rem;">${item.type === 'dog' ? '🐕' : '🐈'}</div>
+      <h4 style="margin-bottom:0.25rem;">${item.name}</h4>
+      <p style="font-size:0.875rem;color:var(--pcc-text-muted);margin-bottom:1rem;">${item.weight} lbs · ${item.diet}</p>
+      <div style="font-family:var(--pcc-font-heading);font-size:2rem;font-weight:700;color:var(--pcc-primary);">${item.total}</div>
+      <div style="font-size:0.875rem;color:var(--pcc-text-muted);">oz/day</div>
+    </div>
+  `).join('');
+}
+
+function deleteWaterEntry(id) {
+  let history = loadWaterHistory();
+  history = history.filter(h => h.id !== id);
+  saveWaterHistory(history);
+  renderWaterHistory(); renderWaterCompare();
+}
+
+function clearWaterForm() {
+  document.getElementById('waterPetName').value = '';
+  document.getElementById('waterPetType').value = '';
+  document.getElementById('waterWeight').value = '';
+  document.getElementById('waterDiet').value = '';
+  document.getElementById('waterActivity').value = '';
+  document.getElementById('waterWeather').value = '';
+  document.getElementById('waterResult').classList.remove('pcc-result-visible');
+  document.getElementById('waterResultValue').textContent = '—';
+  document.getElementById('waterAlert').style.display = 'none';
+  const canvas = document.getElementById('waterChart');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function clearWaterHistory() {
+  if (confirm('Clear all water history?')) {
+    localStorage.removeItem(WATER_STORAGE);
+    renderWaterHistory(); renderWaterCompare();
+  }
+}
+
+function exportWaterCSV() {
+  const history = loadWaterHistory();
+  if (history.length === 0) { alert('No history to export.'); return; }
+  const headers = ['Date', 'Name', 'Type', 'Weight (lbs)', 'Diet', 'Activity', 'Weather', 'Water (oz)'];
+  const rows = history.map(h => [h.date, h.name, h.type, h.weight, h.diet, h.activity, h.weather, h.total]);
+  const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'water-intake-history.csv'; a.click(); URL.revokeObjectURL(url);
+}
+
+renderWaterHistory(); renderWaterCompare();
+
+
+function shareTool(platform) {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  let shareUrl = '';
+  switch(platform) {
+    case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title; break;
+    case 'facebook': shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + url; break;
+    case 'reddit': shareUrl = 'https://reddit.com/submit?url=' + url + '&title=' + title; break;
+    case 'email': shareUrl = 'mailto:?subject=' + title + '&body=' + url; break;
+    case 'copy':
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          var msg = document.getElementById('shareCopiedMsg');
+          if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = window.location.href;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        var msg = document.getElementById('shareCopiedMsg');
+        if (msg) { msg.style.opacity = '1'; setTimeout(function(){ msg.style.opacity = '0'; }, 2000); }
+      }
+      return;
+  }
+  if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+}
+
+</script>
 </body>
 </html>
